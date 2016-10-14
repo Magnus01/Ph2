@@ -1,4 +1,4 @@
-$('#buttonz').click(function() {   
+$('#VisualDebugTab').click(function() {   
 
     var val1 = editor.getValue(); 
     console.log(val1);
