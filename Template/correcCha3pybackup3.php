@@ -18,13 +18,13 @@ $PostAnswer= $_POST['text1'];
 
 function Command() {
 
-$python = escapeshellcmd('generate_json_trace.py --create_jsvar=listSumTrace Python27/Projects/Chapter3/src/C3Q1py.txt');
+$python = escapeshellcmd('C:/Python27/python.exe  generate_json_trace.py --create_jsvar=listSumTrace Python27/Projects/Chapter3/src/C3Q1py.txt');
 $cmd0 = $python;
 
 $output = shell_exec("$cmd0");
 
    $pathname3 = '../js/embed.js';
-       //echo $pathname3;
+      //  echo '<script>alert("answer: ' . $output . '");</script>';
         $monfichier3 = fopen($pathname3, 'w+');
        //  echo $monfichier3;
    
