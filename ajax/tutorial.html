@@ -1,0 +1,53 @@
+<html lang="en" >
+<head>
+<script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+ 
+<link rel="stylesheet" type="text/css" href="../css/normalize.css">
+</head>
+<body>
+    
+<div class="content--tab-buttons">
+                       
+                        <a class="exercise--reset no-link-style" href=""><i class="fa fa-undo"></i></a>
+                        <button id="button" data-onboarding="codeEditor" class="btn btn-small btn-inverse">Execute Code</button></div>
+    
+
+<div id="result"></div>
+<div id="content--top" style="height: 600px">
+<script>
+$('#button').click(function() {   
+
+    var val1 = editor.getValue(); 
+    console.log(val1);
+    $.ajax({
+        type: 'POST',
+        url: 'process.php',
+        data: { text1: val1 },
+        success: function(response) {
+            $('#result').html(response);
+        }
+    });
+});
+    </script>
+
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.5/ace.js"
+            type="text/javascript"></script>
+    <script type="text/javascript">
+                                  
+	var editor = ace.edit("content--top");
+		editor.setTheme("ace/theme/twilight");
+		editor.getSession().setMode("ace/mode/python");
+        editor.setValue("hello");
+      //  var code = editor.getValue();
+        //console.log(code);
+  
+    /*
+         var editor = ace.edit("content--top");
+        el = document.getElementById("content--top");
+        var editor = ace.edit(el);
+        editor.session.getValue(this.responseText); 
+        */
+      </script>
+    </body>
+  
+</html>
