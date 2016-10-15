@@ -17,20 +17,14 @@ $('#buttonz').click(function() {
     url: "parse.php",
     success: function(result){
         alert(result);
-        switch(parseInt(result)){
-            case 0:
-                $("#testResult").html("Check the first test");
-                break;
-            case 1:
-                $("#testResult").html("Check the 2nd test");
-                break;
-            case 2:
-                $("#testResult").html("Check the 3rd test");
-                break;
-            default:
-                $("#testResult").html("Congratulations. No mistakes!");
-                break;
+        var hints = pageData.h;
+        console.log(hints[0]);
+        if (result == "-1"){
+            $("#testResult").html("Correct result.");
+        } else{
+            $("#testResult").html(hints[parseInt(result)]);
         }
+
     }}));
 });
 
