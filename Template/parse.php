@@ -1,6 +1,6 @@
 <?php
 
-$sequence = shell_exec('c:/Python27/python.exe ../Punit/Test.py 2>&1');
+$sequence = shell_exec('c:/Python27/python.exe Python27/Punit/Test.py 2>&1');
 
 // iterate through the string
 $len = strlen($sequence);

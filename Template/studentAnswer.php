@@ -7,7 +7,7 @@ $PostAnswer= $_POST['text1'];
         $pathname2 = '' . $Chapath . '/src/' . $Qname . '.txt';
 
        // echo $pathname2;
-        $monfichier2 = fopen('Python27/Projects/Chapter3/src/C3Q1py.txt', 'w+');
+        $monfichier2 = fopen('Python27/Punit/MA147C1Q1.py', 'w+');
 
 		fseek($monfichier2, 0);		
 
