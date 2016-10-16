@@ -16,9 +16,11 @@ function Initializing()
 		  xhttp.send();
 		  temp = xhttp.responseText;
 
-		  if (temp != null){
-			  $('#ajax-status').html('<i class="fa fa-check-circle"></i> Workspace Ready')  
-			  $('#ajax-status').css("color","#bfffd1")
+		  $('#ajax-status').html('<i class="fa fa-check-circle"></i> Workspace Ready')  
+		  $('#ajax-status').css("color","#bfffd1")
+		  
+		  if (true){
+			 
 			  
 		  	}
 		  else{
@@ -35,12 +37,14 @@ function Initializing()
 
 
 
-$( function() {
-    $( "#tabs" ).tabs();
-  } );
+//$( function() {
+//    $( "#tabs" ).tabs();
+//  } );
   $( "#VisualDebugTab" ).click(function() {
 	  $("#sidebar").hide("500", "linear", function(){
 		  $("#tabs").css("width", "99.9%");
+		  $("#Editor").css("display", "none");
+		  $("#VisualDebug").css("display", "block");
 	  });
 	 
 	  $("#VisualDebugTab").addClass("active");
@@ -50,6 +54,8 @@ $( function() {
   $( "#EditorTab" ).click(function() {
 	  $("#sidebar").show("500", "linear");
 	  $("#tabs").css("width", "60%");
+	  $("#Editor").css("display", "block");
+	  $("#VisualDebug").css("display", "none");
 	  $("#EditorTab").addClass("active");
 	  $("#VisualDebugTab").removeClass("active");
 	});
