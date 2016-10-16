@@ -1,6 +1,5 @@
 var editor = ace.edit("Editor");
 
-
 // update section function
 function updateSection(section, html){
 
@@ -34,15 +33,23 @@ function updateSection(section, html){
     editor.focus();
 }
 
+// setting up binding events
+function changeTitle(){
+    updateSection("title", false);
+}
+
+function changeTutorial(){
+    // POSSIBLE SOLUTION
+    // editor.session.removeListener('change', changeTitle);
+    updateSection("tutorial", true);
+}
+
+
 
 // click handlers for updating the website live by the use of the current editor
-$('#title').on('click', function(){
-    updateSection("title", false);
-});
+$('#title').on('click', changeTitle);
 
-$('#tutorial').on('click', function(){
-    updateSection("tutorial", true);
-});
+$('#tutorial').on('click', changeTutorial);
 
 $('#extitle').on('click', function(){
     updateSection("extitle", false);
@@ -51,6 +58,9 @@ $('#extitle').on('click', function(){
 $('#exdesc').on('click', function(){
     updateSection("exdesc", true);
 });
+
+
+
 
 
 function generateContent(){
@@ -69,12 +79,33 @@ function generateContent(){
 
     // generate content
     var theJson = {
-        "title": title,
-        "tutorial": tutorial,
-        "extitle": extitle,
-        "exdesc": exdesc
+        title: title,
+        tutorial: tutorial,
+        extitle: extitle,
+        exdesc: exdesc
     };
 
-    alert(theJson);
+    $.ajax({
+        type: "POST",
+        url: "export.php",
+        data: theJson,
+        success: function(){
+            console.log("worked.");
+        },
+    });
 
+
+    alert(theJson);
+}
+
+
+function importContent(){
+    $.ajax({
+        type: "GET",
+        url: "import.php",
+        data: theJson,
+        success: function(){
+            console.log("worked.");
+        },
+    });
 }
