@@ -7,7 +7,7 @@ data = open(cmd, "r")
 lines = data.readlines()
 data.close()
 
-my_lst_str = ''.join(map(str, lines)).replace(" ", "").replace("\n", "")
+my_lst_str = ''.join(map(str, lines)).replace("\n", "").replace(" ", "")
 
 #print my_lst_str
 

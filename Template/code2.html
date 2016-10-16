@@ -76,7 +76,7 @@
 					<div data-onboarding="assignment"
 						class="exercise--assignment exercise--typography">
 						<h3 class="exercise--title" ng-bind-html="exercise.title">
-							Object Oriented Programming</h3>
+							MA - 157: Gaussian Elimination </h3>
 						<skills-tooltip skills="exercise.skills" xp="exercise.current_xp"
 							hint="true" solution="true"> <!-- ngIf: shown -->
 						<div ng-if="shown" class="skills-tooltip"
@@ -89,34 +89,22 @@ Using a hint or solution lowers the XP you receive."
 						<div ng-bind-html="exercise.assignment"
 							ng-model="exercise.assignment" mathjax=""
 							class="ng-pristine ng-untouched ng-valid">
-							<p>Object-oriented programming intro adapted from MIT 6.01 course notes (Section 3.5)
+							<p>
+                                Introduction: Vector Addition
 
 </p>
-							<pre>  <code>  # Object-oriented programming intro
-# Adapted from MIT 6.01 course notes (Section 3.5)
-# http://mit.edu/6.01/mercurial/spring10/www/handouts/readings.pdf
+							<pre>  <code>  
+def addVectors (v1, v2):
+    
+    sum = []
 
-class Staff601:
-    course = '6.01'
-    building = 34
-    room = 501
-
-    def salutation(self):
-        return self.role + ' ' + self.name
-
-pat = Staff601()
-print(pat.course)
-
-pat.name = 'Pat'
-pat.age = 60
-pat.role = 'Professor'
-
-print(pat.building)
-pat.building = 32
-print(pat.building)
-
-print(pat.salutation())
-print(Staff601.salutation(pat))</code>
+    if len(v1) != len(v2):
+        print "\nVektorene har ikke samme dimensjon!\n"
+    else:
+        for i in range(len(v1)):
+            sum.append(v1[i]+v2[i])
+            
+    return sum</code>
 									</pre>
 
 						
@@ -135,7 +123,7 @@ print(Staff601.salutation(pat))</code>
 							<ul>
 								<li><a
 									href="https://docs.python.org/3/library/functions.html#print"
-									target="_blank">Understand Object Orientated Programming Through Visualization
+									target="_blank">Understand Vector Addition Through Programming Through Visualization
 								
 
                                 
@@ -177,7 +165,7 @@ print(Staff601.salutation(pat))</code>
                 
                 
                          
-  <h3>Test Result below</h3>
+  <h3>Hint</h3>
     <div id="testResult"></div>
 
 
