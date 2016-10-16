@@ -80,7 +80,7 @@
                     <div data-onboarding="assignment"
                          class="exercise--assignment exercise--typography">
                         <!-- TITLE -->
-                        <h3 class="exercise--title" ng-bind-html="exercise.title">
+                        <h3 id="title" class="exercise--title" ng-bind-html="exercise.title">
                             Object Oriented Programming
                         </h3>
 
@@ -100,7 +100,7 @@
 
 
                         <!-- TUTORIAL START -->
-                        <div ng-bind-html="exercise.assignment" ng-model="exercise.assignment" mathjax=""
+                        <div id="tutorial" ng-bind-html="exercise.assignment" ng-model="exercise.assignment" mathjax=""
                              class="ng-pristine ng-untouched ng-valid">
                             <p>
                                 Object-oriented programming intro adapted from MIT 6.01 course notes (Section 3.5)
@@ -143,7 +143,7 @@ print(Staff601.salutation(pat))
 
                     <!-- QUESTION END -->
                     <div class="exercise--instructions-title">
-                        <h4>
+                        <h4 id="extitle">
                             Exercise
                         </h4>
                     </div>
@@ -151,7 +151,7 @@ print(Staff601.salutation(pat))
                     <div data-onboarding="instructions" class="exercise--instructions exercise--typography">
                         <div ng-bind-html="exercise.instructions" ng-model="exercise.instructions" mathjax=""
                              class="ng-pristine ng-untouched ng-valid">
-                            <ul>
+                            <ul id="exdesc">
                                 <li>
                                     <a href="https://docs.python.org/3/library/functions.html#print" target="_blank">
                                     Understand Object Orientated Programming Through Visualization
@@ -193,6 +193,10 @@ print(Staff601.salutation(pat))
                 </div>
                 <div class="content--tab-buttons">
 
+                    <button data-onboarding="codeEditor" class="btn btn-md btn-inverse" onclick="generateContent()">
+                        Generate JSON
+                    </button>
+
                     <button id="Save" data-onboarding="codeEditor" class="btn btn-md btn-inverse">
                         <i class="fa fa-floppy-o" aria-hidden="true"></i>Download
                     </button>
@@ -231,6 +235,8 @@ print(Staff601.salutation(pat))
         editor.getSession().setMode("ace/mode/python");
     </script>
     <script type="text/javascript" src="../js/sendAce.js"></script>
+    <!-- GENERATE SCRIPT -->
+    <script src="generate.js"></script>
     <!-- SCRIPTS END -->
 
 </body>
