@@ -14,11 +14,11 @@ function updateSection(section, html){
     // html or text - split paths
     if (html){
         // add this value to the editor
-        editor.setValue(t.innerHtml, 1);
+        editor.setValue(t.innerHTML.toString(), 1);
 
         // set up the stuff, so that the page gets updated live after every change you make to the text editior
         editor.on('change', function(){
-            t.innerHtml = editor.getValue();
+            t.innerHTML = editor.getValue();
         });
     } else {
         // add this value to the editor
