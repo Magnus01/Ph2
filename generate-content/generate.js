@@ -68,7 +68,7 @@ function generateContent(){
     // get content
     var title = JSON.stringify(document.getElementById("title").innerText);
     var tutorial = JSON.stringify(document.getElementById("tutorial").innerHTML);
-    var extitle = JSON.stringify(document.getElementById("extitle").innerHTML);
+    var extitle = JSON.stringify(document.getElementById("extitle").innerText);
     var exdesc = JSON.stringify(document.getElementById("exdesc").innerHTML);
 
     // display the content
@@ -100,12 +100,15 @@ function generateContent(){
 
 
 function importContent(){
-    $.ajax({
-        type: "GET",
-        url: "import.php",
-        data: theJson,
-        success: function(){
-            console.log("worked.");
-        },
+    $.getJSON('default.json', function(data){
+        console.log(data.title);
+
+        // update the page content
+        document.getElementById("title").innerText = JSON.parse(data.title);
+        document.getElementById("tutorial").innerHTML = JSON.parse(data.tutorial);
+        document.getElementById("extitle").innerText = JSON.parse(data.extitle);
+        document.getElementById("exdesc").innerHTML = JSON.parse(data.exdesc);
+
     });
+
 }
