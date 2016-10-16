@@ -1,4 +1,4 @@
-data = open("../Ampps/www/Ph2/Template/Python27/Punit/MA147C1Q1.txt", "r")
+data = open("/../xampp/htdocs/phase2/Template/Python27/Punit/MA147C1Q1.txt", "r")
 lines = data.readlines()
 data.close()
 
