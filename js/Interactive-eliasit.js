@@ -4,8 +4,38 @@
  *  ajax-operations, animations, switches
  *  
  */
+var temp;
+function Initializing()
+{
+	
+	document.onreadystatechange = function () {
+		var xhttp = new XMLHttpRequest();
+	if (document.readyState == "complete") {
+	
+		  xhttp.open("GET", "../js/embed.js", true);
+		  xhttp.send();
+		  temp = xhttp.responseText;
 
-  $( function() {
+		  if (temp != null){
+			  $('#ajax-status').html('<i class="fa fa-check-circle"></i> Workspace Ready')  
+			  $('#ajax-status').css("color","#bfffd1")
+			  
+		  	}
+		  else{
+			  
+			  $('#ajax-status').html('<i class="fa fa-times" aria-hidden="true"></i> Workspace Failed')  
+			  $('#ajax-status').css("color","red")
+		  }
+		}
+
+	 }
+	
+	
+}
+
+
+
+$( function() {
     $( "#tabs" ).tabs();
   } );
   $( "#VisualDebugTab" ).click(function() {
