@@ -1,3 +1,58 @@
+var editor = ace.edit("Editor");
+
+
+// update section function
+function updateSection(section, html){
+
+    var t = document.getElementById(section);
+    // automatically close all other editor activity
+    editor.setValue("");
+
+    // make changes to the editor settings
+    editor.getSession().setMode("ace/mode/html");
+
+    // html or text - split paths
+    if (html){
+        // add this value to the editor
+        editor.setValue(t.innerHtml, 1);
+
+        // set up the stuff, so that the page gets updated live after every change you make to the text editior
+        editor.on('change', function(){
+            t.innerHtml = editor.getValue();
+        });
+    } else {
+        // add this value to the editor
+        editor.setValue(t.innerText, 1);
+
+        // set up the stuff, so that the page gets updated live after every change you make to the text editior
+        editor.on('change', function(){
+            t.innerText = editor.getValue();
+        });
+    }
+
+    // set the focus on the editor
+    editor.focus();
+}
+
+
+// click handlers for updating the website live by the use of the current editor
+$('#title').on('click', function(){
+    updateSection("title", false);
+});
+
+$('#tutorial').on('click', function(){
+    updateSection("tutorial", true);
+});
+
+$('#extitle').on('click', function(){
+    updateSection("extitle", false);
+});
+
+$('#exdesc').on('click', function(){
+    updateSection("exdesc", true);
+});
+
+
 function generateContent(){
 
     // get content
