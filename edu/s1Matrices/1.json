@@ -3,9 +3,9 @@
   "q": "question",
   "r": "result",
   "h": {
-    "0": "hint 1",
-    "1": "hint 2",
-    "2": "hint 3",
+    "0": "Your vectors does not add correctly",
+    "1": "there is no if statment in your code",
+    "2": "Your code is not checking if the vectors are of different size",
     "3": "hint 4",
     "4": "hint 5"
   }
