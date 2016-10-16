@@ -1,9 +1,11 @@
 var editor = ace.edit("Editor");
+var t;
 
 // update section function
 function updateSection(section, html){
+    $('#Editor').find('textarea').attr('onkeyup', '');
 
-    var t = document.getElementById(section);
+    t = document.getElementById(section);
     // automatically close all other editor activity
     editor.setValue("");
 
@@ -16,17 +18,21 @@ function updateSection(section, html){
         editor.setValue(t.innerHTML.toString(), 1);
 
         // set up the stuff, so that the page gets updated live after every change you make to the text editior
-        editor.on('change', function(){
+        $('#Editor').find('textarea').attr('onkeyup', 't.innerHTML = editor.getValue();');
+
+        /**editor.on('change', function(){
             t.innerHTML = editor.getValue();
-        });
+        });*/
     } else {
         // add this value to the editor
         editor.setValue(t.innerText, 1);
 
         // set up the stuff, so that the page gets updated live after every change you make to the text editior
-        editor.on('change', function(){
+        $('#Editor').find('textarea').attr('onkeyup', 't.innerText = editor.getValue();');
+
+        /**editor.on('change', function(){
             t.innerText = editor.getValue();
-        });
+        });*/
     }
 
     // set the focus on the editor
