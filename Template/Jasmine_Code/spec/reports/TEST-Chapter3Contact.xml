@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites>
+<testsuite name="Chapter3  Contact" errors="0" tests="4" failures="2" time="0.039" timestamp="2016-08-29T13:02:01">
+  <testcase classname="Chapter3  Contact" name="Should be create a function that defines an object called Contact" time="0.009"></testcase>
+  <testcase classname="Chapter3  Contact" name="Should contain properties name, profession, and number" time="0.004"><failure type="expect" message="Expected undefined to be &amp;apos;Boxer&amp;apos;.">Error: Expected undefined to be &amp;apos;Boxer&amp;apos;.
+    at new jasmine.ExpectationResult (C:\Users\magnus\AppData\Roaming\npm\node_modules\jasmine-node\lib\jasmine-node/jasmine-1.3.1.js:114:32)
+    at null.toBe (C:\Users\magnus\AppData\Roaming\npm\node_modules\jasmine-node\lib\jasmine-node/jasmine-1.3.1.js:1316:29)
+    at null.&amp;lt;anonymous&amp;gt; (C:\Program Files (x86)\Ampps\www\GitWebsite\TutoCalculator\Tutorial\Jasmine_Code\spec\C2Q3spec.js:10:33)
+    at jasmine.Block.execute (C:\Users\magnus\AppData\Roaming\npm\node_modules\jasmine-node\lib\jasmine-node/jasmine-1.3.1.js:1145:17)
+    at jasmine.Queue.next_ (C:\Users\magnus\AppData\Roaming\npm\node_modules\jasmine-node\lib\jasmine-node/jasmine-1.3.1.js:2177:31)
+    at jasmine.Queue.start (C:\Users\magnus\AppData\Roaming\npm\node_modules\jasmine-node\lib\jasmine-node/jasmine-1.3.1.js:2130:8)
+    at jasmine.Spec.execute (C:\Users\magnus\AppData\Roaming\npm\node_modules\jasmine-node\lib\jasmine-node/jasmine-1.3.1.js:2458:14)
+    at jasmine.Queue.next_ (C:\Users\magnus\AppData\Roaming\npm\node_modules\jasmine-node\lib\jasmine-node/jasmine-1.3.1.js:2177:31)
+    at onComplete (C:\Users\magnus\AppData\Roaming\npm\node_modules\jasmine-node\lib\jasmine-node/jasmine-1.3.1.js:2173:18)
+    at jasmine.Spec.finish (C:\Users\magnus\AppData\Roaming\npm\node_modules\jasmine-node\lib\jasmine-node/jasmine-1.3.1.js:2432:5)</failure></testcase>
+  <testcase classname="Chapter3  Contact" name="Should contain a function &amp;apos;changeNumber&amp;apos; that changes the number to the given number" time="0"></testcase>
+  <testcase classname="Chapter3  Contact" name="Does the Sum Contain the correct essential code?" time="0.004"><failure type="expect" message="Expected &amp;apos;function(name,profession,number){this.name=name;profession=profession;this.number=number;this.changeNumber=function(newNumber){this.number=newNumber;}}&amp;apos; to contain &amp;apos;this.profession=profession;&amp;apos;.">Error: Expected &amp;apos;function(name,profession,number){this.name=name;profession=profession;this.number=number;this.changeNumber=function(newNumber){this.number=newNumber;}}&amp;apos; to contain &amp;apos;this.profession=profession;&amp;apos;.
+    at new jasmine.ExpectationResult (C:\Users\magnus\AppData\Roaming\npm\node_modules\jasmine-node\lib\jasmine-node/jasmine-1.3.1.js:114:32)
+    at null.toContain (C:\Users\magnus\AppData\Roaming\npm\node_modules\jasmine-node\lib\jasmine-node/jasmine-1.3.1.js:1316:29)
+    at null.&amp;lt;anonymous&amp;gt; (C:\Program Files (x86)\Ampps\www\GitWebsite\TutoCalculator\Tutorial\Jasmine_Code\spec\C2Q3spec.js:26:28)
+    at jasmine.Block.execute (C:\Users\magnus\AppData\Roaming\npm\node_modules\jasmine-node\lib\jasmine-node/jasmine-1.3.1.js:1145:17)
+    at jasmine.Queue.next_ (C:\Users\magnus\AppData\Roaming\npm\node_modules\jasmine-node\lib\jasmine-node/jasmine-1.3.1.js:2177:31)
+    at jasmine.Queue.start (C:\Users\magnus\AppData\Roaming\npm\node_modules\jasmine-node\lib\jasmine-node/jasmine-1.3.1.js:2130:8)
+    at jasmine.Spec.execute (C:\Users\magnus\AppData\Roaming\npm\node_modules\jasmine-node\lib\jasmine-node/jasmine-1.3.1.js:2458:14)
+    at jasmine.Queue.next_ (C:\Users\magnus\AppData\Roaming\npm\node_modules\jasmine-node\lib\jasmine-node/jasmine-1.3.1.js:2177:31)
+    at onComplete (C:\Users\magnus\AppData\Roaming\npm\node_modules\jasmine-node\lib\jasmine-node/jasmine-1.3.1.js:2173:18)
+    at jasmine.Spec.finish (C:\Users\magnus\AppData\Roaming\npm\node_modules\jasmine-node\lib\jasmine-node/jasmine-1.3.1.js:2432:5)</failure></testcase>
+</testsuite>
+</testsuites>
