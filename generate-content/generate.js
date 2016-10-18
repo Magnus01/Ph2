@@ -119,7 +119,7 @@ function importContent(){
         document.getElementById("exdesc").innerHTML = JSON.parse(data.exdesc);
 
         // import unit Testing content into pyUt variable
-        pyUt = JSON.parse(data.unitTesting);
+        pyUt = data.unitTesting;
 
     });
 
