@@ -1,0 +1,18 @@
+var operators = {
+            "^": {
+                precedence: 8
+            },
+            "/": {
+                precedence: 3
+            },
+            "*": {
+                precedence: 3
+            },
+            "+": {
+                precedence: 2,
+                associativity: "Left"
+            },
+            "-": {
+                precedence: 2
+            }
+        }

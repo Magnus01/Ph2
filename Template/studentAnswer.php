@@ -13,6 +13,14 @@ $PostAnswer= $_POST['text1'];
 
         fputs($monfichier2, $PostAnswer);
         fclose($monfichier2);
+    
+        $monfichier3 = fopen('Python27/Punit/MA147C1Q1.txt', 'w+');
+    
+
+		fseek($monfichier3, 0);		
+
+        fputs($monfichier3, $PostAnswer);
+        fclose($monfichier3);
     }
 
 

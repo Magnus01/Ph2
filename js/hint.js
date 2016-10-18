@@ -8,8 +8,8 @@ function returnHint(reportPath){
             var hint = '<strong>' + ($(data).find('failure').parent().first().attr('name') + '</strong> ' +  $(data).find('failure').attr('message'));
             console.log(hint);
             // setting the return value thingy
-            document.getElementById('fixed').style.width = '50%';
-            document.getElementById('test').innerHTML = '<blockquote id="hint"><i>Hint:</i><br/>' + hint + '</blockquote>';
+            // document.getElementById('fixed').style.width = '50%';
+            document.getElementById('testResult').innerHTML = '<blockquote id="hint"><i>Hint:</i><br/>' + hint + '</blockquote>';
             return ($(data).find('failure').parent().first().attr('name') + ' ' +  $(data).find('failure').attr('message'));
         }
     });

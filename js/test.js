@@ -21,6 +21,8 @@ $('#buttonz').click(function() {
         console.log(hints[0]);
         if (result == "-1"){
             $("#testResult").html("Correct result.");
+        } else if (parseInt(result) > Object.keys(hints).length) {
+            $("#testResult").html("You have a Syntax Error.");
         } else{
             $("#testResult").html(hints[parseInt(result)]);
         }
