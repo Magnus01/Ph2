@@ -1,10 +1,6 @@
 MathUtils = function () {}; 
-    MathUtils.prototype.isNumeric = function(x){
-    return !isNaN(parseFloat(x)) && isFinite(x);
-};
-    var isNumeric = function(x){
-    return !isNaN(parseFloat(x)) && isFinite(x);
-};
+    MathUtils.prototype.
+    var 
     exports.MathUtils = function () { 
     return MathUtils;  
     }; 

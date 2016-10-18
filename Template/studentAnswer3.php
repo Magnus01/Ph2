@@ -44,17 +44,17 @@ if (strpos($output1, "0 failures") !== FALSE) {
 
         // check if it's a syntax error. If so, tell them to have a look at the ACE editor
         if (strpos($output1, "SyntaxError") == TRUE) {
-            echo '<i>Hint:</i></br>You have a syntax error please check the editor for mistakes.';
+            echo '<blockquote id="hint"><i>Hint:</i></br>You have a syntax error please check the editor for mistakes.</blockquote>';
             return TRUE;
         }
         
         if (strpos($output1, "ReferenceError") == TRUE) {
-            echo '<i>Hint:</i><br/>You have  an undefined variable or function please use the var or function tag. Is your function named the correct name?';
+            echo '<blockquote id="hint"><i>Hint:</i><br/>You have  an undefined variable or function please use the var or function tag. Is your function named the correct name?</blockquote>';
             return TRUE;
         }
         
         if (strpos($output1, "TypeError") == TRUE) {
-            echo '<i>Hint:</i><br/>You have not answered the question please write an answer with the correct function or variable name.';
+            echo '<blockquote id="hint"><i>Hint:</i><br/>You have not answered the question please write an answer with the correct function or variable name.</blockquote>';
             return TRUE;
         }
 
