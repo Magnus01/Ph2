@@ -10,7 +10,6 @@ $TestAnswer = 'MathUtils = function () {};
     return MathUtils;  
     }; 
     exports.isNumeric = isNumeric;';
-        echo $PostAnswer;
         $pathname2 = '' . $Chapath . '/src/' . $Qname . '.txt';
 
        // echo $pathname2;

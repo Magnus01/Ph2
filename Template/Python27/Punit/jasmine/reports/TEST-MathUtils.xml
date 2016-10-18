@@ -1,32 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <testsuites>
-<testsuite name="MathUtils" errors="0" tests="7" failures="2" time="0.01" timestamp="2016-10-18T08:44:39">
-  <testcase classname="MathUtils" name="Is your function named isNumeric with an input argument? isNumeric = function(x)" time="0.004"></testcase>
+<testsuite name="MathUtils" errors="0" tests="7" failures="0" time="0.016" timestamp="2016-10-18T09:31:42">
+  <testcase classname="MathUtils" name="Is your function named isNumeric with an input argument? isNumeric = function(x)" time="0.016"></testcase>
   <testcase classname="MathUtils" name="Is the input argument of your isNumeric function named x? isNumeric = function(x)" time="0"></testcase>
   <testcase classname="MathUtils" name="Did you remember the return statment?" time="0"></testcase>
   <testcase classname="MathUtils" name="Remember to use isNaN() and include the ! like this: return !isNaN(whatever)" time="0"></testcase>
-  <testcase classname="MathUtils" name="Remember to use parseFloat() to fix the input of isNaN like this: return !isNaN(parseFloat(x))" time="0"><failure type="expect" message="Expected &amp;apos;function(x){return!isNaN(x);}&amp;apos; to contain &amp;apos;parseFloat(x)&amp;apos;.">Error: Expected &amp;apos;function(x){return!isNaN(x);}&amp;apos; to contain &amp;apos;parseFloat(x)&amp;apos;.
-    at new jasmine.ExpectationResult (C:\Users\Ragnar\AppData\Roaming\npm\node_modules\jasmine-node\lib\jasmine-node/jasmine-1.3.1.js:114:32)
-    at null.toContain (C:\Users\Ragnar\AppData\Roaming\npm\node_modules\jasmine-node\lib\jasmine-node/jasmine-1.3.1.js:1316:29)
-    at null.&amp;lt;anonymous&amp;gt; (C:\Ampps\www\Javanew\Ph2\Template\Python27\Punit\jasmine\spec\C3Q1_spec.js:36:27)
-    at jasmine.Block.execute (C:\Users\Ragnar\AppData\Roaming\npm\node_modules\jasmine-node\lib\jasmine-node/jasmine-1.3.1.js:1145:17)
-    at jasmine.Queue.next_ (C:\Users\Ragnar\AppData\Roaming\npm\node_modules\jasmine-node\lib\jasmine-node/jasmine-1.3.1.js:2177:31)
-    at jasmine.Queue.start (C:\Users\Ragnar\AppData\Roaming\npm\node_modules\jasmine-node\lib\jasmine-node/jasmine-1.3.1.js:2130:8)
-    at jasmine.Spec.execute (C:\Users\Ragnar\AppData\Roaming\npm\node_modules\jasmine-node\lib\jasmine-node/jasmine-1.3.1.js:2458:14)
-    at jasmine.Queue.next_ (C:\Users\Ragnar\AppData\Roaming\npm\node_modules\jasmine-node\lib\jasmine-node/jasmine-1.3.1.js:2177:31)
-    at onComplete (C:\Users\Ragnar\AppData\Roaming\npm\node_modules\jasmine-node\lib\jasmine-node/jasmine-1.3.1.js:2173:18)
-    at jasmine.Spec.finish (C:\Users\Ragnar\AppData\Roaming\npm\node_modules\jasmine-node\lib\jasmine-node/jasmine-1.3.1.js:2432:5)</failure></testcase>
-  <testcase classname="MathUtils" name="The isFinite() function is required since the calculator is unable to handle inifinate numbers also to check with two functions use the &amp;&amp; like this: return !isNaN(parseFloat(x)) &amp;&amp; isFinite(x)" time="0"><failure type="expect" message="Expected &amp;apos;function(x){return!isNaN(x);}&amp;apos; to contain &amp;apos;&amp;&amp;isFinite(x);&amp;apos;.">Error: Expected &amp;apos;function(x){return!isNaN(x);}&amp;apos; to contain &amp;apos;&amp;&amp;isFinite(x);&amp;apos;.
-    at new jasmine.ExpectationResult (C:\Users\Ragnar\AppData\Roaming\npm\node_modules\jasmine-node\lib\jasmine-node/jasmine-1.3.1.js:114:32)
-    at null.toContain (C:\Users\Ragnar\AppData\Roaming\npm\node_modules\jasmine-node\lib\jasmine-node/jasmine-1.3.1.js:1316:29)
-    at null.&amp;lt;anonymous&amp;gt; (C:\Ampps\www\Javanew\Ph2\Template\Python27\Punit\jasmine\spec\C3Q1_spec.js:39:27)
-    at jasmine.Block.execute (C:\Users\Ragnar\AppData\Roaming\npm\node_modules\jasmine-node\lib\jasmine-node/jasmine-1.3.1.js:1145:17)
-    at jasmine.Queue.next_ (C:\Users\Ragnar\AppData\Roaming\npm\node_modules\jasmine-node\lib\jasmine-node/jasmine-1.3.1.js:2177:31)
-    at jasmine.Queue.start (C:\Users\Ragnar\AppData\Roaming\npm\node_modules\jasmine-node\lib\jasmine-node/jasmine-1.3.1.js:2130:8)
-    at jasmine.Spec.execute (C:\Users\Ragnar\AppData\Roaming\npm\node_modules\jasmine-node\lib\jasmine-node/jasmine-1.3.1.js:2458:14)
-    at jasmine.Queue.next_ (C:\Users\Ragnar\AppData\Roaming\npm\node_modules\jasmine-node\lib\jasmine-node/jasmine-1.3.1.js:2177:31)
-    at onComplete (C:\Users\Ragnar\AppData\Roaming\npm\node_modules\jasmine-node\lib\jasmine-node/jasmine-1.3.1.js:2173:18)
-    at jasmine.Spec.finish (C:\Users\Ragnar\AppData\Roaming\npm\node_modules\jasmine-node\lib\jasmine-node/jasmine-1.3.1.js:2432:5)</failure></testcase>
+  <testcase classname="MathUtils" name="Remember to use parseFloat() to fix the input of isNaN like this: return !isNaN(parseFloat(x))" time="0"></testcase>
+  <testcase classname="MathUtils" name="The isFinite() function is required since the calculator is unable to handle inifinate numbers also to check with two functions use the &amp;&amp; like this: return !isNaN(parseFloat(x)) &amp;&amp; isFinite(x)" time="0"></testcase>
   <testcase classname="MathUtils" name="Your answer is wrong" time="0"></testcase>
 </testsuite>
 </testsuites>
