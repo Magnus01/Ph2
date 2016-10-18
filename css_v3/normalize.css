@@ -5413,7 +5413,7 @@ select:hover {
 .bg-navigation {
 	padding: 1em;
 	background-color: #c33;
-	background-image: linear-gradient(transparent 90%, rgba(0, 0, 0, .01)),    linear-gradient(173deg, #ca693a, #797979)
+	background-image: linear-gradient(transparent 90%, rgba(0, 0, 0, .01)),    linear-gradient(173deg, #ca693a, #ca4a4a)
 }
 
 .bg-navigation p a {
