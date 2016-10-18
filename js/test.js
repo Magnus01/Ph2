@@ -16,9 +16,9 @@ $('#buttonz').click(function() {
 
     url: "parse.php",
     success: function(result){
-        alert(result);
+        //alert(result);
         var hints = pageData.h;
-        console.log(hints[0]);
+        console.log(hints[1]);
         if (result == "-1"){
             $("#testResult").html("Correct result.");
         } else if (parseInt(result) > Object.keys(hints).length) {

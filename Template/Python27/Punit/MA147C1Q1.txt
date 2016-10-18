@@ -2,10 +2,6 @@ def addVectors (v1, v2):
     
     sum = []
 
-    if len(v1) != len(v2):
-        sum = []
-    else:
-        sum = 1
     
             
     return sum

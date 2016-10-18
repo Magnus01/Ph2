@@ -3,10 +3,12 @@
   "q": "question",
   "r": "result",
   "h": {
-    "0": "Your vectors does not add correctly",
-    "1": "there is no if statment in your code",
-    "2": "Your code is not checking if the vectors are of different size",
-    "3": "hint 4",
-    "4": "hint 5"
+    "0": "You have forgotten the if statment this is needed for checking if the vectors have different length",
+    "1": "len is a usefull function for checking the length of the vectors use it like this: len(vector)",
+    "2": "else is usefull in if statments where you only have two possible outcomes",
+    "3": "a for loop is needed to run through each element of the vectors one-by-one create a for loop like this: for i in range(len(vector))",
+    "4": "Use a return statment to return the sum of the vectors at the end of the function",
+    "5": "You are not checking if thevectors are differnt length correctly",
+    "6": "Your vectors are not being added together correctly"
   }
 }

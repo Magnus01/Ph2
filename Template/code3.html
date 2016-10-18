@@ -92,31 +92,20 @@ Using a hint or solution lowers the XP you receive."
 							<p>Object-oriented programming intro adapted from MIT 6.01 course notes (Section 3.5)
 
 </p>
-							<pre>  <code>  # Object-oriented programming intro
-# Adapted from MIT 6.01 course notes (Section 3.5)
-# http://mit.edu/6.01/mercurial/spring10/www/handouts/readings.pdf
+							<pre>  <code>  
+def addVectors (v1, v2):
+    
+    sum = []
 
-class Staff601:
-    course = '6.01'
-    building = 34
-    room = 501
-
-    def salutation(self):
-        return self.role + ' ' + self.name
-
-pat = Staff601()
-print(pat.course)
-
-pat.name = 'Pat'
-pat.age = 60
-pat.role = 'Professor'
-
-print(pat.building)
-pat.building = 32
-print(pat.building)
-
-print(pat.salutation())
-print(Staff601.salutation(pat))</code>
+    if len(v1) != len(v2):
+        sum = []
+    else:
+        for i in range(len(v1)):
+            sum.append(v1[i]+v2[i])
+            
+    return sum
+    
+addVectors([1, 2, 3], [3, 2, 1])</code>
 									</pre>
 
 						
@@ -202,7 +191,7 @@ print(Staff601.salutation(pat))</code>
 		</div>
 	</div>
 
-    <script src="../js/test3.js"></script>                
+    <script src="../js/test.js"></script>                
         
 <script src="https://code.jquery.com/jquery-1.12.4.js"
 	type="text/javascript"></script>
