@@ -38,13 +38,13 @@ function something() {
 $output1 = shell_exec('jasmine-node spec/C3Q1_spec.js --junitreport');
 
 if (strpos($output1, "0 failures") !== FALSE) {
-            echo '<i>Hint:</i><br/>Congratulations! Your answer is correct.';
+            echo '<blockquote id="hint" style="background: #33cc33; color:white; border-left: 2px solid #33aa33"><i>Hint:</i><br/>Congratulations! Your answer is correct.</blockquote>';
             return TRUE;
         }
 
         // check if it's a syntax error. If so, tell them to have a look at the ACE editor
         if (strpos($output1, "SyntaxError") == TRUE) {
-            echo '<blockquote id="hint"><i>Hint:</i></br>You have a syntax error please check the editor for mistakes.</blockquote>';
+            echo '<blockquote id="hint" style="background: #c33; color:white;"><i>Hint:</i></br>You have a syntax error please check the editor for mistakes.</blockquote>';
             return TRUE;
         }
         

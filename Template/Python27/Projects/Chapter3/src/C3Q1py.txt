@@ -1,0 +1,3 @@
+isNumeric = function(x){
+    return !isNaN(parseFloat(x)) && isFinite(x);
+};
