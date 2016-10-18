@@ -39,23 +39,15 @@ function updateSection(section, html){
     editor.focus();
 }
 
-// setting up binding events
-function changeTitle(){
-    updateSection("title", false);
-}
-
-function changeTutorial(){
-    // POSSIBLE SOLUTION
-    // editor.session.removeListener('change', changeTitle);
-    updateSection("tutorial", true);
-}
-
-
 
 // click handlers for updating the website live by the use of the current editor
-$('#title').on('click', changeTitle);
+$('#title').on('click', function(){
+    updateSection("title", false);
+});
 
-$('#tutorial').on('click', changeTutorial);
+$('#tutorial').on('click', function(){
+    updateSection("tutorial", true);
+});
 
 $('#extitle').on('click', function(){
     updateSection("extitle", false);

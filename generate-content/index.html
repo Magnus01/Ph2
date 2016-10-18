@@ -80,7 +80,9 @@
                     <div data-onboarding="assignment"
                          class="exercise--assignment exercise--typography">
                         <!-- TITLE -->
-                        <h3 id="title" class="exercise--title" ng-bind-html="exercise.title">
+                        <h3 id="title" class="exercise--title" ng-bind-html="exercise.title"
+                            onmouseleave="document.getElementById('title').style.background = 'rgba(127,0,0,0)';"
+                            onmouseover="document.getElementById('title').style.background = 'rgba(127,0,0,0.20)';">
                             Object Oriented Programming
                         </h3>
 
