@@ -178,40 +178,35 @@ function initDeltaObj() {
 }
 
 function initAceEditor(height) {
-  pyInputAceEditor = ace.edit('codeInputPane');
-  var s = pyInputAceEditor.getSession();
-  // tab -> 4 spaces
-  s.setTabSize(4);
-  s.setUseSoftTabs(true);
+  pyInputAceEditor = ace.edit('Editor');
+ var s = pyInputAceEditor.getSession();
+//  s.setTabSize(4);
+//  s.setUseSoftTabs(true);
   // disable extraneous indicators:
-  s.setFoldStyle('manual'); // no code folding indicators
-  s.getDocument().setNewLineMode('unix'); // canonicalize all newlines to unix format
-  pyInputAceEditor.setHighlightActiveLine(false);
-  pyInputAceEditor.setShowPrintMargin(false);
-  pyInputAceEditor.setBehavioursEnabled(false);
-  pyInputAceEditor.$blockScrolling = Infinity; // kludgy to shut up weird warnings
+//  s.setFoldStyle('manual'); // no code folding indicators
+//  s.getDocument().setNewLineMode('unix'); // canonicalize all newlines to unix format
+//  pyInputAceEditor.setHighlightActiveLine(false);
+//  pyInputAceEditor.setShowPrintMargin(false);
+//  pyInputAceEditor.setBehavioursEnabled(false);
+//  pyInputAceEditor.$blockScrolling = Infinity; // kludgy to shut up weird warnings
 
   // auto-grow height as fit
-  pyInputAceEditor.setOptions({minLines: 18, maxLines: 1000});
+//  pyInputAceEditor.setOptions({minLines: 18, maxLines: 1000});
 
-  $('#codeInputPane').css('width', '700px');
-  $('#codeInputPane').css('height', height + 'px'); // VERY IMPORTANT so that it works on I.E., ugh!
+//  $('#Editor').css('width', '700px');
+//  $('#Editor').css('height', height + 'px'); // VERY IMPORTANT so that it works on I.E., ugh!
 
-  initDeltaObj();
-  pyInputAceEditor.on('change', function(e) {
-    $.doTimeout('pyInputAceEditorChange', CODE_SNAPSHOT_DEBOUNCE_MS, snapshotCodeDiff); // debounce
-    clearFrontendError();
-    s.clearAnnotations();
-  });
+//  initDeltaObj();
+ 
 
   // don't do real-time syntax checks:
   // https://github.com/ajaxorg/ace/wiki/Syntax-validation
-  s.setOption("useWorker", false);
+//  s.setOption("useWorker", false);
 
-  setAceMode();
+//  setAceMode();
 
-  pyInputAceEditor.focus();
-}
+//  pyInputAceEditor.focus();
+} 
 
 var JAVA_BLANK_TEMPLATE = 'public class YourClassNameHere {\n\
     public static void main(String[] args) {\n\
@@ -260,8 +255,8 @@ function setAceMode() {
 
   var s = pyInputAceEditor.getSession();
   s.setMode("ace/mode/" + mod);
-  s.setTabSize(tabSize);
-  s.setUseSoftTabs(true);
+//  s.setTabSize(tabSize);
+//  s.setUseSoftTabs(true);
 
   // clear all error displays when switching modes
   var s = pyInputAceEditor.getSession();
@@ -791,7 +786,7 @@ function pyInputSetValue(dat) {
 }
 
 
-var codeMirrorScroller = '#codeInputPane .CodeMirror-scroll';
+var codeMirrorScroller = '#Editor .CodeMirror-scroll';
 
 function pyInputGetScrollTop() {
   if (useCodeMirror) {
@@ -844,7 +839,7 @@ function genericOptFrontendReady() {
 
 
   if (useCodeMirror) {
-    pyInputCodeMirror = CodeMirror(document.getElementById('codeInputPane'), {
+    pyInputCodeMirror = CodeMirror(document.getElementById('Editor'), {
       mode: 'python',
       lineNumbers: true,
       tabSize: 4,
@@ -853,10 +848,10 @@ function genericOptFrontendReady() {
       extraKeys: {Tab: function(cm) {cm.replaceSelection("    ", "end");}}
     });
 
-    pyInputCodeMirror.setSize(null, '420px');
+//    pyInputCodeMirror.setSize(null, '420px');
   }
   else {
-    initAceEditor(420);
+//    initAceEditor(420);
   }
 
 
@@ -998,7 +993,7 @@ function genericOptFrontendReady() {
 </html>
 
       Note that you'll probably need to customize this check for your server. */
-    if (jqxhr && jqxhr.responseText.indexOf('414') >= 0) {
+   if (jqxhr && jqxhr.responseText.indexOf('414') >= 0) {
 
       // ok this is an UBER UBER hack. If this happens just once, then
       // force click the "Visualize Execution" button again and re-try.
@@ -1013,23 +1008,16 @@ function genericOptFrontendReady() {
         num414Tries++;
         startExecutingCode(); // TODO: does this work?
         $("#executeBtn").click();
-      } else {
-        num414Tries = 0;
-        setFronendError(["Server error! Your code might be too long for this tool. Shorten your code and re-try."]);
-      }
-    } else {
-      setFronendError(["Server error! Your code might be taking too much time to run or using too much memory.",
-                       "Report a bug to philip@pgbovine.net by clicking the 'Generate permanent link' button",
-                       "at the bottom of this page and including a URL in your email."]);
-    }
+      } 
+    } 
 
     doneExecutingCode();
   });
 
   clearFrontendError();
 
-  $("#embedLinkDiv").hide();
-  $("#executeBtn").attr('disabled', false);
+
+    
   $("#executeBtn").click(executeCodeFromScratch);
 
   // for Versions 1 and 2, initialize here. But for version 3+, dynamically
@@ -1143,6 +1131,7 @@ function setToggleOptions(dat) {
 }
 
 // get the ENTIRE current state of the app
+///magnus pyInputGetValue()
 function getAppState() {
   assert(originFrontendJsFile); // global var defined in each frontend
 
@@ -1367,7 +1356,7 @@ function handleUncaughtExceptionFunc(trace) {
         s.setAnnotations([{row: errorLineNo,
                            type: 'error',
                            text: trace[0].exception_msg}]);
-        pyInputAceEditor.gotoLine(errorLineNo + 1 /* one-indexed */);
+//        pyInputAceEditor.gotoLine(errorLineNo + 1 /* one-indexed */);
         // if we have both a line and column number, then move over to
         // that column. (going to the line first prevents weird
         // highlighting bugs)
@@ -1381,14 +1370,14 @@ function handleUncaughtExceptionFunc(trace) {
 }
 
 function startExecutingCode() {
-  $('#executeBtn').html("Please wait ... executing (takes up to 10 seconds)");
-  $('#executeBtn').attr('disabled', true);
+//  $('#executeBtn').html("Please wait ... executing (takes up to 10 seconds)");
+//  $('#executeBtn').attr('disabled', true);
   isExecutingCode = true; // nasty global
 }
 
 function doneExecutingCode() {
-  $('#executeBtn').html("Visualize Execution");
-  $('#executeBtn').attr('disabled', false);
+//  $('#executeBtn').html("Visualize Execution");
+//  $('#executeBtn').attr('disabled', false);
   isExecutingCode = false; // nasty global
 }
 
@@ -1485,6 +1474,10 @@ function executeCodeAndCreateViz(codeToExec,
 
           myVisualizer = new HolisticVisualizer(outputDiv, dataFromBackend, frontendOptionsObj);
         } else {
+            
+
+            
+            
           myVisualizer = new ExecutionVisualizer(outputDiv, dataFromBackend, frontendOptionsObj);
 
           myVisualizer.add_pytutor_hook("end_updateOutput", function(args) {

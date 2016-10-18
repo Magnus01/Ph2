@@ -8,15 +8,6 @@
     <meta name="description" content="" />
     <meta name="keywords" content="" />
 
-
-    <!--[if lte IE 8]>
-    <script src="../css/ie/html5shiv.js"></script><![endif]-->
-
-    
-    <title>Python Tutorial: Example Implementation for MA- 157</title>
-
-	
-
 </head>
 
 

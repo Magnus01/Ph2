@@ -52,7 +52,7 @@ function executeCode(forceStartingInstr, forceRawInputLst) {
   if (forceRawInputLst !== undefined) {
     rawInputLst = forceRawInputLst; // UGLY global across modules, FIXME
   }
-
+ 
   var backend_script = null;
   if ($('#pythonVersionSelector').val() == '2') {
       backend_script = python2_backend_script;
@@ -97,16 +97,16 @@ function executeCode(forceStartingInstr, forceRawInputLst) {
   executeCodeAndCreateViz(pyInputGetValue(),
                           backend_script, backendOptionsObj,
                           frontendOptionsObj,
-                          'pyOutputPane',
+                          'VisualDebug',
                           officeMixFinishSuccessfulExecution, handleUncaughtExceptionFunc);
 }
-
+ 
 
 function officeMixFinishSuccessfulExecution() {
   updateAppDisplayForMix('display'); // do this first
 
-  $("#executeBtn").attr('disabled', false);
-  $("#executeBtn").hide();
+//  $("#executeBtn").attr('disabled', false);
+//  $("#executeBtn").hide();
 
   if (_savedCurInstr !== undefined) {
     myVisualizer.renderStep(_savedCurInstr);
@@ -148,85 +148,11 @@ function getConfigurationFromData(dat) {
 
 // a wrapper for getAppState() that caches the value of the current
 // execution trace if we're in display mode
-function getAppStateWithTraceCache() {
-  var ret = getAppState();
-
-  // only do caching in Mix Edit mode, *not* in View mode, since we
-  // don't want to invalidate the original cache entry that was populated
-  // in Edit mode just because we're messing around in View mode.
-  if (_labEditor /* in Mix Edit mode */ &&
-      ret.mode === 'display' /* in OPT Display mode */ &&
-      myVisualizer) {
-    ret.cachedTrace = myVisualizer.curTrace;
-    ret.cachedCod = myVisualizer.curInputCode;
-    ret.cachedLang = myVisualizer.params.lang;
-  }
-  return ret;
-}
-
-function enterOPTEditCodeMode() {
-  updateAppDisplayForMix('edit');
-  $("#executeBtn").html("Visualize Execution").show();
-  $("#executeBtn").attr('disabled', false);
-
-  // https://groups.google.com/forum/#!msg/ace-discuss/TQHqey_NkBg/q9x_tLrvsXoJ
-  pyInputAceEditor.resize(); // weird hack that's necessary to refresh the editor's latest text values. #weird
-
-  setAceMode(); // for syntax coloring
-
-  saveCurrentConfiguration();
-}
 
 
-function updateAppDisplayForMix(newAppMode) {
-  // idempotence is VERY important here
-  if (newAppMode == appMode) {
-    return;
-  }
 
-  appMode = newAppMode; // global!
 
-  if (appMode === undefined || appMode == 'edit' ||
-      !myVisualizer /* subtle -- if no visualizer, default to edit mode */) {
-    appMode = 'edit'; // canonicalize
 
-    $("#pyInputPane").show();
-    $("#pyOutputPane").hide();
-    $("#embedLinkDiv").hide();
-
-    // Potentially controversial: when you enter edit mode, DESTROY any
-    // existing visualizer object. note that this simplifies the app's
-    // conceptual model but breaks the browser's expected Forward and
-    // Back button flow
-    $("#pyOutputPane").empty();
-    myVisualizer = null;
-
-    $.bbq.pushState({ mode: 'edit' }, 2 /* completely override other hash strings to keep URL clean */);
-  } else if (appMode == 'display' || appMode == 'visualize' /* 'visualize' is deprecated */) {
-    assert(myVisualizer);
-    appMode = 'display'; // canonicalize
-
-    $("#pyInputPane").hide();
-    $("#pyOutputPane").show();
-    $("#embedLinkDiv").show();
-
-    doneExecutingCode();
-
-    // do this AFTER making #pyOutputPane visible, or else
-    // jsPlumb connectors won't render properly
-    myVisualizer.updateOutput();
-
-    // customize edit button click functionality AFTER rendering (NB: awkward!)
-    $('#pyOutputPane #editCodeLinkDiv').show();
-    $('#pyOutputPane #editBtn').click(function() {
-      enterOPTEditCodeMode();
-    });
-
-    $.bbq.pushState({ mode: 'display' }, 2 /* completely override other hash strings to keep URL clean */);
-  } else {
-    assert(false);
-  }
-}
 
 
 // note that nothing in 'configuration' is saved when in View mode,
@@ -376,7 +302,7 @@ function mixLazyExecuteCode() {
                               executeCodeWithRawInputFunc: executeCodeWithRawInput,
                               lang: _lastSavedAppState.cachedLang, // important!
                              };
-    myVisualizer = new ExecutionVisualizer('pyOutputPane',
+    myVisualizer = new ExecutionVisualizer('VisualDebug',
                                            {code: _lastSavedAppState.cachedCod,
                                             trace: _lastSavedAppState.cachedTrace},
                                            frontendOptionsObj);
@@ -445,8 +371,9 @@ $(document).ready(function() {
 
   // TODO: in the future, make it flexible height but for now, just make
   // it fixed-height but kinda small-ish
-  initAceEditor(200);
-  pyInputAceEditor.setOptions({minLines: 10, maxLines: 1000});
+// initAceEditor(200);
+      pyInputAceEditor = ace.edit('Editor');
+//pyInputAceEditor.setOptions({minLines: 10, maxLines: 1000});
 
   // no frills footer
   $("#footer").css("margin-top", "0px")

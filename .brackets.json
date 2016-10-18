@@ -1,0 +1,13 @@
+{
+    "jscodehints.detectedExclusions": [
+        "C:/Program Files (x86)/Ampps/www/Ph2/jsPy_v3/togetherjs/togetherjs.js",
+        "C:/Program Files (x86)/Ampps/www/Ph2/Template_Calc/Chapter3/src/C3Q1py.js",
+        "C:/Program Files (x86)/Ampps/www/Ph2/js/src-min/snippets/cobol.js",
+        "C:/Program Files (x86)/Ampps/www/Ph2/js/src-min/snippets/coffee.js",
+        "C:/Program Files (x86)/Ampps/www/Ph2/js/src-min/snippets/coldfusion.js",
+        "C:/Program Files (x86)/Ampps/www/Ph2/js/src-min/snippets/csharp.js",
+        "C:/Program Files (x86)/Ampps/www/Ph2/js/src-min/snippets/css.js",
+        "C:/Program Files (x86)/Ampps/www/Ph2/js/lib/togetherjs/togetherjs/libs/walkabout/lib/esprima.js",
+        "C:/Program Files (x86)/Ampps/www/Ph2/js/lib/togetherjs/togetherjs/libs/walkabout/lib/falafel.js"
+    ]
+}

@@ -8,12 +8,12 @@
   $( function() {
     $( "#tabs" ).tabs();
   } );
-  $( "#VisualDebugTab" ).click(function() {
+  $( "#executeBtn" ).click(function() {
 	  $("#sidebar").hide("500", "linear", function(){
 		  $("#tabs").css("width", "99.9%");
 	  });
 	 
-	  $("#VisualDebugTab").addClass("active");
+	  $("#executeBtn").addClass("active");
 	  $("#EditorTab").removeClass("active");
 	});
   
@@ -21,7 +21,7 @@
 	  $("#sidebar").show("500", "linear");
 	  $("#tabs").css("width", "60%");
 	  $("#EditorTab").addClass("active");
-	  $("#VisualDebugTab").removeClass("active");
+	  $("#executeBtn").removeClass("active");
 	});
   
   

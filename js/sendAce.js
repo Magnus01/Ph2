@@ -4,7 +4,7 @@ $('#VisualDebugTab').click(function() {
     console.log(val1);
     $.ajax({
         type: 'POST',
-        url: 'C3Q1py.php',
+        url: 'Visualizer.php',
         data: { text1: val1 },
         success: function(response) {
             $('#VisualDebug').html(response);
