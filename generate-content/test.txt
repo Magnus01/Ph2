@@ -1,18 +1,17 @@
-def Qname(something):
-    return something
+list1 = [3, 8, 9, 1]
+list2 = [8, 3, 6, 0]
+list3 = [0, 8, 3, 1]
+list4 = [0, 8, 3, 1]
+
+matrix = [list1, list2, list3, list4]
 
 import unittest
 
 class UT(unittest.TestCase):
     
-    """ Hint 1 placeholder (to contain hint) """
+    """ you need to define your matrix correctly """
     def test_ca(self):
-        self.assertIn("return", "return")
-    
-    """ Hint 2 placeholder (testing result) """
-    def test_ra(self):
-        self.assertEqual(Qname("hei"), "hei") # Example
-
+        self.assertEqual(matrix[0][0], 3)
 
 # Unit Test Runner
 if __name__ == '__main__':
