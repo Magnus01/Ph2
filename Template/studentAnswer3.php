@@ -49,12 +49,12 @@ if (strpos($output1, "0 failures") !== FALSE) {
         }
         
         if (strpos($output1, "ReferenceError") == TRUE) {
-            echo '<blockquote id="hint"><i>Hint:</i><br/>You have  an undefined variable or function please use the var or function tag. Is your function named the correct name?</blockquote>';
+            echo '<blockquote id="hint" style="background: #c33; color:white;"><i>Hint:</i><br/>You have  an undefined variable or function please use the var or function tag. Is your function named the correct name?</blockquote>';
             return TRUE;
         }
         
         if (strpos($output1, "TypeError") == TRUE) {
-            echo '<blockquote id="hint"><i>Hint:</i><br/>You have not answered the question please write an answer with the correct function or variable name.</blockquote>';
+            echo '<blockquote id="hint" style="background: #c33; color:white;"><i>Hint:</i><br/>You have not answered the question please write an answer with the correct function or variable name.</blockquote>';
             return TRUE;
         }
 
@@ -66,7 +66,7 @@ if (strpos($output1, "0 failures") !== FALSE) {
          else {
         // general wrong hint
 		 echo '<script>alert("else general hint");</script>';
-		  returnHint("Your answer is wrong. Try again.", TRUE);
+             echo '<blockquote id="hint" style="background: #c33; color:white;"><i>Sorry:</i><br/>Your answer is wrong. Try again.</blockquote>';
 		  
 		  }
 };

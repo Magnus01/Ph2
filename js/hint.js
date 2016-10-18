@@ -9,7 +9,7 @@ function returnHint(reportPath){
             console.log(hint);
             // setting the return value thingy
             // document.getElementById('fixed').style.width = '50%';
-            document.getElementById('testResult').innerHTML = '<blockquote id="hint"><i>Hint:</i><br/>' + hint + '</blockquote>';
+            document.getElementById('testResult').innerHTML = '<blockquote id="hint" style="background: #c33; color:white;"><i>Hint:</i><br/>' + hint + '</blockquote>';
             return ($(data).find('failure').parent().first().attr('name') + ' ' +  $(data).find('failure').attr('message'));
         }
     });
