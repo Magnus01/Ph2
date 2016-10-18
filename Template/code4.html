@@ -136,6 +136,14 @@ function MathSolver(infix) {
 
 MathSolver(["4", "+", "5", "*", "2"]);
 
+for(var i = 0; i < infix.length; i++){
+    var token = infix[i];
+}
+
+if(isNumeric(token) === true){
+    postfixStack.push(Number(token));
+}
+
 
 </code>
 									</pre>

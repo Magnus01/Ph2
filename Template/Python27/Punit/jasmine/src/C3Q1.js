@@ -8,7 +8,10 @@ MathSolver = function (x){
         return !isNaN(parseFloat(x)) && isFinite(x);
     }
     
-    
+    for(var i = 0; i < infix.length; i++){
+        var token = infix[i];
+        
+    }
     
     return postfixStack;
 }

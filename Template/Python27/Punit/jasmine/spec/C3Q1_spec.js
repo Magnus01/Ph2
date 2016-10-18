@@ -38,7 +38,7 @@ describe("MathUtils", function() {
            expect(MathSolverStr).toContain("infix[");
         });
         
-        it("Your if stetment needs to check wther the input is a number or not using the isNumeric() function like this: if (isNumeric(token) == true){whatever code tou wish to excute if the input is a number}", function() {
+        it("Your if statment needs to check wether the input is a number or not using the isNumeric() function like this: if (isNumeric(token) == true){whatever code you wish to excute if the input is a number}", function() {
             expect(MathSolverStr).toContain("if(isNumeric(");
         });
         
