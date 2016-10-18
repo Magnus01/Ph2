@@ -2,8 +2,10 @@ var editor = ace.edit("Editor");
 var t;
 // setting default python unit testing
 var pyUt = "# Correct Answer\ndef Qname(something):\n    return something\n\n\n# Unit Test of the Answer\nimport " +
-    "unittest\n\nclass UT(unittest.TestCase):\n    \n    \"\"\" Hint 1 placeholder \"\"\"\n    def test_a(self):" +
-    "\n        self.assertEqual(Qname(\"hei\"), \"hei\") # Example";
+    "unittest\n\nclass UT(unittest.TestCase):\n    \n    \"\"\" Hint 1 placeholder (to contain hint) \"\"\"\n    " +
+    "def test_ca(self):\n        self.assertIn(\"return\", string)\n    \n    \"\"\" Hint 2 placeholder (testing " +
+    "result) \"\"\"\n    def test_ra(self):\n        self.assertEqual(Qname(\"hei\"), \"hei\") # Example\n\n\n# Unit " +
+    "Test Runner\nif __name__ == '__main__':\n    unittest.main()";
 
 // update section function
 function updateSection(section, html){
@@ -83,7 +85,8 @@ function generateContent(){
         title: title,
         tutorial: tutorial,
         extitle: extitle,
-        exdesc: exdesc
+        exdesc: exdesc,
+
     };
 
     $.ajax({
@@ -136,5 +139,42 @@ function unitTest(){
 
     // set the focus on the editor
     editor.focus();
-    
+
+}
+
+function execUnitTest(){
+
+    // regex for extracting hints to an object
+    var regexresult = pyUt.match(/["]{3}.*["]{3}/g);
+
+    // creating the hints object
+    var hints = {};
+
+    // passing the regex result to the hints object
+    for (var i = 0; i < regexresult.length; i++){
+        // removes quotes at the start and end + removes possible whitespace as well
+        hints[i+1] = regexresult[i].slice(3, -3).replace(/^\s\s*/, '').replace(/\s\s*$/, '');
+    }
+
+    console.log(hints);
+
+    $.ajax({
+       type: 'POST',
+        url: 'execute_unittest.php',
+        data: { pyUnit: pyUt },
+        success: function (response) {
+
+            // if it's minus one, we have the right answer, if not; display the correct hint
+            if (response == "-1") {
+                $('#testResult').html('<blockquote id="hint" style="background: #33cc33; color:white; border-left: 2px solid #33aa33"><i>Hint:</i><br/>'
+                    + 'Your answer was correct! Congratulations!!!' + '</blockquote>');
+            } else {
+                $('#testResult').html('<blockquote id="hint" style="background: #c33; color:white;"><i>Hint:</i><br/>'
+                    + hints[parseInt(response)+1] + '</blockquote>');
+            }
+
+
+        }
+    });
+
 }
