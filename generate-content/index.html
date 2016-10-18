@@ -30,6 +30,8 @@
     <script type="text/javascript" src="../jsPy_v3/pytutor.js"></script>
     <link rel="stylesheet" href="../css_v3/pytutor.css"/>
 
+    <link rel="stylesheet" href="style.css"/>
+
 </head>
 <body>
     <!-- NAVIGATION START -->
@@ -80,9 +82,7 @@
                     <div data-onboarding="assignment"
                          class="exercise--assignment exercise--typography">
                         <!-- TITLE -->
-                        <h3 id="title" class="exercise--title" ng-bind-html="exercise.title"
-                            onmouseleave="document.getElementById('title').style.background = 'rgba(127,0,0,0)';"
-                            onmouseover="document.getElementById('title').style.background = 'rgba(127,0,0,0.20)';">
+                        <h3 id="title" class="exercise--title editable-content" ng-bind-html="exercise.title">
                             Object Oriented Programming
                         </h3>
 
@@ -103,7 +103,7 @@
 
                         <!-- TUTORIAL START -->
                         <div id="tutorial" ng-bind-html="exercise.assignment" ng-model="exercise.assignment" mathjax=""
-                             class="ng-pristine ng-untouched ng-valid">
+                             class="ng-pristine ng-untouched ng-valid editable-content">
 <p>
     Object-oriented programming intro adapted from MIT 6.01 course notes (Section 3.5)
 </p><br>
@@ -145,12 +145,12 @@ print(Staff601.salutation(pat))
 
                     <!-- QUESTION END -->
                     <div class="exercise--instructions-title">
-                        <h4 id="extitle">
+                        <h4 id="extitle" class="editable-content">
                             Exercise
                         </h4>
                     </div>
 
-                    <div id="exdesc" data-onboarding="instructions" class="exercise--instructions exercise--typography">
+                    <div id="exdesc" data-onboarding="instructions" class="exercise--instructions exercise--typography editable-content">
                         <div ng-bind-html="exercise.instructions" ng-model="exercise.instructions" mathjax=""
                              class="ng-pristine ng-untouched ng-valid">
                             <ul>
@@ -202,7 +202,7 @@ print(Staff601.salutation(pat))
                     <button data-onboarding="codeEditor" class="btn btn-md btn-inverse" onclick="generateContent()">
                         Generate JSON
                     </button>
-                    <button data-onboarding="codeEditor" class="btn btn-md btn-inverse" onclick="unitTest()">
+                    <button data-onboarding="codeEditor" class="btn btn-md btn-inverse editable-content" onclick="unitTest()">
                         Edit Unit Test
                     </button>
                     <button data-onboarding="codeEditor" class="btn btn-md btn-inverse" onclick="execUnitTest()">

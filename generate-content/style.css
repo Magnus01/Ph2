@@ -1,0 +1,7 @@
+.editable-content{
+    cursor: pointer
+}
+
+.editable-content:hover {
+    background-color: rgba(202,74,74, 0.3);
+}
