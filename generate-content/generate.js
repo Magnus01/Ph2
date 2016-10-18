@@ -1,8 +1,13 @@
 var editor = ace.edit("Editor");
 var t;
+// setting default python unit testing
+var pyUt = "# Correct Answer\ndef Qname(something):\n    return something\n\n\n# Unit Test of the Answer\nimport " +
+    "unittest\n\nclass UT(unittest.TestCase):\n    \n    \"\"\" Hint 1 placeholder \"\"\"\n    def test_a(self):" +
+    "\n        self.assertEqual(Qname(\"hei\"), \"hei\") # Example";
 
 // update section function
 function updateSection(section, html){
+    // remove tag attribute
     $('#Editor').find('textarea').attr('onkeyup', '');
 
     t = document.getElementById(section);
@@ -59,8 +64,6 @@ $('#exdesc').on('click', function(){
 
 
 
-
-
 function generateContent(){
 
     // get content
@@ -109,4 +112,29 @@ function importContent(){
 
     });
 
+}
+
+
+
+function unitTest(){
+
+    // remove tag attribute
+    $('#Editor').find('textarea').attr('onkeyup', '');
+
+    // automatically close all other editor activity
+    editor.setValue("");
+
+    // make changes to the editor settings
+    editor.getSession().setMode("ace/mode/python");
+
+
+    // add this value to the editor
+    editor.setValue(pyUt, 1);
+
+    // update the pyUt
+    $('#Editor').find('textarea').attr('onkeyup', 'pyUt = editor.getValue();');
+
+    // set the focus on the editor
+    editor.focus();
+    
 }
