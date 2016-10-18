@@ -7,7 +7,7 @@ data = open("/../Ampps/www/Fixing_ifhint/Ph2/Template/Python27/Punit/MA147C1Q1.t
 lines = data.readlines()
 data.close()
 
-my_lst_str = ''.join(map(str, lines)).replace(" ", "").replace("\n", "")
+my_lst_str = ''.join(map(str, lines)).replace("\n", "").replace(" ", "")
 
 #print my_lst_str
 
