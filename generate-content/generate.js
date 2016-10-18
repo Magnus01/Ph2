@@ -1,5 +1,6 @@
 var editor = ace.edit("Editor");
 var t;
+var hints;
 // setting default python unit testing
 var pyUt = "# Correct Answer\ndef Qname(something):\n    return something\n\n\n# Unit Test of the Answer\nimport " +
     "unittest\n\nclass UT(unittest.TestCase):\n    \n    \"\"\" Hint 1 placeholder (to contain hint) \"\"\"\n    " +
@@ -75,10 +76,13 @@ function generateContent(){
     var exdesc = JSON.stringify(document.getElementById("exdesc").innerHTML);
 
     // display the content
-    alert(title);
+    /*alert(title);
     alert(tutorial);
     alert(extitle);
-    alert(exdesc);
+    alert(exdesc);*/
+
+    // regex hints
+    processHints();
 
     // generate content
     var theJson = {
@@ -86,7 +90,8 @@ function generateContent(){
         tutorial: tutorial,
         extitle: extitle,
         exdesc: exdesc,
-
+        unitTesting: pyUt,
+        hints: hints
     };
 
     $.ajax({
@@ -95,11 +100,11 @@ function generateContent(){
         data: theJson,
         success: function(){
             console.log("worked.");
-        },
+        }
     });
 
 
-    alert(theJson);
+    //alert(theJson);
 }
 
 
@@ -112,6 +117,9 @@ function importContent(){
         document.getElementById("tutorial").innerHTML = JSON.parse(data.tutorial);
         document.getElementById("extitle").innerText = JSON.parse(data.extitle);
         document.getElementById("exdesc").innerHTML = JSON.parse(data.exdesc);
+
+        // import unit Testing content into pyUt variable
+        pyUt = JSON.parse(data.unitTesting);
 
     });
 
@@ -142,21 +150,34 @@ function unitTest(){
 
 }
 
-function execUnitTest(){
-
+function processHints(){
     // regex for extracting hints to an object
     var regexresult = pyUt.match(/["]{3}.*["]{3}/g);
 
-    // creating the hints object
-    var hints = {};
+    if (regexresult != null){
+        // creating the hints object
+        hints = {};
 
-    // passing the regex result to the hints object
-    for (var i = 0; i < regexresult.length; i++){
-        // removes quotes at the start and end + removes possible whitespace as well
-        hints[i+1] = regexresult[i].slice(3, -3).replace(/^\s\s*/, '').replace(/\s\s*$/, '');
+        // set the 0 property to true; since we have at least one hint
+        hints[0] = true;
+
+        // passing the regex result to the hints object
+        for (var i = 0; i < regexresult.length; i++){
+            // removes quotes at the start and end + removes possible whitespace as well
+            hints[i+1] = regexresult[i].slice(3, -3).replace(/^\s\s*/, '').replace(/\s\s*$/, '');
+        }
+
+        console.log(hints);
+    } else {
+        hints = {0: false};
     }
 
-    console.log(hints);
+}
+
+
+function execUnitTest(){
+
+    processHints();
 
     $.ajax({
        type: 'POST',

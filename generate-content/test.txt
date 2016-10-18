@@ -8,9 +8,9 @@ import unittest
 
 class UT(unittest.TestCase):
     
-    """             Make sure that you include your return statement                    """
+    """ You have to stuff here. There was nothing done."""
     def test_ca(self):
-        self.assertIn("return", "return")
+        self.assertIn("return", string)
     
     """ Hint 2 placeholder (testing result) """
     def test_ra(self):
