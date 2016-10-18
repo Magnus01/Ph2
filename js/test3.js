@@ -13,17 +13,10 @@ $('#buttonz').click(function() {
         url: 'studentAnswer3.php',
         data: { text1: val1 },
         success: function(response) {
-            console.log("student solution sent");
+            console.log(response);
             $("#testResult").html(response);
+            console.log($("#testResult").html(response));
             
         }
-    }).then($.ajax({
-    
-        
-    url: "parse3.php",
-    success: function(result){
-        
-    
-
-    }}));
+    });
 });

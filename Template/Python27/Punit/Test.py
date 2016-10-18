@@ -1,4 +1,4 @@
-from something import my_lst_str
+from something import something
 from MA147C1Q1 import addVectors
 import unittest
 
@@ -15,7 +15,7 @@ print "whatever"
 class TestStringMethods(unittest.TestCase):
     
     def test_b(self):
-        self.assertIn("if", my_lst_str)
+        self.assertIn("if", something(Qname))
     
     def test_c(self):
         self.assertEqual(addVectors([1, 2], [3, 2, 1]), [])

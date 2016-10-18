@@ -2,6 +2,7 @@
  * Created by y50-70 on 9/17/2016.
  */
 function returnHint(reportPath){
+    //alert("do stuff");
     $.ajax(reportPath, {
         success: function(data){
             console.log(data);

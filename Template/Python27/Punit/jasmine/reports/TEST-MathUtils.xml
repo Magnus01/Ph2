@@ -1,52 +1,23 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <testsuites>
-<testsuite name="MathUtils" errors="0" tests="7" failures="4" time="0.032" timestamp="2016-10-18T12:36:24">
-  <testcase classname="MathUtils" name="Is your function named isNumeric with an input argument? isNumeric = function(x)" time="0.014"></testcase>
-  <testcase classname="MathUtils" name="Is the input argument of your isNumeric function named x? isNumeric = function(x)" time="0.001"></testcase>
-  <testcase classname="MathUtils" name="Did you remember the return statment?" time="0"></testcase>
-  <testcase classname="MathUtils" name="Remember to use isNaN() and include the ! like this: return !isNaN(whatever)" time="0.002"><failure type="expect" message="Expected &amp;apos;function(x){returnx;}&amp;apos; to contain &amp;apos;!isNaN(&amp;apos;.">Error: Expected &amp;apos;function(x){returnx;}&amp;apos; to contain &amp;apos;!isNaN(&amp;apos;.
-    at new jasmine.ExpectationResult (C:\Users\magnus\AppData\Roaming\npm\node_modules\jasmine-node\lib\jasmine-node/jasmine-1.3.1.js:114:32)
-    at null.toContain (C:\Users\magnus\AppData\Roaming\npm\node_modules\jasmine-node\lib\jasmine-node/jasmine-1.3.1.js:1316:29)
-    at null.&amp;lt;anonymous&amp;gt; (C:\Program Files (x86)\Ampps\www\Ph2\Template\Python27\Punit\jasmine\spec\C3Q1_spec.js:33:27)
-    at jasmine.Block.execute (C:\Users\magnus\AppData\Roaming\npm\node_modules\jasmine-node\lib\jasmine-node/jasmine-1.3.1.js:1145:17)
-    at jasmine.Queue.next_ (C:\Users\magnus\AppData\Roaming\npm\node_modules\jasmine-node\lib\jasmine-node/jasmine-1.3.1.js:2177:31)
-    at jasmine.Queue.start (C:\Users\magnus\AppData\Roaming\npm\node_modules\jasmine-node\lib\jasmine-node/jasmine-1.3.1.js:2130:8)
-    at jasmine.Spec.execute (C:\Users\magnus\AppData\Roaming\npm\node_modules\jasmine-node\lib\jasmine-node/jasmine-1.3.1.js:2458:14)
-    at jasmine.Queue.next_ (C:\Users\magnus\AppData\Roaming\npm\node_modules\jasmine-node\lib\jasmine-node/jasmine-1.3.1.js:2177:31)
-    at onComplete (C:\Users\magnus\AppData\Roaming\npm\node_modules\jasmine-node\lib\jasmine-node/jasmine-1.3.1.js:2173:18)
-    at jasmine.Spec.finish (C:\Users\magnus\AppData\Roaming\npm\node_modules\jasmine-node\lib\jasmine-node/jasmine-1.3.1.js:2432:5)</failure></testcase>
-  <testcase classname="MathUtils" name="Remember to use parseFloat() to fix the input of isNaN like this: return !isNaN(parseFloat(x))" time="0.003"><failure type="expect" message="Expected &amp;apos;function(x){returnx;}&amp;apos; to contain &amp;apos;parseFloat(x)&amp;apos;.">Error: Expected &amp;apos;function(x){returnx;}&amp;apos; to contain &amp;apos;parseFloat(x)&amp;apos;.
-    at new jasmine.ExpectationResult (C:\Users\magnus\AppData\Roaming\npm\node_modules\jasmine-node\lib\jasmine-node/jasmine-1.3.1.js:114:32)
-    at null.toContain (C:\Users\magnus\AppData\Roaming\npm\node_modules\jasmine-node\lib\jasmine-node/jasmine-1.3.1.js:1316:29)
-    at null.&amp;lt;anonymous&amp;gt; (C:\Program Files (x86)\Ampps\www\Ph2\Template\Python27\Punit\jasmine\spec\C3Q1_spec.js:36:27)
-    at jasmine.Block.execute (C:\Users\magnus\AppData\Roaming\npm\node_modules\jasmine-node\lib\jasmine-node/jasmine-1.3.1.js:1145:17)
-    at jasmine.Queue.next_ (C:\Users\magnus\AppData\Roaming\npm\node_modules\jasmine-node\lib\jasmine-node/jasmine-1.3.1.js:2177:31)
-    at jasmine.Queue.start (C:\Users\magnus\AppData\Roaming\npm\node_modules\jasmine-node\lib\jasmine-node/jasmine-1.3.1.js:2130:8)
-    at jasmine.Spec.execute (C:\Users\magnus\AppData\Roaming\npm\node_modules\jasmine-node\lib\jasmine-node/jasmine-1.3.1.js:2458:14)
-    at jasmine.Queue.next_ (C:\Users\magnus\AppData\Roaming\npm\node_modules\jasmine-node\lib\jasmine-node/jasmine-1.3.1.js:2177:31)
-    at onComplete (C:\Users\magnus\AppData\Roaming\npm\node_modules\jasmine-node\lib\jasmine-node/jasmine-1.3.1.js:2173:18)
-    at jasmine.Spec.finish (C:\Users\magnus\AppData\Roaming\npm\node_modules\jasmine-node\lib\jasmine-node/jasmine-1.3.1.js:2432:5)</failure></testcase>
-  <testcase classname="MathUtils" name="The isFinite() function is required since the calculator is unable to handle inifinate numbers also to check with two functions use the &amp;&amp; like this: return !isNaN(parseFloat(x)) &amp;&amp; isFinite(x)" time="0"><failure type="expect" message="Expected &amp;apos;function(x){returnx;}&amp;apos; to contain &amp;apos;&amp;&amp;isFinite(x);&amp;apos;.">Error: Expected &amp;apos;function(x){returnx;}&amp;apos; to contain &amp;apos;&amp;&amp;isFinite(x);&amp;apos;.
-    at new jasmine.ExpectationResult (C:\Users\magnus\AppData\Roaming\npm\node_modules\jasmine-node\lib\jasmine-node/jasmine-1.3.1.js:114:32)
-    at null.toContain (C:\Users\magnus\AppData\Roaming\npm\node_modules\jasmine-node\lib\jasmine-node/jasmine-1.3.1.js:1316:29)
-    at null.&amp;lt;anonymous&amp;gt; (C:\Program Files (x86)\Ampps\www\Ph2\Template\Python27\Punit\jasmine\spec\C3Q1_spec.js:39:27)
-    at jasmine.Block.execute (C:\Users\magnus\AppData\Roaming\npm\node_modules\jasmine-node\lib\jasmine-node/jasmine-1.3.1.js:1145:17)
-    at jasmine.Queue.next_ (C:\Users\magnus\AppData\Roaming\npm\node_modules\jasmine-node\lib\jasmine-node/jasmine-1.3.1.js:2177:31)
-    at jasmine.Queue.start (C:\Users\magnus\AppData\Roaming\npm\node_modules\jasmine-node\lib\jasmine-node/jasmine-1.3.1.js:2130:8)
-    at jasmine.Spec.execute (C:\Users\magnus\AppData\Roaming\npm\node_modules\jasmine-node\lib\jasmine-node/jasmine-1.3.1.js:2458:14)
-    at jasmine.Queue.next_ (C:\Users\magnus\AppData\Roaming\npm\node_modules\jasmine-node\lib\jasmine-node/jasmine-1.3.1.js:2177:31)
-    at onComplete (C:\Users\magnus\AppData\Roaming\npm\node_modules\jasmine-node\lib\jasmine-node/jasmine-1.3.1.js:2173:18)
-    at jasmine.Spec.finish (C:\Users\magnus\AppData\Roaming\npm\node_modules\jasmine-node\lib\jasmine-node/jasmine-1.3.1.js:2432:5)</failure></testcase>
-  <testcase classname="MathUtils" name="Your answer is wrong" time="0.002"><failure type="expect" message="Expected 4 to be true.">Error: Expected 4 to be true.
-    at new jasmine.ExpectationResult (C:\Users\magnus\AppData\Roaming\npm\node_modules\jasmine-node\lib\jasmine-node/jasmine-1.3.1.js:114:32)
-    at null.toBe (C:\Users\magnus\AppData\Roaming\npm\node_modules\jasmine-node\lib\jasmine-node/jasmine-1.3.1.js:1316:29)
-    at null.&amp;lt;anonymous&amp;gt; (C:\Program Files (x86)\Ampps\www\Ph2\Template\Python27\Punit\jasmine\spec\C3Q1_spec.js:44:24)
-    at jasmine.Block.execute (C:\Users\magnus\AppData\Roaming\npm\node_modules\jasmine-node\lib\jasmine-node/jasmine-1.3.1.js:1145:17)
-    at jasmine.Queue.next_ (C:\Users\magnus\AppData\Roaming\npm\node_modules\jasmine-node\lib\jasmine-node/jasmine-1.3.1.js:2177:31)
-    at jasmine.Queue.start (C:\Users\magnus\AppData\Roaming\npm\node_modules\jasmine-node\lib\jasmine-node/jasmine-1.3.1.js:2130:8)
-    at jasmine.Spec.execute (C:\Users\magnus\AppData\Roaming\npm\node_modules\jasmine-node\lib\jasmine-node/jasmine-1.3.1.js:2458:14)
-    at jasmine.Queue.next_ (C:\Users\magnus\AppData\Roaming\npm\node_modules\jasmine-node\lib\jasmine-node/jasmine-1.3.1.js:2177:31)
-    at onComplete (C:\Users\magnus\AppData\Roaming\npm\node_modules\jasmine-node\lib\jasmine-node/jasmine-1.3.1.js:2173:18)
-    at jasmine.Spec.finish (C:\Users\magnus\AppData\Roaming\npm\node_modules\jasmine-node\lib\jasmine-node/jasmine-1.3.1.js:2432:5)</failure></testcase>
+<testsuite name="MathUtils" errors="0" tests="0" failures="0" time="0" timestamp="2016-10-18T15:46:54">
+</testsuite>
+<testsuite name="MathUtils.when calc is used to peform basic math operations" errors="0" tests="6" failures="1" time="0.016" timestamp="2016-10-18T15:46:54">
+  <testcase classname="MathUtils.when calc is used to peform basic math operations" name="Be sure to define a for loop with a varible like this for (var i = 0;" time="0.016"></testcase>
+  <testcase classname="MathUtils.when calc is used to peform basic math operations" name="How long the for loop should be run needs to be defined like this for (var i = 0; i &amp;lt; infix.length - 1;" time="0"></testcase>
+  <testcase classname="MathUtils.when calc is used to peform basic math operations" name="Remember to make the varible increase in value like this for (var i = 0; i &amp;lt; array.length - 1; i++) this completes the for loop" time="0"></testcase>
+  <testcase classname="MathUtils.when calc is used to peform basic math operations" name="Each index of the input array need to be defined like this var something = infix[i] i is the for loop variable" time="0"></testcase>
+  <testcase classname="MathUtils.when calc is used to peform basic math operations" name="Your if stetment needs to check wther the input is a number or not using the isNumeric() function like this: if (isNumeric(token) == true){whatever code tou wish to excute if the input is a number}" time="0"></testcase>
+  <testcase classname="MathUtils.when calc is used to peform basic math operations" name="If the input is a number deturmined by the isNumeric and the if statment you need to push it onto the postfixStack like this: postfixStack.push(Number(token)) token is the name of each index of the input array" time="0"><failure type="expect" message="Expected &amp;apos;function(x){functionMathSolver(infix){varpostfixStack=[];postfixStack=[];functionisNumeric(x){return!isNaN(parseFloat(x))&amp;&amp;isFinite(x);}for(vari=0;i&amp;lt;infix.length;i++){vartoken=infix[i];if(isNumeric(token)===true){}}returnpostfixStack;}MathSolver([&amp;quot;4&amp;quot;,&amp;quot;+&amp;quot;,&amp;quot;5&amp;quot;,&amp;quot;*&amp;quot;,&amp;quot;2&amp;quot;]);}&amp;apos; to contain &amp;apos;postfixStack.push(Number(&amp;apos;.">Error: Expected &amp;apos;function(x){functionMathSolver(infix){varpostfixStack=[];postfixStack=[];functionisNumeric(x){return!isNaN(parseFloat(x))&amp;&amp;isFinite(x);}for(vari=0;i&amp;lt;infix.length;i++){vartoken=infix[i];if(isNumeric(token)===true){}}returnpostfixStack;}MathSolver([&amp;quot;4&amp;quot;,&amp;quot;+&amp;quot;,&amp;quot;5&amp;quot;,&amp;quot;*&amp;quot;,&amp;quot;2&amp;quot;]);}&amp;apos; to contain &amp;apos;postfixStack.push(Number(&amp;apos;.
+    at new jasmine.ExpectationResult (C:\Users\Ragnar\AppData\Roaming\npm\node_modules\jasmine-node\lib\jasmine-node/jasmine-1.3.1.js:114:32)
+    at null.toContain (C:\Users\Ragnar\AppData\Roaming\npm\node_modules\jasmine-node\lib\jasmine-node/jasmine-1.3.1.js:1316:29)
+    at null.&amp;lt;anonymous&amp;gt; (C:\Ampps\www\Javanew\Ph2\Template\Python27\Punit\jasmine\spec\C3Q1_spec.js:46:35)
+    at jasmine.Block.execute (C:\Users\Ragnar\AppData\Roaming\npm\node_modules\jasmine-node\lib\jasmine-node/jasmine-1.3.1.js:1145:17)
+    at jasmine.Queue.next_ (C:\Users\Ragnar\AppData\Roaming\npm\node_modules\jasmine-node\lib\jasmine-node/jasmine-1.3.1.js:2177:31)
+    at jasmine.Queue.start (C:\Users\Ragnar\AppData\Roaming\npm\node_modules\jasmine-node\lib\jasmine-node/jasmine-1.3.1.js:2130:8)
+    at jasmine.Spec.execute (C:\Users\Ragnar\AppData\Roaming\npm\node_modules\jasmine-node\lib\jasmine-node/jasmine-1.3.1.js:2458:14)
+    at jasmine.Queue.next_ (C:\Users\Ragnar\AppData\Roaming\npm\node_modules\jasmine-node\lib\jasmine-node/jasmine-1.3.1.js:2177:31)
+    at onComplete (C:\Users\Ragnar\AppData\Roaming\npm\node_modules\jasmine-node\lib\jasmine-node/jasmine-1.3.1.js:2173:18)
+    at jasmine.Spec.finish (C:\Users\Ragnar\AppData\Roaming\npm\node_modules\jasmine-node\lib\jasmine-node/jasmine-1.3.1.js:2432:5)</failure></testcase>
 </testsuite>
 </testsuites>

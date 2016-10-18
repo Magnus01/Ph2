@@ -1,15 +1,12 @@
 <?php   
 function Correction($Chapath, $Qname) {
 
-    echo '<script>alert("correction has been called")</script>';
+    //echo '<script>alert("correction has been called")</script>';
 $PostAnswer = $_POST['text1'];
-$TestAnswer = 'MathUtils = function () {}; 
-    MathUtils.prototype.' . $PostAnswer . '
-    var ' . $PostAnswer . '
-    ' . 'exports.MathUtils = function () { 
-    return MathUtils;  
-    }; 
-    exports.isNumeric = isNumeric;';
+$TestAnswer = 'MathSolver = function (x){
+    ' . $PostAnswer .
+    '}; 
+    exports.MathSolver = MathSolver;';
         $pathname2 = '' . $Chapath . '/src/' . $Qname . '.txt';
 
        // echo $pathname2;
@@ -30,12 +27,15 @@ $TestAnswer = 'MathUtils = function () {};
     }
 
 function something() {
+    //echo '<script>alert("Hint I have written");</script>';
     
     Correction(3, 4);
     
     chdir('Python27/Punit/jasmine/');
 
 $output1 = shell_exec('jasmine-node spec/C3Q1_spec.js --junitreport');
+echo strlen($output1);
+echo $output1;
 
 if (strpos($output1, "0 failures") !== FALSE) {
             echo '<blockquote id="hint" style="background: #33cc33; color:white; border-left: 2px solid #33aa33"><i>Hint:</i><br/>Congratulations! Your answer is correct.</blockquote>';
@@ -59,9 +59,9 @@ if (strpos($output1, "0 failures") !== FALSE) {
         }
 
         if (strlen($output1) > 0){
+            //echo '<script>alert("Hint I have written");</script>';
             
-            echo '<script src="../js/hint.js"></script>
-            <script>returnHint("Python27/Punit/jasmine/reports/TEST-MathUtils.xml");</script>';
+            echo '<script src="../js/hint.js"></script>' . '<script>returnHint("Python27/Punit/jasmine/reports/TEST-MathUtils.xml");</script>';
         }
          else {
         // general wrong hint
