@@ -2,8 +2,9 @@
  * Created by y50-70 on 10/15/2016.
  */
 
+
 $('#buttonz').click(function() {
-    
+   
     var val1 = editor.getValue();
     console.log(val1);
     

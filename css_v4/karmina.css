@@ -1,0 +1,53 @@
+ @font-face {
+        font-family: karmina-sans;
+        src:
+            url("https://fonts.typekit.net/af/8cee5d/000000000000000000014116/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4")
+            format("woff2");
+        font-weight: 400;
+        font-style: normal;
+    }
+
+    @font-face {
+        font-family: karmina-sans;
+        src:
+            url("https://fonts.typekit.net/af/2946e7/000000000000000000014114/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n3")
+            format("woff2");
+        font-weight: 300;
+        font-style: normal;
+    }
+
+    @font-face {
+        font-family: karmina-sans;
+        src:
+            url("https://fonts.typekit.net/af/008db6/00000000000000000001411a/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7")
+            format("woff2");
+        font-weight: 700;
+        font-style: normal;
+    }
+
+    @font-face {
+        font-family: karmina-sans;
+        src:
+            url("https://fonts.typekit.net/af/4f5957/000000000000000000014117/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i4")
+            format("woff2");
+        font-weight: 400;
+        font-style: italic;
+    }
+
+    @font-face {
+        font-family: karmina-sans;
+        src:
+            url("https://fonts.typekit.net/af/fb2ef2/00000000000000000001411b/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i7")
+            format("woff2");
+        font-weight: 700;
+        font-style: italic;
+    }
+
+    @font-face {
+        font-family: karmina-sans;
+        src:
+            url("https://fonts.typekit.net/af/9e2dc5/000000000000000000014115/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i3")
+            format("woff2");
+        font-weight: 300;
+        font-style: italic;
+    }

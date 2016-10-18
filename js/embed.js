@@ -1,1 +1,1 @@
-var listSumTrace = {"code": "isNumeric = function(x){\n    return !isNaN(parseFloat(x)) && isFinite(x);\n};", "trace": [{"exception_msg": "SyntaxError: invalid syntax (<string>, line 1)", "line": 1, "event": "uncaught_exception", "offset": 24}]};
+var listSumTrace = {"code": "", "trace": [{"ordered_globals": [], "stdout": "", "func_name": "<module>", "stack_to_render": [], "globals": {}, "heap": {}, "line": 1, "event": "step_line"}, {"ordered_globals": [], "stdout": "", "func_name": "<module>", "stack_to_render": [], "globals": {}, "heap": {}, "line": 1, "event": "return"}]};

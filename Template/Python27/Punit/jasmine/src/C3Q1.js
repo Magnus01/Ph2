@@ -1,6 +1,10 @@
 MathUtils = function () {}; 
-    MathUtils.prototype.isNumeric
-    var isNumeric
+    MathUtils.prototype.isNumeric = function(x) {
+    return x;
+};
+    var isNumeric = function(x) {
+    return x;
+};
     exports.MathUtils = function () { 
     return MathUtils;  
     }; 
