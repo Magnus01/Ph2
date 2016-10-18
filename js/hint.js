@@ -6,7 +6,8 @@ function returnHint(reportPath){
     $.ajax(reportPath, {
         success: function(data){
             console.log(data);
-            var hint = '<strong>' + ($(data).find('failure').parent().first().attr('name') + '</strong> ' +  $(data).find('failure').attr('message'));
+            // $(data).find('failure').attr('message')
+            var hint = '<strong>' + ($(data).find('failure').parent().first().attr('name') + '</strong> ');
             console.log(hint);
             // setting the return value thingy
             // document.getElementById('fixed').style.width = '50%';
