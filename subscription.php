@@ -322,9 +322,9 @@
 ///////
 
 		
-						
-							echo 'Le user a bien été ajouté !';
-		echo '<script> alert("You have subscribed successfully ! Thanks a lot!"); alert("Welcome to e-Paradigm, ' . $_SESSION['name'] . ' ' . $_SESSION['surname'] . '.");location.href = "Testing/Template/Code1.html";</script>';
+						echo '<script>
+		alert("Welcome to e-Paradigm, ' . $_SESSION['name'] . ' ' . $_SESSION['surname'] . '.");location.href="Template/Code1.html";
+		</script>';
 			
 		           }   else { 
 				   

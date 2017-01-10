@@ -238,8 +238,8 @@
 		$_SESSION['questionComplete']=$donnees8['questionComplete'];
 		$_SESSION['id']=$donnees9['id'];
 		
-        echo '<script>
-		alert("Welcome to e-Paradigm, ' . $_SESSION['name'] . ' ' . $_SESSION['surname'] . '.");location.href="Testing/Template/Code1.html";
+       echo '<script>
+		alert("Welcome to e-Paradigm, ' . $_SESSION['name'] . ' ' . $_SESSION['surname'] . '.");location.href="Template/Code1.html";
 		</script>';
 			
 	}
@@ -277,8 +277,6 @@ while ($donnees = $reponse_email->fetch() AND $donnees2 = $reponse_password->fet
 
 {
 	
-	
-	
     if ($_POST['email'] == $donnees['email'] AND $_POST['password'] == $donnees2['password']) 
     {
         $_SESSION['name']=$donnees4['name'];
@@ -290,7 +288,6 @@ while ($donnees = $reponse_email->fetch() AND $donnees2 = $reponse_password->fet
 	
 	
    echo '<script> alert("Identifiants erronés. Veuillez réessayer.") ;location.href="connexion.php"</script>';
-	
 	
 	
 }
