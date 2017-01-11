@@ -151,19 +151,36 @@ addVectors([1, 2, 3], [3, 2, 1])</code>
 					<li ><a id="VisualDebugTab"  href="#VisualDebug"><i class="fa fa-television"
 							aria-hidden="true"></i> Visualizer</a></li>
 				</ul>
+				
 				<div id="Editor" style="height:600px"></div>
+				
+				
+				
 				<div id="VisualDebug">
 					
 				</div>
 <div class="content--tab-buttons">
                        
-                      
-                        <button id="Save" data-onboarding="codeEditor" class="btn btn-md btn-inverse"><i class="fa fa-floppy-o" aria-hidden="true"></i>Download</button>
+                      <form action="Download_system/download_system.php" method="post" >  
+			<textarea name="answerDLtest" rows="8" cols="45" ></textarea>
+			<input name="download" type="submit" value="Download" id='download'>
+		
+                        <button id="Save" data-onboarding="codeEditor" class="btn btn-md btn-inverse">
+						
+						
+						<i class="fa fa-floppy-o" aria-hidden="true"></i>
+						
+						
+						
+						
+						Download</button>
+						
+						
                         <a class="exercise--reset no-link-style" href=""><i class="fa fa-undo"></i></a>
                         <button id="buttonz" data-onboarding="codeEditor" class="btn btn-md btn-inverse">Execute Code</button>
                         </div>
                 
-                
+                </form>
                 
                          
 
@@ -202,11 +219,11 @@ addVectors([1, 2, 3], [3, 2, 1])</code>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.5/ace.js" type="text/javascript"></script>
 <script type="text/javascript">
-		var editor = ace.edit("Editor");
+		var editor = ace.edit("Editor");     alert("BottomPHP");
 		editor.setTheme("ace/theme/twilight");
 		editor.getSession().setMode("ace/mode/python");
     </script>
      <script type="text/javascript" src="../js/sendAce.js"></script>
-
+<script src="../js/download.js" type="text/javascript"></script>
 </body>
 </html>

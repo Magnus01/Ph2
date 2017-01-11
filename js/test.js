@@ -3,7 +3,7 @@
  */
 
 $('#buttonz').click(function() {
-
+ 
     var val1 = editor.getValue();
     console.log(val1);
     $.ajax({

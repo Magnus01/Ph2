@@ -13,5 +13,5 @@ $PostAnswer= $_POST['text1'];
         fclose($monfichier2);
     
 echo '<script>alert("answer: ' . $PostAnswer . '");</script>';
-
+ 
 ?>

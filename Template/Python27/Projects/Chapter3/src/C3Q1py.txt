@@ -1,13 +1,1 @@
-def addVectors (v1, v2):
-    
-    sum = []
-
-    if len(v1) != len(v2):
-        sum = []
-    else:
-        sum = 1
-    
-            
-    return sum
-    
-addVectors([1, 2, 3], [3, 2, 1])
+x=10

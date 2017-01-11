@@ -20,7 +20,7 @@ for($i = 0; $i < $len; $i++){
         $pass = FALSE;
         break;
     } 
-    
+     
 }
 if($pass){
     echo -1;

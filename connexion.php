@@ -169,7 +169,7 @@
 		
         //echo '<script>location.href="Code1.html"</script>';
 			echo '<script>
-		alert("Welcome to e-Paradigm, ' . $_SESSION['name'] . ' ' . $_SESSION['surname'] . '.");location.href="Template/Code1.html";
+		alert("Welcome to e-Paradigm, ' . $_SESSION['name'] . ' ' . $_SESSION['surname'] . '.");location.href="Template/Overview.php";
 		</script>';
 	}
 	

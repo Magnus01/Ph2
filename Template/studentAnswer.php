@@ -23,6 +23,6 @@ $PostAnswer= $_POST['text1'];
         fclose($monfichier3);
     }
 
-
+ 
 
 ?>
