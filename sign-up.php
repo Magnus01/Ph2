@@ -164,26 +164,15 @@
 					
 						
 					//ARRAY FOR THE QUESTIONS COMPLETED								
-					$questionComplete=array (
-														'C1Q1'  => 0,
-														'C1Q2' => 0,
-														'C1Q3'   => 0,
-														'C1Q4'  => 0,
-														'C2Q1' => 0,
-														'C2Q2'   => 0,
-														'C2Q3'  => 0,
-														'C2Q4' => 0,
-														'C3Q1'   => 0,
-														'C3Q2'  => 0,
-														'C3Q3' => 0,
-														'C3Q4'   => 0,
-														'C4Q1'  => 0,
-														'C4Q2' => 0,
-														'C4Q3'   => 0,
-														'C4Q4'  => 0
+					$questionCompleteARRAY=array (
+														1  => array("status" => 0, "levelOfDifficulty" => 1, "numberOfTry" => 0),
+														2 => array("status" => 0, "levelOfDifficulty" => 5, "numberOfTry" => 0),
+														3  => array("status" => 0, "levelOfDifficulty" => 6, "numberOfTry" => 0),
+														4  => array("status" => 0, "levelOfDifficulty" => 9, "numberOfTry" => 0)
+														
 														
 													)	;							
-													
+					$questionComplete=json_encode($questionCompleteARRAY);								
 													
 													
 													
@@ -233,7 +222,7 @@
 							$_SESSION['name']=$name;
 							$_SESSION['surname']=$surname;
 							$_SESSION['answer']='Write the answer here.';
-							$_SESSION['questionComplete']=$questionComplete;
+							$_SESSION['questionComplete']=$questionCompleteARRAY;
 							$_SESSION['score']=0;
 							$_SESSION['pourcentage']=0;
 		
@@ -261,7 +250,7 @@
 		
 						
 							echo '<script>
-		alert("Welcome to e-Paradigm, ' . $_SESSION['name'] . ' ' . $_SESSION['surname'] . '.");location.href="Template/Code1.html";
+		alert("Welcome to Sci-Code, ' . $_SESSION['name'] . ' ' . $_SESSION['surname'] . $_SESSION['questionComplete'][2]['numberOfTry'] . '.");location.href="Template/Overview.php";
 		</script>';
 			
 		           }   else { 

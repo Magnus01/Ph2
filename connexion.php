@@ -164,12 +164,22 @@
 		if ($donnees7['pourcentage']>100){$_SESSION['pourcentage']=100;}
 		else {$_SESSION['pourcentage']=$donnees7['pourcentage'];}
 		$_SESSION['email']=$donnees1['email'];
-		$_SESSION['questionComplete']=$donnees8['questionComplete'];
+		 
+		//$sql = "SELECT questionComplete FROM user";
+		// $result = $databaseObject->fetch($sql);
+		$example = json_decode($donnees8['questionComplete'], true);
+		
+		
+		echo '<script>
+		alert("Wefdf, ' . $example . ' ' . $donnees8['questionComplete'] . '.");
+		</script>';
+		
+		$_SESSION['questionComplete']=     $example;                     // $donnees8['questionComplete'];
 		$_SESSION['id']=$donnees9['id'];
 		
         //echo '<script>location.href="Code1.html"</script>';
 			echo '<script>
-		alert("Welcome to e-Paradigm, ' . $_SESSION['name'] . ' ' . $_SESSION['surname'] . '.");location.href="Template/Overview.php";
+		alert("Welcome to Sci-Code, ' . $_SESSION['name'] . ' ' . $_SESSION['surname'] . '.");location.href="Template/Overview.php";
 		</script>';
 	}
 	

@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -163,7 +164,7 @@ addVectors([1, 2, 3], [3, 2, 1])</code>
                        
                       <form action="Download_system/download_system.php" method="post" >  
 			<textarea name="answerDLtest" rows="8" cols="45" ></textarea>
-			<input name="download" type="submit" value="Download" id='download'>
+			<input name="download" type="submit" value="Download" id='download'></form>
 		
                         <button id="Save" data-onboarding="codeEditor" class="btn btn-md btn-inverse">
 						
@@ -180,7 +181,7 @@ addVectors([1, 2, 3], [3, 2, 1])</code>
                         <button id="buttonz" data-onboarding="codeEditor" class="btn btn-md btn-inverse">Execute Code</button>
                         </div>
                 
-                </form>
+                
                 
                          
 

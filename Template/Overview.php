@@ -172,13 +172,13 @@
 						</section>
 
 					
-					<?php echo '<script> var ScorePour = document.getElementById(\'test\');
+			<!--		<?php echo '<script> var ScorePour = document.getElementById(\'test\');
 																   
 														test1.innerHTML = \'<blockquote>Your answer is wrong. <br/><strong> Hint : </strong>File name must be <i class="example">C2Q1.js</i>.</blockquote>\';
 														test2.innerHTML = \'<blockquote>Your answer is wrong. <br/><strong> Hint : </strong>File name must be <i class="example">C2Q1.js</i>.</blockquote>\';
 														
 														</script>';
-					?>
+					?>-->
 					
 					
 					
@@ -249,11 +249,13 @@
 			
 			var ScorePour = document.getElementById(\'Pourcentage\');
 																   
-				ScorePour.innerHTML = \'Percentage of success: <strong>' . $_SESSION['pourcentage'] . '%</strong>. Your score: <strong>' . $_SESSION['score'] . ' points</strong>.\';
+				ScorePour.innerHTML = \'Percentage of success: <strong>' . $_SESSION['pourcentage'] . '%</strong>. Your score: <strong>' . $_SESSION['score'] . ' points.</strong><br/><br/> DEBUG QuestionTest (CodePHP, code=2) : <br/> Status : ' . $_SESSION['questionComplete'][2]['status'] . '<br/>numberOfTry: ' . $_SESSION['questionComplete'][2]['numberOfTry'] . ' <br/>levelOfDifficulty: ' . $_SESSION['questionComplete'][2]['levelOfDifficulty'] . ' .\';
 			
                           
 			test1.innerHTML = \'Welcome  ' . $_SESSION['name'] . ' ' . $_SESSION['surname'] . '\'; </script>';  
        
+	  
+	   
 	   
 	  // session_destroy();
 			
