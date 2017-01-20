@@ -8,17 +8,40 @@
 
 $PostAnswer = $_POST['pyUnit'];
 
+
+
+
 $file = fopen('test.txt', 'w+');
+
 fseek($file, 0);
-fputs($file, $PostAnswer);
+
+fputs($file, nl2br("from something import string #\n") . $PostAnswer);
 fclose($file);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // assuming we have a file now... and we do
 $shell_output = shell_exec('c:/Python27/python.exe test.txt 2>&1');
+$file2 = fopen('answer.txt', 'w+');
+fseek($file2, 0);
+fputs($file2, $shell_output);
 $len = strlen($shell_output);
 $pass = TRUE;
-
+ 
 
 for($i = 0; $i < $len; $i++){
     if($shell_output[$i] == "."){

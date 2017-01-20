@@ -2,7 +2,7 @@ var editor = ace.edit("Editor");
 var t;
 var hints;
 // setting default python unit testing
-var pyUt = "# Correct Answer\ndef Qname(something):\n    return something\n\n\n# Unit Test of the Answer\nimport " +
+var pyUt = "#Start \ndef Qname(something):\n    return something\n\n\n #End\nimport " +
     "unittest\n\nclass UT(unittest.TestCase):\n    \n    \"\"\" Hint 1 placeholder (to contain hint) \"\"\"\n    " +
     "def test_ca(self):\n        self.assertIn(\"return\", string)\n    \n    \"\"\" Hint 2 placeholder (testing " +
     "result) \"\"\"\n    def test_ra(self):\n        self.assertEqual(Qname(\"hei\"), \"hei\") # Example\n\n\n# Unit " +
@@ -98,8 +98,18 @@ function generateContent(){
         type: "POST",
         url: "export.php",
         data: theJson,
-        success: function(){
-            console.log("worked.");
+        success: function(result){
+            //console.log("worked.");
+//            console.log(result)
+        }
+    });
+    $.ajax({
+        type: "POST",
+        url: "original.php",
+        data: theJson,
+        success: function(data){
+            //console.log("worked.");
+//            console.log(result)
         }
     });
 
@@ -109,8 +119,9 @@ function generateContent(){
 
 
 function importContent(){
-    $.getJSON('default.json', function(data){
-        console.log(data.title);
+
+    $.getJSON(document.getElementById("title").innerText + ".json", function(data){
+        console.log( document.getElementById("title").innerText + ".json");
 
         // update the page content
         document.getElementById("title").innerText = JSON.parse(data.title);
@@ -119,7 +130,7 @@ function importContent(){
         document.getElementById("exdesc").innerHTML = JSON.parse(data.exdesc);
 
         // import unit Testing content into pyUt variable
-        pyUt = data.unitTesting;
+        pyUt = data.unitTesting ;
 
     });
 
@@ -153,8 +164,10 @@ function unitTest(){
 
 function processHints(){
     // regex for extracting hints to an object
+//    pyUt = editor.getValue();
+    
     var regexresult = pyUt.match(/["]{3}.*["]{3}/g);
-
+console.log(regexresult);
     if (regexresult != null){
         // creating the hints object
         hints = {};

@@ -1,8 +1,8 @@
 <?php   
  Correction();
 function Correction($Chapath, $Qname) {
-echo "HELLO WORLD";
-$PostAnswer= $_POST['text1'];
+        echo "HELLO WORLD";
+        $PostAnswer= $_POST['text1'];
         echo $PostAnswer;
         $pathname2 = '' . $Chapath . '/src/' . $Qname . '.txt';
 
