@@ -1,5 +1,0 @@
-Pop = function (x) {
-    
-};
-
-
