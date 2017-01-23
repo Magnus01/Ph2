@@ -1,0 +1,58 @@
+// Course Data Structure
+{
+  "id": 1,
+
+  "title": "Linear Algebra in Python",
+  "description": "Programming of mathematical models. Linear Algebra: Systems of linear equations, vectors, matrices, transformations, determinant, eigenvalues, eigenvectors. Differential equations: Basic modeling. Solution by computer tools. Manual solution techniques for the simplest linear differential equations. The Laplace transformation. Geometry and calculus: Partial derivation. Discrete Mathematics: Mathematical logic. Set theory. Relations, graphs, trees. Mathematical induction and recurrence.",
+  "programmingLanguage": "python27",
+
+  "creationTimestamp": "",
+  "creator": "Margrethe Wold",
+
+  "exercises": [
+    {
+      "id": 1,
+      "order": 1,
+      "title": "Python Mathematical Modeling",
+      "content": "Mathematical modeling in python is a discipline within the data sciences where...",
+      "taskTitle": "Describe Mathematical Modeling",
+      "taskDescription": "In a single line comment, write the following...",
+      "level": 1,
+      "creationTimestamp": "00:00:00 - 22.01.2017",
+      "courseId": 1
+    },
+    {
+      "id": 2,
+      "order": 2,
+      "title": "Matrices in Python",
+      "content": "In our previous lecture, you saw the code xyz that...",
+      "taskTitle": "title is ...",
+      "taskDescription": "desc is ...",
+      "level": 2,
+      "creationTimestamp": "00:00:00 - 22.01.2017",
+      "courseId": 1
+    },
+    {
+      "id": 3,
+      "order": 3,
+      "title": "More about matrices",
+      "content": "Matrices can actually be very xyz",
+      "taskTitle": "title is ...",
+      "taskDescription": "desc is ...",
+      "level": 4,
+      "creationTimestamp": "00:00:00 - 22.01.2017",
+      "courseId": 1
+    },
+    {
+      "id": 4,
+      "order": 4,
+      "title": "Matrix addition in Python",
+      "content": "To add a matrix to another in python, all you have to do is add the corresponding numbers in...",
+      "taskTitle": "title is ...",
+      "taskDescription": "desc is ...",
+      "level": 4,
+      "creationTimestamp": "00:00:00 - 22.01.2017",
+      "courseId": 1
+    }
+  ]
+}
