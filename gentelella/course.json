@@ -1,4 +1,3 @@
-// Course Data Structure
 {
   "id": 1,
 
@@ -18,7 +17,7 @@
       "taskTitle": "Describe Mathematical Modeling",
       "taskDescription": "In a single line comment, write the following...",
       "level": 1,
-      "creationTimestamp": "00:00:00 - 22.01.2017",
+      "creationTimestamp": "00:00:01 - 22.01.2017",
       "courseId": 1
     },
     {
@@ -29,7 +28,7 @@
       "taskTitle": "title is ...",
       "taskDescription": "desc is ...",
       "level": 2,
-      "creationTimestamp": "00:00:00 - 22.01.2017",
+      "creationTimestamp": "00:05:33 - 22.01.2017",
       "courseId": 1
     },
     {
@@ -40,7 +39,7 @@
       "taskTitle": "title is ...",
       "taskDescription": "desc is ...",
       "level": 4,
-      "creationTimestamp": "00:00:00 - 22.01.2017",
+      "creationTimestamp": "00:22:41 - 22.01.2017",
       "courseId": 1
     },
     {
@@ -51,7 +50,7 @@
       "taskTitle": "title is ...",
       "taskDescription": "desc is ...",
       "level": 4,
-      "creationTimestamp": "00:00:00 - 22.01.2017",
+      "creationTimestamp": "00:45:03 - 22.01.2017",
       "courseId": 1
     }
   ]

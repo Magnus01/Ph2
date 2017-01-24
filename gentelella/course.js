@@ -1,10 +1,36 @@
-// import JSON
-var course;
+// import data model
+//var course = getCourseInfo('course.json');
+var startTime = Date.now();
+$.getJSON( "course.json", function(data) {
+    console.log(data);
 
-$.getJSON( "course.json", function( data ) {
-    course = data;
-    console.log(course);
+    // render course information to the DOM
+    document.getElementById('courseTitle').innerText = data.title;
+
+    // render exercises to the DOM
+    for (var i = 0; i < data.exercises.length; i++) {
+        console.log(data.exercises[i]);
+        document.getElementById('exercises').appendChild(
+            renderExercise(
+                data.exercises[i].title,
+                data.exercises[i].content,
+                "http://www.google.com",
+                data.exercises[i].creationTimestamp
+            )
+        );
+    }
+}).done(function(data) {
+    // track the time it takes to load in the model to the view
+    console.log("Load/Render time: " + (Date.now()-startTime).toString());
 });
+
+
+/*function getCourseInfo(srcFile) {
+    $.getJSON(srcFile, function( data ) {
+        console.log(data);
+        course = data;
+    });
+}*/
 
 /*
 <li>
@@ -29,55 +55,55 @@ $.getJSON( "course.json", function( data ) {
 </li>
 */
 
-var exeditLink, extitle, exupdated, exdesc;
-exeditLink = "#";
-extitle = "title";
-exupdated = "updated";
-exdesc = "description";
+function renderExercise(title, description, link, updated) {
 
-var exercise = document.createElement('li');
-
-var block = document.createElement('div');
-block.setAttribute('class', 'block');
+// LIST ELEMENT
+    var exercise = document.createElement('li');
+    var block = document.createElement('div');
+    block.setAttribute('class', 'block');
 
 // TAGS
-var tags = document.createElement('div');
-tags.setAttribute('class', 'tags');
+    var tags = document.createElement('div');
+    tags.setAttribute('class', 'tags');
 
-var tag = document.createElement('a');
-tag.setAttribute('href', exeditLink);
-tag.setAttribute('class', 'tag');
+    var tag = document.createElement('a');
+    tag.setAttribute('href', link);
+    tag.setAttribute('class', 'tag');
 
-var tagtext = document.createElement('span');
-tagtext.innerText = 'Edit';
+    var tagtext = document.createElement('span');
+    tagtext.innerText = 'Edit';
 
-tag.appendChild(tagtext);
-tags.appendChild(tag);
-block.appendChild(tags);
+    tag.appendChild(tagtext);
+    tags.appendChild(tag);
+    block.appendChild(tags);
 
-var blockContent = document.createElement('class', 'block_content');
+    var blockContent = document.createElement('class', 'block_content');
 
 // TITLE
-var title = document.createElement('h2');
-var titletext = document.createElement('a');
-titletext.innerText = extitle;
+    var exTitle = document.createElement('h2');
+    var exTitletext = document.createElement('a');
+    exTitletext.innerText = title;
 
-title.appendChild(titletext);
-blockContent.appendChild(title);
+    exTitle.appendChild(exTitletext);
+    blockContent.appendChild(exTitle);
 
 // UPDATE TIME
-var update = document.createElement('div');
-var updatetext = document.createElement('span');
-updatetext.innerText = exupdated;
+    var update = document.createElement('div');
+    var updatetext = document.createElement('span');
+    updatetext.innerText = updated;
 
-update.appendChild(updatetext);
-blockContent.appendChild(update);
+    update.appendChild(updatetext);
+    blockContent.appendChild(update);
 
 // DESCRIPTION
-var description = document.createElement('p');
-description.setAttribute('class', 'excerpt');
-description.innerText = exdesc;
+    var exDescription = document.createElement('p');
+    exDescription.setAttribute('class', 'excerpt');
+    exDescription.innerText = description;
 
-blockContent.appendChild(description);
-block.appendChild(blockContent);
-exercise.appendChild(block);
+    blockContent.appendChild(exDescription);
+    block.appendChild(blockContent);
+    exercise.appendChild(block);
+
+    return exercise;
+}
+
