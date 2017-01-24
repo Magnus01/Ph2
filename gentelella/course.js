@@ -24,37 +24,6 @@ $.getJSON( "course.json", function(data) {
     console.log("Load/Render time: " + (Date.now()-startTime).toString());
 });
 
-
-/*function getCourseInfo(srcFile) {
-    $.getJSON(srcFile, function( data ) {
-        console.log(data);
-        course = data;
-    });
-}*/
-
-/*
-<li>
-    <div class="block">
-        <div class="tags">
-            <a href="" class="tag">
-                <span>Edit</span>
-            </a>
-        </div>
-        <div class="block_content">
-            <h2 class="title">
-                <a>title</a>
-            </h2>
-            <div class="byline">
-                <span>updated 13 hours ago</span> by <a>Jane Smith</a>
-            </div>
-            <p class="excerpt">
-                description
-            </p>
-        </div>
-    </div>
-</li>
-*/
-
 function renderExercise(title, description, link, updated) {
 
 // LIST ELEMENT
