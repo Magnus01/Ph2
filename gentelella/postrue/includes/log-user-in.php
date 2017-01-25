@@ -15,6 +15,7 @@ if ( isset($_POST) && !empty($_POST) )
     {
         $email      =  filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
         $password   =  $_POST['password'];
+        
 
         if ($Model->signIn( $email, $password )) 
         {   

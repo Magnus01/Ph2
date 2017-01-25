@@ -52,7 +52,7 @@ require __DIR__. '../includes/sign-user-up.php'; //kind of controller for the lo
                 
                 <div class="input-field col s10 offset-s1">
                     <input type="text" name="type" id="type" class="validate">
-                    <label for="type">Your type</label>
+                    <label for="type">Enter type</label>
 
                     <span class="red lighten-5"><?= isset($_SESSION['error_type']) && !empty($_SESSION['error_type']) ? $_SESSION['error_type']: ''?></span>
                     <?php session::destroy('error_type') ?>
@@ -60,7 +60,7 @@ require __DIR__. '../includes/sign-user-up.php'; //kind of controller for the lo
                 
                 <div class="input-field col s10 offset-s1">
                     <input type="text" name="name" id="name" class="validate">
-                    <label for="name">Your name</label>
+                    <label for="name">Enter name</label>
 
                     <span class="red lighten-5"><?= isset($_SESSION['error_name']) && !empty($_SESSION['error_name']) ? $_SESSION['error_name']: ''?></span>
                     <?php session::destroy('error_name') ?>
@@ -68,11 +68,12 @@ require __DIR__. '../includes/sign-user-up.php'; //kind of controller for the lo
                 
                 <div class="input-field col s10 offset-s1">
                     <input type="text" name="surname" id="surname" class="validate">
-                    <label for="surname">Your surname</label>
+                    <label for="surname">Enter surname</label>
 
                     <span class="red lighten-5"><?= isset($_SESSION['error_surname']) && !empty($_SESSION['error_surname']) ? $_SESSION['error_surname']: ''?></span>
                     <?php session::destroy('error_surname') ?>
                 </div>
+                
 
                 <div class="row">
                     <div class="col s11 offset-s1 center-align">

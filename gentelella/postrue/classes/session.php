@@ -18,6 +18,9 @@ class session
     public static function set ($key,$value)
     {
         $_SESSION[$key] = $value;
+      
+        console_log($value . "value");
+        console_log($key . "key");
         return true;
     }
 

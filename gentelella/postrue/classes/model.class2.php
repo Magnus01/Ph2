@@ -51,49 +51,44 @@
         public function signIn( $email, $password )
         {
             $query = $this->db->prepare( " SELECT email, password 
-                                        FROM User
+                                        FROM User 
                                         WHERE email = ?
                                     " );
-            
-         
             if ($query->execute(array($email)))
             {
-                
                 $query->setFetchMode(PDO::FETCH_OBJ);
                 $fetchedData = $query->fetch();
-                console_log($fetchedData->password . "fetchedData");
-                
-                
+                console_log(isset($fetchedData->password));
                 $digest = isset($fetchedData->password) ? $fetchedData->password : null;
-                console_log($digest . "digest");
                 if (!is_null($digest)) {
-                    console_log(crypt($password, $digest) . "digest2");
-                    return $digest === crypt($password, $digest);
-                   
-                
-               
+                    console_log($password . " " . " PASSWORD REAL");
+                    console_log($digest . " " . " DIGEST");
                     
-                
-                
+                    console_log(crypt($password, $digest) . " " . "PASSWORD digest and crypt");
+                    console_log(crypt($digest) . " " . "digest");
+                    console_log(crypt($password) . " " . "PASSWORD ");
+                    console_log(crypt(1) . " " . "1");
+                    console_log(crypt("1", $digest) . " " . "1 string and digest");
+                    console_log(crypt(1, $digest) . " ". "1 and digest");
+//                    return $digest === $password;
+                    
+//                    console_log($digest);
+//                    console_log(crypt($password, $digest));
+                    return $digest === crypt($password, $digest);
+//                   
+                    
                 }else{
-                                        console_log("false1");
                     return false;
-
                 }
             }else{
-                   console_log("false2");
                 return false;
-            
             }
 
         }
-        
-         
-        
 
         public function emailAlreadyUsed( $email )
         {
-            $query = $this->db->prepare("SELECT COUNT(*) AS num FROM User WHERE email = ?");
+            $query = $this->db->prepare("SELECT COUNT(*) AS num FROM users WHERE user_email = ?");
             if ($query->execute(array($email)))
             {
                 $query->setFetchMode(PDO::FETCH_OBJ);
@@ -107,11 +102,13 @@
         }
 
 
-        public function addUser($email, $password, $type, $name, $surname)
+        
+      
+        public function addUser($email, $password)
         {
             if (!empty($email) && !empty($password)) {
-                $query = $this->db->prepare("INSERT INTO User (email, password, type, name, surname)  VALUES(?,?,?,?,?) ");
-                return $query->execute(array($email, $this->hash_password($password), $type, $name, $surname));
+                $query = $this->db->prepare("INSERT INTO users (user_email, user_password, date_signed_up)  VALUES(?,?,?) ");
+                return $query->execute(array($email, $this->hash_password($password), time()));
             }else{
                 return false;
             }

@@ -1,5 +1,5 @@
 <?php
-require __DIR__. '/../config/dbconnect.php'; // database connection
+require __DIR__. '/../config2/dbconnect.php'; // database connection
 require __DIR__. '/../classes/model.class.php'; // Model
 
 
@@ -10,14 +10,18 @@ session::init();
 
 if ( isset($_POST) && !empty($_POST) ) 
 {
-
+    
     if ( !$return = $Model->validateForm($_POST)  ) 
     {
         $email      =  filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
         $password   =  $_POST['password'];
+        console_log($password . " " . "password");
+    
 
-        if ($Model->signIn( $email, $password )) 
+        if ($Model->signIn($email, $password)) 
         {   
+               
+            
           
             session::set('user_session', $email);
             
@@ -34,3 +38,7 @@ if ( isset($_POST) && !empty($_POST) )
 
 
 }
+
+
+
+

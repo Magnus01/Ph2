@@ -1,5 +1,10 @@
 <?php
 
+function console_log( $data ){
+  echo '<script>';
+  echo 'console.log('. json_encode( $data ) .')';
+  echo '</script>';
+}
 class Config extends PDO{
 
         public $db;
@@ -8,7 +13,7 @@ class Config extends PDO{
 
         private $db_user = 'root';
         private $db_password = 'mysql';
-        private $db_base = 'membership';
+        private $db_base = 'mydb';
 
         function __construct()
         {
@@ -18,6 +23,7 @@ class Config extends PDO{
             }  
             catch (PDOException $e){
                 $e->getMessage();
+                console_log(array('outcome' => false, 'message' => 'Unable to connect'));
                  // die(json_encode(array('outcome' => false, 'message' => 'Unable to connect')));
             }
         }

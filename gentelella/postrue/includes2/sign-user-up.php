@@ -1,6 +1,6 @@
 <?php
     require __DIR__. '/../config/dbconnect.php'; // database connection
-    require __DIR__. '/../classes/model.class.php'; // Model
+    require __DIR__. '/../classes/model.class2.php'; // Model
 require __DIR__. '/../classes/session.php'; // Model
 
     $dbhandler = new Config() ;
