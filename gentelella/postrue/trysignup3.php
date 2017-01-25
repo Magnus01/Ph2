@@ -2,11 +2,13 @@
 session_start(); 
 require __DIR__. '../includes2/header.php'; 
 require __DIR__. '../includes/sign-user-up.php'; //kind of controller for the login
- isset($_SESSION['user_session']) ? header("location:dashboard2.php"):null;
+ isset($_SESSION['user_session']) ? header("location:dashboards.php"):null;
 
 ?>
+<!--
 	<section id="main" class="wrapper">
 				<div class="container">
+-->
 
 					<header class="major">
 						<h2>Subscription page</h2>

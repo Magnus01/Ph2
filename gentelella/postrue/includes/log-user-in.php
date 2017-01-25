@@ -16,11 +16,13 @@ if ( isset($_POST) && !empty($_POST) )
         $email      =  filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
         $password   =  $_POST['password'];
         
+        
 
-        if ($Model->signIn( $email, $password )) 
+        if ($Model->signIn( $email, $password)) 
         {   
+            
           
-            session::set('user_session', $email);
+            session::set('user_session', $id);
             
               isset($_SESSION['user_session']) ? header("location:dashboard2.php"):null;
         }else{

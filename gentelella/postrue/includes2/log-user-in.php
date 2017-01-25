@@ -15,17 +15,22 @@ if ( isset($_POST) && !empty($_POST) )
     {
         $email      =  filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
         $password   =  $_POST['password'];
+
+        
         console_log($password . " " . "password");
+       $id = $Model->getId($email);
+            console_log($id . "id??");
+            
     
 
-        if ($Model->signIn($email, $password)) 
+        if ($Model->signIn($email, $password, $id)) 
         {   
                
             
           
-            session::set('user_session', $email);
+            session::set('user_session', $id);
             
-              isset($_SESSION['user_session']) ? header("location:dashboard2.php"):null;
+              isset($_SESSION['user_session']) ? header("location:dashboards.php"):null;
         }else{
             session::set('login_issue', "Can't log you in. check your details.");
         }

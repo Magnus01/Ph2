@@ -46,11 +46,27 @@
                 return false;
             }
         }
+        
+        public function getId($email) 
+        {
+            $query = $this->db->prepare( " SELECT id 
+                                        FROM User
+                                        WHERE email = ?
+                                    " );
+              if ($query->execute(array($email)))
+            {
+                
+                $query->setFetchMode(PDO::FETCH_OBJ);
+                $fetchedData = $query->fetch();
+                return $fetchedData->id;
+            
+            
+        }}
 
 
         public function signIn( $email, $password )
         {
-            $query = $this->db->prepare( " SELECT email, password 
+            $query = $this->db->prepare( " SELECT email, password, id 
                                         FROM User
                                         WHERE email = ?
                                     " );
@@ -61,27 +77,21 @@
                 
                 $query->setFetchMode(PDO::FETCH_OBJ);
                 $fetchedData = $query->fetch();
-                console_log($fetchedData->password . "fetchedData");
+              
                 
+//                console_log($fetchedData->id . "fetchedData");
+//                    
                 
                 $digest = isset($fetchedData->password) ? $fetchedData->password : null;
-                console_log($digest . "digest");
                 if (!is_null($digest)) {
-                    console_log(crypt($password, $digest) . "digest2");
+//                    return $digest === crypt($password);
                     return $digest === crypt($password, $digest);
                    
-                
-               
-                    
-                
-                
                 }else{
-                                        console_log("false1");
                     return false;
 
                 }
             }else{
-                   console_log("false2");
                 return false;
             
             }
@@ -116,4 +126,15 @@
                 return false;
             }
         }
+        
+         public function addCourse($User_id, $title)
+        {
+            if (!empty($Course)) {
+                $query = $this->db->prepare("INSERT IGNORE INTO Course (User_id)  VALUES(?) ");
+                return $query->execute(array($User_id));
+            }else{
+                return false;
+            }
+        }
+        
     }

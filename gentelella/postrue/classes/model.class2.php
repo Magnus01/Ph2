@@ -61,6 +61,7 @@
                 console_log(isset($fetchedData->password));
                 $digest = isset($fetchedData->password) ? $fetchedData->password : null;
                 if (!is_null($digest)) {
+                    
                     console_log($password . " " . " PASSWORD REAL");
                     console_log($digest . " " . " DIGEST");
                     
