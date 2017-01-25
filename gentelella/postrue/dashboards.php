@@ -290,12 +290,8 @@ console_log($_SESSION['user_session']);
 					<div class="row">
 						<div class="col-sm-6">
                           <div id ="hrefS"></div>
-                            <?php 
-                            echo '<script>var id = document.getElementById(\'hrefS\');
-                            alert("cooco");alert(id);id.innerHTML = \'<a hrefSs="./includes2/addcourse.php?user_id=' . $_SESSION['user_session'] . '"></a>\';
-                            </script>';
-                            ?>
-<!--							<a href="./includes2/addcourse.php?user_id= . $_SESSION['user_session']">-->
+                            <a href="./includes2/addcourse.php">
+
                             
 								<div class="topic image">
 									<span>JavaScript Programming</span>
