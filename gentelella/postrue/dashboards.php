@@ -204,12 +204,36 @@ if(isset($_POST['titlez'])&&isset($_POST['commentz'])){
 				<!-- Courses -->
 				<div id="courses" class="active" data-tab-content="courses">
 					            <div class="x_panel">
-    
+    <div class="row">
+                        
+						
                 
               <div class="x_content">
                 
          <h4>Course Creation </h4> 
+                  
                    <p class="font-gray-dark">
+                       <div class="col-sm-6">
+                         
+                            <a href="./includes2/addcourse.php">
+
+                            
+								<div class="topic image">
+									<span> </span>
+									
+									<img alt="Introduction to R" src="./images/AAEAAQAAAAAAAAQFAAAAJGQ4ZjEwMzdmLWY0N2QtNDdkNy04NTlhLTM0NWFjZmM3MmQzYQ.png">
+								</div>
+							
+						</div>
+						<div class="col-sm-6">
+							<a href="#">
+								<div class="topic image">
+									<span>Python Programming</span>
+									
+									<img alt="Intro to Python for Data Science" src="./images/AAEAAQAAAAAAAAQFAAAAJGQ4ZjEwMzdmLWY0N2QtNDdkNy04NTlhLTM0NWFjZmM3MmQzYQ.png">
+								</div>
+							</a>
+						</div>
                        <?php
 //if the notice is set then display it
 if(isset($notice)){echo $notice;} ?>
