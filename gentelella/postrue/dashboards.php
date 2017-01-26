@@ -1,16 +1,32 @@
 <?php 
+    require __DIR__. './config2/dbconnect.php'; // database connection
+    require __DIR__. './classes/model.class.php'; // Model
+require __DIR__. './classes/session.php'; // Model
 
-require __DIR__. '/classes/session.php';
-session::init();
+    $dbhandler = new Config() ;
+    $Model = new Model($dbhandler);
+session_start(); 
 
         
-        !isset($_SESSION['user_session']) ? header("location:connection.php"):null;
-function console_log( $data ){
-  echo '<script>';
-  echo 'console.log('. json_encode( $data ) .')';
-  echo '</script>';
-}
-console_log($_SESSION['user_session']);
+!isset($_SESSION['user_session']) ? header("location:connection.php"):null;
+
+
+if(isset($_POST['titlez'])&&isset($_POST['commentz'])){
+
+    $title = htmlentities($_POST['titlez']);
+    $notice = '<p>New Course created '.$title;
+    $description = htmlentities($_POST['commentz']);
+//    $description = mysqli_real_escape_string(htmlentities($_POST['comment']));
+    $User_id= $_SESSION['user_session'];
+    console_log($title . "title");
+    console_log($description . "descr");
+    console_log($User_id . "User");
+    //check if page already exists
+    $Model->addCourse($id, $title, $description, $User_id);
+
+    }
+
+
     ?>
 
    
@@ -97,6 +113,8 @@ console_log($_SESSION['user_session']);
                   <li><a><i class="fa fa-edit"></i> Create New Exercise! <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="form.html">Choose Course</a></li>
+                        <li><a href="dosomething3.php">Thisone</a></li>
+                        
 <!--
                       <li><a href="form_advanced.html">Advanced Components</a></li>
                       <li><a href="form_validation.html">Form Validation</a></li>
@@ -166,102 +184,7 @@ console_log($_SESSION['user_session']);
           </div>
         </div>
 
-        <!-- top navigation -->
-        <div class="top_nav">
-          <div class="nav_menu">
-            <nav class="" role="navigation">
-              <div class="nav toggle">
-                <a id="menu_toggle"><i class="fa fa-bars"></i></a>
-              </div>
-
-              <ul class="nav navbar-nav navbar-right">
-                <li class="">
-                  <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                    <img src="images/img.jpg" alt="">Margarethe Wold
-                    <span class=" fa fa-angle-down"></span>
-                  </a>
-                  <ul class="dropdown-menu dropdown-usermenu pull-right">
-                    <li><a href="javascript:;"> Profile</a></li>
-                    <li>
-                      <a href="javascript:;">
-                        <span class="badge bg-red pull-right">50%</span>
-                        <span>Settings</span>
-                      </a>
-                    </li>
-                    <li><a href="javascript:;">Help</a></li>
-
-                    <li>  <a href="logout.php" class="waves-effect waves-light btn">Log out</a></li>
-                  </ul>
-                </li>
-
-                <li role="presentation" class="dropdown">
-                  <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
-                    <i class="fa fa-envelope-o"></i>
-                    <span class="badge bg-green">6</span>
-                  </a>
-                  <ul id="menu1" class="dropdown-menu list-unstyled msg_list" role="menu">
-                    <li>
-                      <a>
-                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
-                        <span>
-                          <span>John Smith</span>
-                          <span class="time">3 mins ago</span>
-                        </span>
-                        <span class="message">
-                          Film festivals used to be do-or-die moments for movie makers. They were where...
-                        </span>
-                      </a>
-                    </li>
-                    <li>
-                      <a>
-                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
-                        <span>
-                          <span>John Smith</span>
-                          <span class="time">3 mins ago</span>
-                        </span>
-                        <span class="message">
-                          Film festivals used to be do-or-die moments for movie makers. They were where...
-                        </span>
-                      </a>
-                    </li>
-                    <li>
-                      <a>
-                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
-                        <span>
-                          <span>John Smith</span>
-                          <span class="time">3 mins ago</span>
-                        </span>
-                        <span class="message">
-                          Film festivals used to be do-or-die moments for movie makers. They were where...
-                        </span>
-                      </a>
-                    </li>
-                    <li>
-                      <a>
-                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
-                        <span>
-                          <span>John Smith</span>
-                          <span class="time">3 mins ago</span>
-                        </span>
-                        <span class="message">
-                          Film festivals used to be do-or-die moments for movie makers. They were where...
-                        </span>
-                      </a>
-                    </li>
-                    <li>
-                      <div class="text-center">
-                        <a>
-                          <strong>See All Alerts</strong>
-                          <i class="fa fa-angle-right"></i>
-                        </a>
-                      </div>
-                    </li>
-                  </ul>
-                </li>
-              </ul>
-            </nav>
-          </div>
-        </div>
+       
         <!-- /top navigation -->
 
      <!-- page content -->
@@ -270,7 +193,7 @@ console_log($_SESSION['user_session']);
             
         	<section class="home--learn">
 			<div class="container text-center coures-container">
-				<h2>Our course outline</h2>
+				<h2>Create Course</h2>
 
 <!-- 				Switch with JS for SEO
 				<div data-tabs="">
@@ -280,15 +203,56 @@ console_log($_SESSION['user_session']);
 
 				<!-- Courses -->
 				<div id="courses" class="active" data-tab-content="courses">
+					            <div class="x_panel">
+    
+                
+              <div class="x_content">
+                
+         <h4>Course Creation </h4> 
+                   <p class="font-gray-dark">
+                       <?php
+//if the notice is set then display it
+if(isset($notice)){echo $notice;} ?>
+<form method="POST" action="" class="form-inline">
+      <div class="form-group">
+  <p>Course:<input type="text" name="titlez" class="form-control" size="31"></p>
+    </div>
+     <div class="form-group">
+   <div class="form-group">
+  <p>Description:<input type="text" name="commentz" class="form-control" size="31"></p>
+    </div>
+     <div class="form-group">
+  <p><input type="submit" value="Submit"></p>
+    </div>
+</form>
+                  
+<!--
+                  
+               
+                  For making labels vertical you have two options, either use the apropiate grid <b>.col-</b> class or wrap the form in the <b>form-vertical</b> class.
+                </p>
+                
+                
+                    <label for="ex3">Course</label>
+                    <input type="text" name="titlez" class="form-control" placeholder=" ">
+                  </div>
+                  <div class="form-group">
+                    <label for="ex4" name ="commentz">Description</label>
+                    <input type="text" value="Write a brief description" class="form-control" placeholder=" ">
+                     
+                  </div>
+                   <div class="form-group">
+                   <p><input type="submit" value="Submit"></p>
+-->
+              </div>
+              </div>
+                
+            </div>
+<!--
 					<div class="row">
-						<div class="col-sm-6 col-sm-offset-3">
-							<p>Do you already know what you want to learn? Take one of
-								our dedicated courses in a range of topics.</p>
-						</div>
-					</div>
-					<div class="row">
+                        
 						<div class="col-sm-6">
-                          <div id ="hrefS"></div>
+                         
                             <a href="./includes2/addcourse.php">
 
                             
@@ -310,7 +274,8 @@ console_log($_SESSION['user_session']);
 						</div>
 						
 				
-
+                        </div>
+-->
 
 
 						<!-- !Hardcoding Conway -->
@@ -325,33 +290,7 @@ console_log($_SESSION['user_session']);
 		</section>
 
 
-            <div class="x_panel">
-    
-                
-              <div class="x_content">
-                <h4>Inline Form </h4>
-                <p class="font-gray-dark">
-                  For making labels vertical you have two options, either use the apropiate grid <b>.col-</b> class or wrap the form in the <b>form-vertical</b> class.
-                </p>
-                <form class="form-inline">
-                  <div class="form-group">
-                    <label for="ex3">Email address</label>
-                    <input type="text" id="ex3" class="form-control" placeholder=" ">
-                  </div>
-                  <div class="form-group">
-                    <label for="ex4">Email address</label>
-                    <input type="email" id="ex4" class="form-control" placeholder=" ">
-                  </div>
-                  <div class="checkbox">
-                    <label>
-                      <input type="checkbox"> Remember me
-                    </label>
-                  </div>
-                  <button type="submit" class="btn btn-default">Send invitation</button>
-                </form>                
-              </div>
-                
-            </div>
+
           </div>
         </div>
         <!-- /page content -->
@@ -406,104 +345,15 @@ console_log($_SESSION['user_session']);
     <script src="../build/js/custom.min.js"></script>
 
     <!-- Flot -->
-    <script>
-      $(document).ready(function() {
-        var data1 = [
-          [gd(2012, 1, 1), 17],
-          [gd(2012, 1, 2), 74],
-          [gd(2012, 1, 3), 6],
-          [gd(2012, 1, 4), 39],
-          [gd(2012, 1, 5), 20],
-          [gd(2012, 1, 6), 85],
-          [gd(2012, 1, 7), 7]
-        ];
-
-        var data2 = [
-          [gd(2012, 1, 1), 82],
-          [gd(2012, 1, 2), 23],
-          [gd(2012, 1, 3), 66],
-          [gd(2012, 1, 4), 9],
-          [gd(2012, 1, 5), 119],
-          [gd(2012, 1, 6), 6],
-          [gd(2012, 1, 7), 9]
-        ];
-        $("#canvas_dahs").length && $.plot($("#canvas_dahs"), [
-          data1, data2
-        ], {
-          series: {
-            lines: {
-              show: false,
-              fill: true
-            },
-            splines: {
-              show: true,
-              tension: 0.4,
-              lineWidth: 1,
-              fill: 0.4
-            },
-            points: {
-              radius: 0,
-              show: true
-            },
-            shadowSize: 2
-          },
-          grid: {
-            verticalLines: true,
-            hoverable: true,
-            clickable: true,
-            tickColor: "#d5d5d5",
-            borderWidth: 1,
-            color: '#fff'
-          },
-          colors: ["rgba(38, 185, 154, 0.38)", "rgba(3, 88, 106, 0.38)"],
-          xaxis: {
-            tickColor: "rgba(51, 51, 51, 0.06)",
-            mode: "time",
-            tickSize: [1, "day"],
-            //tickLength: 10,
-            axisLabel: "Date",
-            axisLabelUseCanvas: true,
-            axisLabelFontSizePixels: 12,
-            axisLabelFontFamily: 'Verdana, Arial',
-            axisLabelPadding: 10
-          },
-          yaxis: {
-            ticks: 8,
-            tickColor: "rgba(51, 51, 51, 0.06)",
-          },
-          tooltip: false
-        });
-
-        function gd(year, month, day) {
-          return new Date(year, month - 1, day).getTime();
-        }
-      });
-    </script>
+   
     <!-- /Flot -->
-
+        <script>
+        </script>
     <!-- jVectorMap -->
     <script src="js/maps/jquery-jvectormap-world-mill-en.js"></script>
     <script src="js/maps/jquery-jvectormap-us-aea-en.js"></script>
     <script src="js/maps/gdp-data.js"></script>
-    <script>
-      $(document).ready(function(){
-        $('#world-map-gdp').vectorMap({
-          map: 'world_mill_en',
-          backgroundColor: 'transparent',
-          zoomOnScroll: false,
-          series: {
-            regions: [{
-              values: gdpData,
-              scale: ['#E6F2F0', '#149B7E'],
-              normalizeFunction: 'polynomial'
-            }]
-          },
-          onRegionTipShow: function(e, el, code) {
-            el.html(el.html() + ' (GDP - ' + gdpData[code] + ')');
-          }
-        });
-      });
-    </script>
+   
     <!-- /jVectorMap -->
 
     <!-- Skycons -->
@@ -528,51 +378,12 @@ console_log($_SESSION['user_session']);
     <!-- /Skycons -->
 
     <!-- Doughnut Chart -->
-    <script>
-      $(document).ready(function(){
-        var options = {
-          legend: false,
-          responsive: false
-        };
-
-        new Chart(document.getElementById("canvas1"), {
-          type: 'doughnut',
-          tooltipFillColor: "rgba(51, 51, 51, 0.55)",
-          data: {
-            labels: [
-              "Symbian",
-              "Blackberry",
-              "Other",
-              "Android",
-              "IOS"
-            ],
-            datasets: [{
-              data: [15, 20, 30, 10, 30],
-              backgroundColor: [
-                "#BDC3C7",
-                "#9B59B6",
-                "#E74C3C",
-                "#26B99A",
-                "#3498DB"
-              ],
-              hoverBackgroundColor: [
-                "#CFD4D8",
-                "#B370CF",
-                "#E95E4F",
-                "#36CAAB",
-                "#49A9EA"
-              ]
-            }]
-          },
-          options: options
-        });
-      });
-    </script>
+  
     <!-- /Doughnut Chart -->
     
     <!-- bootstrap-daterangepicker -->
     <script>
-      $(docume  nt).ready(function() {
+      $(document).ready(function() {
 
         var cb = function(start, end, label) {
           console.log(start.toISOString(), end.toISOString(), label);
