@@ -151,6 +151,24 @@
             }
         }
 
+        public function getExercises($Course_id) {
+            $query = $this->db->prepare( "SELECT * FROM `Exercise` WHERE `Course_id`=?" );
+            if ($query->execute(array($Course_id)))
+            {
+                $exercises = array();
+
+                $query->setFetchMode(PDO::FETCH_OBJ);
+                while($row = $query->fetch()) {
+                    array_push($exercises, $row);
+                    //var_dump($row);
+                }
+
+                return $exercises;
+
+
+            }
+        }
+
         public function addExercise($title, $content, $tasktitle, $taskdescription, $level, $User_id, $Course_id)
         {
 

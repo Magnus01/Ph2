@@ -1,5 +1,6 @@
 // import data model
 //var course = getCourseInfo('course.json');
+/*
 var startTime = Date.now();
 
 $.getJSON( "course.json", function(data) {
@@ -24,6 +25,51 @@ $.getJSON( "course.json", function(data) {
     // track the time it takes to load in the model to the view
     console.log("Load/Render time: " + (Date.now()-startTime).toString());
 });
+*/
+
+
+// DATABASE FETCHING
+// Assign handlers immediately after making the request,
+// and remember the jqxhr object for this request
+var jqxhr = $.get( "course.php", function(data) {
+
+    data = JSON.parse(data);
+
+    // render course information to the DOM
+    document.getElementById('courseTitle').innerText = data.title;
+
+    // render exercises to the DOM
+    for (var i = 0; i < data.exercises.length; i++) {
+        console.log(data.exercises[i]);
+        document.getElementById('exercises').appendChild(
+            renderExercise(
+                data.exercises[i].title,
+                data.exercises[i].content,
+                "../generate-content/",
+                data.exercises[i].creationTimestamp
+            )
+        );
+    }
+})
+    .done(function() {
+        //alert( "second success" );
+    })
+    .fail(function() {
+        alert( "error" );
+    })
+    .always(function() {
+        //alert( "finished" );
+    });
+
+// Perform other work here ...
+
+// Set another completion function for the request above
+jqxhr.always(function() {
+    //alert( "second finished" );
+});
+
+
+
 
 function renderExercise(title, description, link, updated) {
 

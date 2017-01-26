@@ -274,7 +274,8 @@
             <div class="">
                 <div class="page-title">
                     <div class="title_left">
-                        <h3 id="courseTitle">[CourseTitle]</h3>
+                        <h3 id="courseTitle"></h3>
+                        <!--<h3 id="course">{{title}}</h3>-->
                     </div>
 
                     <div class="title_right">
@@ -446,7 +447,20 @@
 <!-- /Custom Notification -->
 
 <!-- my own scrip SF -->
+<script src="vue.min.js"></script>
 <script src="course.js"></script>
+
+<script>
+    // VUE IMPLEMENTATION
+    new Vue({
+        el: '#course',
+        data: {
+            message: 'Hello Vue!',
+            title: 'Math 2 Course'
+        }
+    });
+
+</script>
 
 </body>
 </html>
