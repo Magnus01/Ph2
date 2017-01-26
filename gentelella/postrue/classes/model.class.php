@@ -139,7 +139,7 @@
 
         public function getExerciseOrder($CourseId)
         {
-            $query = $this->db->prepare( " SELECT COUNT(order) FROM Exercise WHERE course_id = ?" );
+            $query = $this->db->prepare( " SELECT COUNT(`order`) FROM Exercise WHERE course_id = ?" );
             if ($query->execute(array($CourseId)))
             {
 
