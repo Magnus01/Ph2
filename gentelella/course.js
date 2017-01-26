@@ -1,6 +1,7 @@
 // import data model
 //var course = getCourseInfo('course.json');
 var startTime = Date.now();
+
 $.getJSON( "course.json", function(data) {
     console.log(data);
 
@@ -14,7 +15,7 @@ $.getJSON( "course.json", function(data) {
             renderExercise(
                 data.exercises[i].title,
                 data.exercises[i].content,
-                "http://www.google.com",
+                "../generate-content/",
                 data.exercises[i].creationTimestamp
             )
         );

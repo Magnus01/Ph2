@@ -1,7 +1,7 @@
 {
   "id": 1,
 
-  "title": "Linear Algebra in Python",
+  "title": "Math 2 Course",
   "description": "Programming of mathematical models. Linear Algebra: Systems of linear equations, vectors, matrices, transformations, determinant, eigenvalues, eigenvectors. Differential equations: Basic modeling. Solution by computer tools. Manual solution techniques for the simplest linear differential equations. The Laplace transformation. Geometry and calculus: Partial derivation. Discrete Mathematics: Mathematical logic. Set theory. Relations, graphs, trees. Mathematical induction and recurrence.",
   "programmingLanguage": "python27",
 

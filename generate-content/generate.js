@@ -137,7 +137,6 @@ function importContent(){
 }
 
 
-
 function unitTest(){
 
     // remove tag attribute
@@ -212,4 +211,54 @@ function execUnitTest(){
         }
     });
 
+}
+
+
+function postToDatabase(){
+
+    // get content
+    var title = JSON.stringify(document.getElementById("title").innerText);
+    var tutorial = JSON.stringify(document.getElementById("tutorial").innerHTML);
+    var extitle = JSON.stringify(document.getElementById("extitle").innerText);
+    var exdesc = JSON.stringify(document.getElementById("exdesc").innerHTML);
+
+    // display the content
+    /*alert(title);
+     alert(tutorial);
+     alert(extitle);
+     alert(exdesc);*/
+
+    // regex hints
+    processHints();
+
+    // generate content
+    var theJson = {
+        title: title,
+        content: tutorial,
+        tasktitle: extitle,
+        taskdescription: exdesc,
+        unitTesting: pyUt,
+        hints: hints
+    };
+
+    /*$.ajax({
+        type: "POST",
+        url: "export.php",
+        data: theJson,
+        success: function(result){
+            //console.log("worked.");
+//            console.log(result)
+        }
+    });*/
+    $.ajax({
+        type: "POST",
+        url: "postToDatabase.php",
+        data: theJson,
+        success: function(data){
+            console.log(data);
+        }
+    });
+
+
+    //alert(theJson);
 }
