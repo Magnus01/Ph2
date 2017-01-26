@@ -43,28 +43,13 @@
             </a>
             <div class="navigation--buttons-center"
                  data-onboarding="button-center">
-                <a class="navbar--title" href="/"> </a><a href=""
-                    tooltip-append-to-body="true" ng-click="previousExercise()"
-                    ng-hide="isFirstExercise" button-shortcut="ctrl+j"
-                    tooltip="Previous Exercise (Ctrl+J)" tooltip-placement="bottom"
-                    class="navigation--left"> <i class="fa fa-chevron-left"></i></a>
-                <a href="" tooltip-append-to-body="true"
-                    ng-click="openCourseOutlineModal()" button-shortcut="ctrl+o"
-                    tooltip="Ctrl+O" tooltip-placement="bottom"
-                    ng-class="isFirstExercise ? 'navigation--left' : 'navigation--middle'"
-                    class="navigation--outline navigation--middle"> <i
-                    class="fa fa-bars"></i><span>Course Outline</span></a>
-                <a href="" tooltip-append-to-body="true" ng-click="nextExercise()"
-                    button-shortcut="ctrl+k" tooltip="Next Exercise (Ctrl+K)"
-                    tooltip-placement="bottom" class="navigation--right"> <i
-                    class="fa fa-chevron-right"></i></a>
+                <h5 style="color: white">EXERCISE EDITOR</h5>
+
             </div>
 
             <!-- ngIf: user -->
             <div class="navigation--buttons-right">
-                <span id="app-status" class=""> <i class="fa fa-circle"></i>
-                    <span id="app-status-text">Workspace Ready</span>
-                </span>
+                <a class="btn btn-primary">EXIT</a>
             </div>
             <!-- end ngIf: user -->
         </div>
@@ -108,9 +93,10 @@
 </p><br>
 
 
-<pre><code>#Example of code block
+<pre class="prettyprint lang-python"><code>#Example of code block
 
 string = "hello world";
+print(string);
 </code></pre><br>
 
                             <p>
@@ -221,6 +207,8 @@ string = "hello world";
     <script type="text/javascript" src="../js/sendAce.js"></script>
     <!-- GENERATE SCRIPT -->
     <script src="generate.js"></script>
+    <!-- Code Highlighter -->
+    <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?lang=css&amp;skin=desert"></script>
     <!-- SCRIPTS END -->
 
 </body>

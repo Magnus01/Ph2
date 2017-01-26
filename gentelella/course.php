@@ -10,12 +10,13 @@ $Model = new Model($dbhandler);
 // mysql queries
 $Course_id = 1;
 $result = $Model->getExercises(1);
+$result2 = $Model->getCourse(1);
 //var_dump($result[0]);
 
 // make data model
 $arr = array(
     'id' => 1,
-    'title' => 'something',
+    'title' => $result2->title,
     'description' => 2,
     'programmingLanguage' => 3,
     'creationTimestamp' => 4,

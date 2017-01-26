@@ -169,7 +169,7 @@
             }
         } 
         
-        public function getCourse($User_id) {
+        public function getCourses($User_id) {
             $query = $this->db->prepare( "SELECT * FROM `Course` WHERE `User_id`=?" );
             if ($query->execute(array($User_id)))
             {
@@ -183,6 +183,19 @@
 
                 return $courses;
 
+
+            }
+        }
+
+        public function getCourse($Course_id) {
+            $query = $this->db->prepare( "SELECT * FROM `Course` WHERE `id`=?" );
+            if ($query->execute(array($Course_id)))
+            {
+
+                $query->setFetchMode(PDO::FETCH_OBJ);
+                $result = $query->fetch();
+
+                return $result;
 
             }
         }
