@@ -1,22 +1,18 @@
 // DATABASE FETCHING
 // Assign handlers immediately after making the request,
 // and remember the jqxhr object for this request
-var jqxhr = $.get( "course.php", function(data) {
+var jqxhr = $.get( "../course.php", function(data) {
 
     data = JSON.parse(data);
-
-    // render course information to the DOM
-    document.getElementById('courseTitle').innerText = data.title;
+    console.log(data);
 
     // render exercises to the DOM
     for (var i = 0; i < data.exercises.length; i++) {
         console.log(data.exercises[i]);
-        document.getElementById('exercises').appendChild(
-            renderExercise(
+        document.getElementById('courseCatalog').appendChild(
+            renderCourse(
                 data.exercises[i].title,
-                data.exercises[i].content,
-                "../generate-content/",
-                data.exercises[i].creationTimestamp
+                "../generate-content/"
             )
         );
     }
@@ -31,63 +27,30 @@ var jqxhr = $.get( "course.php", function(data) {
         //alert( "finished" );
     });
 
-// Perform other work here ...
 
-// Set another completion function for the request above
-jqxhr.always(function() {
-    //alert( "second finished" );
-});
+function renderCourse(title, link) {
 
-
-
-
-function renderExercise(title, description, link, updated) {
-
-// LIST ELEMENT
-    var exercise = document.createElement('li');
-    var block = document.createElement('div');
-    block.setAttribute('class', 'block');
-
-// TAGS
-    var tags = document.createElement('div');
-    tags.setAttribute('class', 'tags');
+    //  NODES
+    var exercise = document.createElement('div');
+    exercise.setAttribute('class', 'col-sm-6');
 
     var tag = document.createElement('a');
     tag.setAttribute('href', link);
-    tag.setAttribute('class', 'tag');
 
-    var tagtext = document.createElement('span');
-    tagtext.innerText = 'Edit';
+    var block = document.createElement('div');
+    block.setAttribute('class', 'col-sm-6');
 
-    tag.appendChild(tagtext);
-    tags.appendChild(tag);
-    block.appendChild(tags);
+    var span = document.createElement('span');
+    span.innerText = title;
 
-    var blockContent = document.createElement('class', 'block_content');
+    var image = document.createElement('img');
+    image.setAttribute('alt', 'Intro to Python for Data Science');
+    image.setAttribute('src', './images/AAEAAQAAAAAAAAQFAAAAJGQ4ZjEwMzdmLWY0N2QtNDdkNy04NTlhLTM0NWFjZmM3MmQzYQ.png');
 
-// TITLE
-    var exTitle = document.createElement('h2');
-    var exTitletext = document.createElement('a');
-    exTitletext.innerText = title;
-
-    exTitle.appendChild(exTitletext);
-    blockContent.appendChild(exTitle);
-
-// UPDATE TIME
-    var update = document.createElement('div');
-    var updatetext = document.createElement('span');
-    updatetext.innerText = updated;
-
-    update.appendChild(updatetext);
-    blockContent.appendChild(update);
-
-// DESCRIPTION
-    var exDescription = document.createElement('p');
-    exDescription.setAttribute('class', 'excerpt');
-    exDescription.innerText = description;
-
-    blockContent.appendChild(exDescription);
-    block.appendChild(blockContent);
+    // CONNECT
+    exercise.appendChild(tag);
+    block.appendChild(span);
+    block.appendChild(image);
     exercise.appendChild(block);
 
     return exercise;
