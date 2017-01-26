@@ -154,12 +154,13 @@
         public function addExercise($title, $content, $tasktitle, $taskdescription, $level, $User_id, $Course_id)
         {
 
-            // get other variables
-            $sql = this->db->prepare("SELECT COUNT(order) FROM Exercise;");
+            /* get other variables
+            $sql = $this->db->prepare("SELECT COUNT(`order`) FROM Exercise;");
             $order = $sql->execute();
+            */
 
-            $query = $this->db->prepare("INSERT INTO Exercise (order, title, content, task title, task description, level, creation_timestamp, User_id, Course_id) VALUES (?,?,?,?,?,?,?,?,?)");
-            return $query->execute(array($order, $title, $content, $tasktitle, $taskdescription, $level, time(), $User_id, $Course_id));
+            $query = $this->db->prepare("INSERT IGNORE INTO Exercise (`order`, `title`, `content`, `task title`, `task description`, `level`, `creation_timestamp`, `User_id`, `Course_id`) VALUES (?,?,?,?,?,?,?,?,?)");
+            return $query->execute(array(1, $title, $content, $tasktitle, $taskdescription, $level, time(), $User_id, $Course_id));
 
         }
         

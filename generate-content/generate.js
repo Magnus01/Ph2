@@ -118,6 +118,23 @@ function generateContent(){
 }
 
 
+function importDBContent() {
+    $.getJSON(document.getElementById("title").innerText + ".json", function(data){
+        console.log( document.getElementById("title").innerText + ".json");
+
+        // update the page content
+        document.getElementById("title").innerText = JSON.parse(data.title);
+        document.getElementById("tutorial").innerHTML = JSON.parse(data.tutorial);
+        document.getElementById("extitle").innerText = JSON.parse(data.extitle);
+        document.getElementById("exdesc").innerHTML = JSON.parse(data.exdesc);
+
+        // import unit Testing content into pyUt variable
+        pyUt = data.unitTesting;
+
+    });
+}
+
+
 function importContent(){
 
     $.getJSON(document.getElementById("title").innerText + ".json", function(data){
@@ -161,7 +178,7 @@ function unitTest(){
 }
 
 
-function processHindSystem() {
+function processHintSystem() {
     // ut = unit test
     // utu = unit test unit
 
@@ -296,8 +313,11 @@ function postToDatabase(){
         data: theJson,
         success: function(data){
             console.log(data);
+            window.location.href = "../gentelella/Course.html";
         }
     });
+
+
 
 
     //alert(theJson);
