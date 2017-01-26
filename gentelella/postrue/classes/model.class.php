@@ -136,12 +136,30 @@
                 
         }
 
-        public function addExercise($id, $title, $description, $tasktitle, $taskdescription, $User_id)
+
+        public function getExerciseOrder($CourseId)
+        {
+            $query = $this->db->prepare( " SELECT COUNT(order) FROM Exercise WHERE course_id = ?" );
+            if ($query->execute(array($CourseId)))
+            {
+
+                $query->setFetchMode(PDO::FETCH_OBJ);
+                $fetchedData = $query->fetch();
+                return $fetchedData->id;
+
+
+            }
+        }
+
+        public function addExercise($title, $content, $tasktitle, $taskdescription, $level, $User_id, $Course_id)
         {
 
-            $query = $this->db->prepare("INSERT IGNORE INTO Exercise (id, title, description, creation_timestamp, User_id )  VALUES(?,?,?,?,?) ");
-            return $query->execute(array($id, $title, $description, time(), $User_id));
+            // get other variables
+            $sql = this->db->prepare("SELECT COUNT(order) FROM Exercise;");
+            $order = $sql->execute();
 
+            $query = $this->db->prepare("INSERT INTO Exercise (order, title, content, task title, task description, level, creation_timestamp, User_id, Course_id) VALUES (?,?,?,?,?,?,?,?,?)");
+            return $query->execute(array($order, $title, $content, $tasktitle, $taskdescription, $level, time(), $User_id, $Course_id));
 
         }
         

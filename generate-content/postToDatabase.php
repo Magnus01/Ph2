@@ -27,4 +27,4 @@ echo "-----------------------";
 echo $postTaskDescription;
 
 // DATABASE CONNECTION
-$Model->addCourse($id, $postTitle, $description, $User_id);
+$Model->addExercise($postTitle, $description, $User_id);
