@@ -161,9 +161,49 @@ function unitTest(){
 }
 
 
+function processHindSystem() {
+    // ut = unit test
+    // utu = unit test unit
+
+    var utArray = pyUt.split('"""');
+    var utdata = {
+        solution: "",
+        utulist: []
+    };
+
+    // EXTRACT INFORMATION
+    var length = utArray.length;
+    for (var i = length; i > 0; i -= 2) {
+
+        // information hi hi hi
+        if (i > 1) {
+            var utu = {
+                order: (i-1)/2,
+                code: utArray.pop(),
+                hint: utArray.pop()
+            };
+
+            utdata.utulist.push(utu);
+        } else {
+            utdata.solution = utArray.pop();
+        }
+    }
+
+    return utdata;
+}
+
+
 function processHints(){
     // regex for extracting hints to an object
 //    pyUt = editor.getValue();
+
+
+    // split into code blocks and non code blocks
+
+
+
+
+
     
     var regexresult = pyUt.match(/["]{3}.*["]{3}/g);
 console.log(regexresult);

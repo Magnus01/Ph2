@@ -135,5 +135,14 @@
            
                 
         }
+
+        public function addExercise($id, $title, $description, $tasktitle, $taskdescription, $User_id)
+        {
+
+            $query = $this->db->prepare("INSERT IGNORE INTO Exercise (id, title, description, creation_timestamp, User_id )  VALUES(?,?,?,?,?) ");
+            return $query->execute(array($id, $title, $description, time(), $User_id));
+
+
+        }
         
     }

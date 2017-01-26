@@ -1,13 +1,17 @@
 <?php
-/*
-// console log
-function console_log( $data ) {
-    echo '<script>';
-    echo 'console.log(' . json_encode( $data) . ')';
-    echo '</script>';
-}*/
+// DATABASE CONFIG
+session_start();
+require __DIR__. '/../gentelella/postrue/config2/dbconnect.php'; // database connection
+require __DIR__. '/../gentelella/postrue/classes/model.class.php'; // Model
 
-// structure received input
+$dbhandler = new Config() ;
+$Model = new Model($dbhandler);
+
+// STRUCTURE SESSION INPUT
+$User_id = $_SESSION['user_session'];
+$id = 1;
+
+// STRUCTURE AJAX INPUT
 $postTitle = json_decode($_POST['title']);
 $postContent = json_decode($_POST['content']);
 $postTaskTitle = json_decode($_POST['tasktitle']);
@@ -22,4 +26,5 @@ echo $postTaskTitle;
 echo "-----------------------";
 echo $postTaskDescription;
 
-// database connect
+// DATABASE CONNECTION
+$Model->addCourse($id, $postTitle, $description, $User_id);
