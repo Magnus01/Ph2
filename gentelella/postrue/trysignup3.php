@@ -1,7 +1,7 @@
 <?php       
 session_start(); 
 require __DIR__. '../includes2/header.php'; 
-require __DIR__. '../includes/sign-user-up.php'; //kind of controller for the login
+require __DIR__. '../includes2/sign-user-up.php'; //kind of controller for the login
  isset($_SESSION['user_session']) ? header("location:dashboards.php"):null;
 
 ?>

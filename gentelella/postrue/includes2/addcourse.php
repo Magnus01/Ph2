@@ -10,10 +10,14 @@ $Model = new Model($dbhandler);
 
 
 
-console_log($_SESSION['user_session']);
-
-$User_id = $_SESSION['user_session'];
+//console_log($_SESSION['user_session']);
+//$User_id = $_SESSION['user_session'];
+$id = 2;
+$User_id = 2;
 $title = "python";
-$Model->addCourse($User_id, $title);
+$description = "te";
+
+//$Model->addCourse($User_id, $title);
+$Model->addCourse($id, $title, $description, $User_id);
 ?>
    

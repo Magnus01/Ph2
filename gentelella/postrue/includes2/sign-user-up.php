@@ -1,6 +1,6 @@
 <?php
-    require __DIR__. '/../config/dbconnect.php'; // database connection
-    require __DIR__. '/../classes/model.class2.php'; // Model
+    require __DIR__. '/../config2/dbconnect.php'; // database connection
+    require __DIR__. '/../classes/model.class.php'; // Model
 require __DIR__. '/../classes/session.php'; // Model
 
     $dbhandler = new Config() ;
@@ -15,11 +15,13 @@ require __DIR__. '/../classes/session.php'; // Model
 
                 $email      =  filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
                 $password   =  $_POST['password'];
-
+                $type   =  $_POST['type'];
+                $name   =  $_POST['name'];
+                $surname   =  $_POST['surname'];
 
                 if (!$Model->emailAlreadyUsed($email)) 
                 {
-                    if ($Model->addUser($email, $password)) 
+                    if ($Model->addUser($email, $password, $type, $name, $surname)) 
                     {
                         session::set('confirmation', 'You have successfully signed up!');
                         

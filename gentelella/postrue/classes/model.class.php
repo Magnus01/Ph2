@@ -127,14 +127,13 @@
             }
         }
         
-         public function addCourse($User_id, $title)
+         public function addCourse($id, $title, $description, $User_id)
         {
-            if (!empty($Course)) {
-                $query = $this->db->prepare("INSERT IGNORE INTO Course (User_id)  VALUES(?) ");
-                return $query->execute(array($User_id));
-            }else{
-                return false;
-            }
+          
+                $query = $this->db->prepare("INSERT IGNORE INTO Course (id, title, description, creation_timestamp, User_id )  VALUES(?,?,?,?,?) ");
+                return $query->execute(array($id, $title, $description, time(), $User_id));
+           
+                
         }
         
     }

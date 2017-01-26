@@ -1,16 +1,15 @@
 <?php 
-require __DIR__. '../includes/header.php'; 
+
 require __DIR__. '/classes/session.php';
 session::init();
 
         
-        !isset($_SESSION['user_session']) ? header("location:index.php"):null;
+        !isset($_SESSION['user_session']) ? header("location:connection.php"):null;
 function console_log( $data ){
   echo '<script>';
   echo 'console.log('. json_encode( $data ) .')';
   echo '</script>';
 }
-$tablelist= $_SESSION['user_session'];
 console_log($_SESSION['user_session']);
     ?>
 
