@@ -178,7 +178,7 @@
                 $query->setFetchMode(PDO::FETCH_OBJ);
                 while($row = $query->fetch()) {
                     array_push($courses, $row);
-                    //var_dump($row);
+                    var_dump($row);
                 }
 
                 return $courses;

@@ -214,7 +214,7 @@ if(isset($_POST['titlez'])&&isset($_POST['commentz'])){
                   
                    <p class="font-gray-dark">
                   <div id="courseCatalog">
-                       
+
                   </div>
                        <?php
 //if the notice is set then display it
@@ -520,6 +520,6 @@ if(isset($notice)){echo $notice;} ?>
     </script>
     <!-- /gauge.js -->
 
-    <script src="../../generate-content/courseOverview.js"></script>
+    <!--<script src="../../generate-content/courseOverview.js"></script>-->
   </body>
 </html>

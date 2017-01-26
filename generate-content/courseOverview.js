@@ -1,17 +1,17 @@
 // DATABASE FETCHING
 // Assign handlers immediately after making the request,
 // and remember the jqxhr object for this request
-var jqxhr = $.get( "../course.php", function(data) {
+var jqxhr = $.get( "../course2.php", function(data) {
 
     data = JSON.parse(data);
     console.log(data);
 
     // render exercises to the DOM
-    for (var i = 0; i < data.exercises.length; i++) {
-        console.log(data.exercises[i]);
+    for (var i = 0; i < data.length; i++) {
+        console.log(data[i]);
         document.getElementById('courseCatalog').appendChild(
             renderCourse(
-                data.exercises[i].title,
+                data.title,
                 "../generate-content/"
             )
         );

@@ -8,32 +8,19 @@ $dbhandler = new Config() ;
 $Model = new Model($dbhandler);
 
 // mysql queries
-$Course_id = 1;
-$result = $Model->getCourse(1);
-//var_dump($result[0]);
-
-// make data model
-$arr = array(
-    'id' => 1,
-    'title' => 'something',
-    'description' => 2,
-    'creationTimestamp' => 3,
-    'User_id' => 4,
-);
+$User_id = 2;
+$result = $Model->getCourses($User_id);
+var_dump($result);
 
 // Add exercises to model (set of rows)
+$arr = array();
 $length = sizeof($result);
 for ($i = 0; $i < $length; $i++) {
-    array_push($arr['courses'], array(
+    array_push($arr, array(
         'id' => $result[$i]->id,
-        'order' => $result[$i]->order,
         'title' => $result[$i]->title,
-        'content' => $result[$i]->content,
-        'taskTitle' => $result[$i]->{'task title'},
-        'taskDescription' => $result[$i]->{'task description'},
-        'level' => $result[$i]->level,
+        'description' => $result[$i]->title,
         'creationTimestamp' => $result[$i]->creation_timestamp,
-        'courseId' => $result[$i]->Course_id
     ));
 }
 
