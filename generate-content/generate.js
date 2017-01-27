@@ -315,13 +315,14 @@ function postToDatabase(){
 //            console.log(result)
         }
     });*/
+
     $.ajax({
         type: "POST",
         url: "postToDatabase.php",
         data: theJson,
         success: function(data){
-            console.log(data);
-            //window.location.href = "../gentelella/Course.html";
+            //console.log(data);
+            window.location.href = "../gentelella/Course.html";
         }
     });
 }
