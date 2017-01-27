@@ -12,12 +12,13 @@ $Model = new Model($dbhandler);
 
 //console_log($_SESSION['user_session']);
 //$User_id = $_SESSION['user_session'];
-$id = 2;
+$id = 1;
 $User_id = 2;
 $title = "python";
 $description = "te";
 
 //$Model->addCourse($User_id, $title);
-$Model->addCourse($id, $title, $description, $User_id);
+$id = $Model->CourseId($id);
+console_log($id);
 ?>
    

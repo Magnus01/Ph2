@@ -186,18 +186,21 @@
             }
         }
 
-        public function getCourse($Course_id) {
-            $query = $this->db->prepare( "SELECT * FROM `Course` WHERE `id`=?" );
-            if ($query->execute(array($Course_id)))
+        public function CourseID($title) 
+        {
+            $query = $this->db->prepare( " SELECT id 
+                                        FROM Course
+                                        WHERE title = ?
+                                    " );
+              if ($query->execute(array($title)))
             {
-
+                
                 $query->setFetchMode(PDO::FETCH_OBJ);
-                $result = $query->fetch();
-
-                return $result;
-
-            }
-        }
+                $fetchedData = $query->fetch();
+                return $fetchedData->id;
+            
+            
+        }}
 
         public function addExercise($title, $content, $tasktitle, $taskdescription, $level, $User_id, $Course_id)
         {
