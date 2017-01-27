@@ -28,5 +28,16 @@ echo $postTaskTitle;
 echo "-----------------------";
 echo $postTaskDescription;
 
+
 // DATABASE CONNECTION
 $Model->addExercise($postTitle, $postContent, $postTaskTitle, $postTaskDescription, 10, $User_id, $Course_id);
+
+
+// UNIT TEST SYSTEM
+$UnitTesting = json_decode($_POST['unitTesting']);
+$UnitTestingStatements = $UnitTesting->utulist;
+
+$length = sizeof($UnitTestingStatements);
+for ($i = 0; $i < $length; $i++) {
+    $Model->addUnitTestStatement(code, order, hint, $);
+}

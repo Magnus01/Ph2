@@ -305,8 +305,7 @@ function postToDatabase(){
         content: tutorial,
         tasktitle: extitle,
         taskdescription: exdesc,
-        unitTesting: pyUt,
-        hints: hints
+        unitTesting: JSON.stringify(processHintSystem())
     };
 
     /*$.ajax({
@@ -324,7 +323,7 @@ function postToDatabase(){
         data: theJson,
         success: function(data){
             console.log(data);
-            window.location.href = "../gentelella/Course.html";
+            //window.location.href = "../gentelella/Course.html";
         }
     });
 }

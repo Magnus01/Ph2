@@ -47,7 +47,7 @@
             }
         }
         
-        public function getId($email) 
+        public function getId($email)
         {
             $query = $this->db->prepare( " SELECT id 
                                         FROM User
@@ -281,8 +281,46 @@
                 $fetchedData = $query->fetch();
                 return $fetchedData->points;
             
-            
-        }} 
+            }
+        }
+
+
+        public function getUnitTestStatements($Exercise_id)
+        {
+            $query = $this->db->prepare( "SELECT * FROM `Unit Test Statement` WHERE `Exercise_id`=?" );
+            if ($query->execute(array($Exercise_id)))
+            {
+                $unitTestStatements = array();
+
+                $query->setFetchMode(PDO::FETCH_OBJ);
+                while($row = $query->fetch()) {
+                    array_push($unitTestStatements, $row);
+                    //var_dump($row);
+                }
+
+                return $unitTestStatements;
+            }
+        }
+
+
+        public function addUnitTestStatement($code, $order, $hint,$Exercise_id)
+        {
+
+            $query = $this->db->prepare("INSERT INTO `Unit Test Statement`(`code`, `order`, `hint`, `Exercise_id`) VALUES (?,?,?,?)");
+            return $query->execute(array($code, $order, $hint, $Exercise_id));
+
+        }
+
+        public function addUnitTestStatements($array)
+        {
+            /*
+            $length = sizeof($array);
+            for ($i = 0; $i < $length; $i++)
+            {
+                addUnitTestStatement($array->code, $array->order, $array->hint,$array->Exercise_id);
+            }
+            */
+        }
         
         public function Points_Insert($User_id, $points, $result, $Exercise_id) 
         {
