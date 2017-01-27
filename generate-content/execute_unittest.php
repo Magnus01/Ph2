@@ -19,7 +19,7 @@ $Exercise_id = $_SESSION[User_id];
 
 
 
-$PostAnswer = $_POST['pyUnit'];
+$PostAnswer = $_POST['text1'];
 
 
 $file2 = 'text.txt';
