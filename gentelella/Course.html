@@ -280,7 +280,7 @@
 
                     <div class="title_right">
                         <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right">
-                            <button class="btn btn-default" type="button" onclick="window.location.href = '../generate-content/'">Create Exercise</button>
+                            <button class="btn btn-default" type="button" onclick="updateCurrentExercise('updateExercise.php', 0); window.location.href = '../generate-content/'">Create Exercise</button>
                             <button class="btn btn-default" type="button" onclick="window.location.href = 'postrue/dashboards.php'">Back to Courses</button>
                         </div>
                     </div>
@@ -363,6 +363,7 @@
 
 <!-- Custom Theme Scripts -->
 <script src="build/js/custom.min.js"></script>
+<script src="updateSession.js"></script>
 
 <!-- PNotify -->
 <script>

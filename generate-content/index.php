@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -33,7 +37,10 @@
     <link rel="stylesheet" href="style.css"/>
 
 </head>
+
+
 <body>
+
     <!-- NAVIGATION START -->
     <section id="navigation" class="bg-navigation">
         <div class="clearfix">
@@ -49,7 +56,7 @@
 
             <!-- ngIf: user -->
             <div class="navigation--buttons-right">
-                <a class="btn btn-primary">EXIT</a>
+                <a class="btn btn-primary btn-small" href="../gentelella/Course.html">EXIT</a>
             </div>
             <!-- end ngIf: user -->
         </div>
@@ -164,9 +171,16 @@ print(string);
                     <button data-onboarding="codeEditor" class="btn btn-md btn-inverse editable-content" onclick="unitTest()">
                         Edit Unit Test
                     </button>
-                    <button data-onboarding="codeEditor" class="btn btn-md btn-inverse" onclick="postToDatabase()">
-                        DONE
-                    </button>
+
+                    <?php
+                    if ($_SESSION['Exercise_id'] > 0) {
+                        // edit
+                        echo '<button data-onboarding="codeEditor" class="btn btn-md btn-inverse" onclick="' . updateExercise . '()">DONE</button>';
+                    } else {
+                        // new exercise
+                        echo '<button data-onboarding="codeEditor" class="btn btn-md btn-inverse" onclick="' . postToDatabase . '()">DONE</button>';
+                    }
+                    ?>
                     <!--<button data-onboarding="codeEditor" class="btn btn-md btn-inverse" onclick="importContent()">
                         Import JSON
                     </button>
@@ -210,6 +224,25 @@ print(string);
     <!-- Code Highlighter -->
     <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?lang=css&amp;skin=desert"></script>
     <!-- SCRIPTS END -->
+
+
+    <!-- PHP: GENERATE CONTENT IF EXERCISE VARIABLE IS DIFFERENT THAN 0 -->
+    <?php
+        echo "<script>";
+
+        if ($_SESSION['Exercise_id'] > 0) {
+            // edit
+            echo "importDBContent(" . $_SESSION['Exercise_id'] . ")('done');";
+        } else {
+            // new exercise
+            // NO NEED TO IMPORT; JUST CHILLAX
+        }
+
+        echo "</script>";
+
+        echo "tihars toenors etnaosier tnaoisre n";
+    ?>
+
 
 </body>
 </html>

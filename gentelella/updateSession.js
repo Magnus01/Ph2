@@ -19,8 +19,8 @@ function updateCurrentExercise(php, id) {
         type: "POST",
         url: php,
         data:{id: id},
-        success:function(html) {
-            alert(html);
+        success:function(data) {
+            window.location.replace('../generate-content/');
         }
     });
 }

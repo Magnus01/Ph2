@@ -151,6 +151,18 @@
             }
         }
 
+        public function getExercise($Exercise_id) {
+            $query = $this->db->prepare( "SELECT * FROM `Exercise` WHERE `id`=?" );
+            if ($query->execute(array($Exercise_id)))
+            {
+
+                $query->setFetchMode(PDO::FETCH_OBJ);
+                $result = $query->fetch();
+                return $result;
+
+            }
+        }
+
         public function getExercises($Course_id) {
             $query = $this->db->prepare( "SELECT * FROM `Exercise` WHERE `Course_id`=?" );
             if ($query->execute(array($Course_id)))
@@ -223,6 +235,12 @@
             $query = $this->db->prepare("INSERT IGNORE INTO Exercise (`order`, `title`, `content`, `task title`, `task description`, `level`, `creation_timestamp`, `User_id`, `Course_id`) VALUES (?,?,?,?,?,?,?,?,?)");
             return $query->execute(array(1, $title, $content, $tasktitle, $taskdescription, $level, time(), $User_id, $Course_id));
 
+        }
+
+        public function updateExercise($id, $title, $content, $tasktitle, $taskdescription) {
+            $query = $this->db->prepare("UPDATE `Exercise` SET `title`=?,`content`=?,`task title`=?,`task description`=? WHERE `id`=?");
+            var_dump($query);
+            return $query->execute(array($title, $content, $tasktitle, $taskdescription, $id));
         }
         
     }

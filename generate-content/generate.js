@@ -118,19 +118,30 @@ function generateContent(){
 }
 
 
-function importDBContent() {
-    $.getJSON(document.getElementById("title").innerText + ".json", function(data){
-        console.log( document.getElementById("title").innerText + ".json");
+function importDBContent(id) {
 
-        // update the page content
-        document.getElementById("title").innerText = JSON.parse(data.title);
-        document.getElementById("tutorial").innerHTML = JSON.parse(data.tutorial);
-        document.getElementById("extitle").innerText = JSON.parse(data.extitle);
-        document.getElementById("exdesc").innerHTML = JSON.parse(data.exdesc);
+    $.ajax({
+        type: "GET",
+        url: "getExercise.php",
+        data:{id: id},
+        success:function(data) {
+            data = JSON.parse(data);
+            console.log(data);
+            /*if(parseInt(data) != 0) {
+             window.location.replace('../generate-content/');
+             } else {
+             alert(data);
+             }*/
 
-        // import unit Testing content into pyUt variable
-        pyUt = data.unitTesting;
+            // update the page content
+            document.getElementById("title").innerText = data.title;
+            document.getElementById("tutorial").innerHTML = data.content;
+            document.getElementById("extitle").innerText = data["task title"];
+            document.getElementById("exdesc").innerHTML = data["task title"];
 
+            // import unit Testing content into pyUt variable
+            //pyUt = data.unitTesting;
+        }
     });
 }
 
@@ -316,9 +327,37 @@ function postToDatabase(){
             window.location.href = "../gentelella/Course.html";
         }
     });
+}
 
 
+function updateExercise(){
 
+    // get content
+    var title = JSON.stringify(document.getElementById("title").innerText);
+    var tutorial = JSON.stringify(document.getElementById("tutorial").innerHTML);
+    var extitle = JSON.stringify(document.getElementById("extitle").innerText);
+    var exdesc = JSON.stringify(document.getElementById("exdesc").innerHTML);
 
-    //alert(theJson);
+    // regex hints
+    processHints();
+
+    // generate content
+    var theJson = {
+        title: title,
+        content: tutorial,
+        tasktitle: extitle,
+        taskdescription: exdesc,
+        unitTesting: pyUt,
+        hints: hints
+    };
+
+    $.ajax({
+        type: "POST",
+        url: "updateExercise.php",
+        data: theJson,
+        success: function(data){
+            console.log(data);
+            window.location.href = "../gentelella/Course.html";
+        }
+    });
 }

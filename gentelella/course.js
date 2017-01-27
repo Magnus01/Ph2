@@ -46,7 +46,9 @@ var jqxhr = $.get( "course.php", function(data) {
                 data.exercises[i].title,
                 data.exercises[i].content,
                 "../generate-content/",
-                data.exercises[i].creationTimestamp
+                data.exercises[i].creationTimestamp,
+                "updateExercise.php",
+                data.exercises[i].id
             )
         );
     }
@@ -71,7 +73,7 @@ jqxhr.always(function() {
 
 
 
-function renderExercise(title, description, link, updated) {
+function renderExercise(title, description, link, updated, php, id) {
 
 // LIST ELEMENT
     var exercise = document.createElement('li');
@@ -83,9 +85,9 @@ function renderExercise(title, description, link, updated) {
     tags.setAttribute('class', 'tags');
 
     var tag = document.createElement('a');
-    tag.setAttribute('href', link);
+    tag.setAttribute('href', '#');
     tag.setAttribute('class', 'tag');
-    tag.setAttribute('onclick', 'updateCurrentExercise();');
+    tag.setAttribute('onclick', 'updateCurrentExercise(\'' + php + '\', ' + id + ');');
 
     var tagtext = document.createElement('span');
     tagtext.innerText = 'Edit';
