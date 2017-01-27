@@ -1,13 +1,39 @@
+function getHintsAndUnitTests() {
+    return $.ajax({
+        type: 'GET',
+        url: 'getAllUnitTestStatements.php',
+        success: function(data) {
+            // parse json data
+            data = JSON.parse(data);
+
+            // sort data by order
+            data.sort(function(a, b) {
+                return a.order - b.order;
+            });
+
+            // console.log
+            console.log(data);
+
+            // return
+            return data;
+        }
+
+    });
+
+}
+
+
+
+
 
 function execUnitTest(){
 
-    processHints();
- 
     var val1 = editor.getValue();
     console.log(val1);
+
     $.ajax({
         type: 'POST',
-        url: '../Template/studentAnswer.php',
+        url: '../Template/execute_unittest.php',
         data: { text1: val1 },
         success: function(response) {
             console.log("student solution sent")}
@@ -28,4 +54,4 @@ function execUnitTest(){
         }
     })
 
-)};
+)}
