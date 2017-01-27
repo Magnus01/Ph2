@@ -1,18 +1,13 @@
 
+function execUnitTest(){
 
-    
-    
-    
-    
-    
-$('#buttonz').click(function() {
     processHints();
  
     var val1 = editor.getValue();
     console.log(val1);
     $.ajax({
         type: 'POST',
-        url: 'studentAnswer.php',
+        url: '../Template/studentAnswer.php',
         data: { text1: val1 },
         success: function(response) {
             console.log("student solution sent")}
