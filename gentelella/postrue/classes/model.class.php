@@ -225,4 +225,68 @@
 
         }
         
-    }
+        public function Exercise_id($title) 
+        {
+            $query = $this->db->prepare( " SELECT id FROM Exercise WHERE title = ?" );
+              if ($query->execute(array($title)))
+            {
+                
+                $query->setFetchMode(PDO::FETCH_OBJ);
+                $fetchedData = $query->fetch();
+                return $fetchedData->id;
+            
+            
+        }}
+        
+         public function Result($Exercise_id) 
+        {
+            $query = $this->db->prepare( " SELECT result FROM Answer WHERE Exercise_id = ?" );
+              if ($query->execute(array($title)))
+            {
+                
+                $query->setFetchMode(PDO::FETCH_OBJ);
+                $fetchedData = $query->fetch();
+                return $fetchedData->id;
+            
+            
+        }}     
+        
+        
+        public function addExercise($title, $content, $tasktitle, $taskdescription, $level, $User_id, $Course_id)
+        {
+
+            /* get other variables
+            $sql = $this->db->prepare("SELECT COUNT(`order`) FROM Exercise;");
+            $order = $sql->execute();
+            */
+
+            $query = $this->db->prepare("INSERT IGNORE INTO Exercise (`order`, `title`, `content`, `task title`, `task description`, `level`, `creation_timestamp`, `User_id`, `Course_id`) VALUES (?,?,?,?,?,?,?,?,?)");
+            return $query->execute(array(1, $title, $content, $tasktitle, $taskdescription, $level, time(), $User_id, $Course_id));
+
+        }
+        
+         public function Points_Get($User_id, $points) 
+        {
+            $query = $this->db->prepare( " SELECT points FROM Answer WHERE User_id = ?" );
+              if ($query->execute(array($User_id)))
+            {
+                
+                $query->setFetchMode(PDO::FETCH_OBJ);
+                $fetchedData = $query->fetch();
+                return $fetchedData->points;
+            
+            
+        }} 
+        
+        public function Points_Insert($User_id, $points, $result, $Exercise_id) 
+        {
+            
+           $query = $this->db->prepare("INSERT INTO Answer (`User_id`, `points`, 'result', 'Exercise_id') VALUES (?,?,?,?)");
+            return $query->execute(array($result, time(), $points, $Exercise_id, $User_id, $Course_id));
+            
+            
+        }
+    
+}
+        
+    
