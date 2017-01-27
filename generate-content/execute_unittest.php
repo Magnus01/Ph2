@@ -20,10 +20,10 @@ $Exercise_id = $_SESSION[User_id];
 
 
 $PostAnswer = $_POST['text1'];
-
+$string = preg_replace('/\s+/', '', $PostAnswer);
 
 $file2 = 'text.txt';
-$content2 = nl2br("from something import string #\n") . $PostAnswer;
+$content2 = $PostAnswer;
 private function writeFileContent($file2, $content2){
    $fp = fopen($file, 'w');
    fwrite($fp, $content);
