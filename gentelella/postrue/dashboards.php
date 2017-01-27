@@ -1,11 +1,12 @@
-<?php 
+<?php
+    session_start();
     require __DIR__. './config2/dbconnect.php'; // database connection
     require __DIR__. './classes/model.class.php'; // Model
     require __DIR__. './classes/session.php'; // Model
 
     $dbhandler = new Config() ;
     $Model = new Model($dbhandler);
-    session_start();
+
 
     !isset($_SESSION['user_session']) ? header("location:connection.php"):null;
     //var_dump($_SESSION['user_session']);
@@ -24,8 +25,8 @@
 
         $Model->addCourse($id, $title, $description, $User_id);
 
-        $_SESSION['Course_id'] = $Model->CourseID($title);
-        $Course_id = $_SESSION['Course_id'];
+        //$_SESSION['Course_id'] = $Model->CourseID($title);
+        //$Course_id = $_SESSION['Course_id'];
         //console_log($Course_id);
     }
 
@@ -402,5 +403,6 @@
     <!-- /gauge.js -->
 
     <script src="../../generate-content/courseOverview.js"></script>
+    <script src="../updateSession.js"></script>
   </body>
 </html>

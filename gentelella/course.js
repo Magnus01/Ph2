@@ -85,6 +85,7 @@ function renderExercise(title, description, link, updated) {
     var tag = document.createElement('a');
     tag.setAttribute('href', link);
     tag.setAttribute('class', 'tag');
+    tag.setAttribute('onclick', 'updateCurrentExercise();');
 
     var tagtext = document.createElement('span');
     tagtext.innerText = 'Edit';

@@ -11,7 +11,9 @@ var jqxhr = $.get( "../course2.php", function(data) {
         document.getElementById('courseCatalog').appendChild(
             renderCourse(
                 data[i].title,
-                "../Course.html"
+                "#", //"../Course.html",
+                data[i].id,
+                "../updateCourse.php"
             )
         );
     }
@@ -27,7 +29,7 @@ var jqxhr = $.get( "../course2.php", function(data) {
     });
 
 
-function renderCourse(title, link) {
+function renderCourse(title, link, id, php) {
 
     //  NODES
     var course = document.createElement('div');
@@ -35,6 +37,7 @@ function renderCourse(title, link) {
 
     var a_link = document.createElement('a');
     a_link.setAttribute('href', link);
+    a_link.setAttribute('onclick', 'updateCurrentCourse(\'' + php + '\', ' + id + ');');
 
     var block = document.createElement('div');
     block.setAttribute('class', 'col-sm-6');

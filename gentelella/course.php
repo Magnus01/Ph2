@@ -15,7 +15,7 @@ $result2 = $Model->getCourse($Course_id);
 
 // make data model
 $arr = array(
-    'id' => 1,
+    'id' => $Course_id,
     'title' => $result2->title,
     'description' => 2,
     'programmingLanguage' => 3,
