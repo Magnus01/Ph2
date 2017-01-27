@@ -20,7 +20,13 @@
         //console_log($description . "descr");
         //console_log($User_id . "User");
         //check if page already exists
+
+
         $Model->addCourse($id, $title, $description, $User_id);
+
+        $_SESSION['Course_id'] = $Model->CourseID($title);
+        $Course_id = $_SESSION['Course_id'];
+        //console_log($Course_id);
     }
 
     //$con = mysqli_connect('localhost','root','mysql','TutoCalculator');

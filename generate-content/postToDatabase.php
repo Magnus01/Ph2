@@ -9,8 +9,8 @@ $dbhandler = new Config() ;
 $Model = new Model($dbhandler);
 
 // STRUCTURE SESSION INPUT
-$User_id = 1; //$_SESSION['user_session'];
-$id = 1;
+$User_id = $_SESSION['user_session']; //$_SESSION['user_session'];
+$Course_id = $_SESSION['Course_id'];
 
 // STRUCTURE AJAX INPUT
 $postTitle = $dbhandler->db->quote(json_decode($_POST['title']));
@@ -30,4 +30,4 @@ echo "-----------------------";
 echo $postTaskDescription;
 
 // DATABASE CONNECTION
-$Model->addExercise($postTitle, $postContent, $postTaskTitle, $postTaskDescription, 10, 1, 1);
+$Model->addExercise($postTitle, $postContent, $postTaskTitle, $postTaskDescription, 10, $User_id, $Course_id);

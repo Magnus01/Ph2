@@ -11,7 +11,7 @@ var jqxhr = $.get( "../course2.php", function(data) {
         document.getElementById('courseCatalog').appendChild(
             renderCourse(
                 data[i].title,
-                "http://www.google.com"
+                "../Course.html"
             )
         );
     }

@@ -8,9 +8,9 @@ $dbhandler = new Config() ;
 $Model = new Model($dbhandler);
 
 // mysql queries
-$Course_id = 1;
-$result = $Model->getExercises(1);
-$result2 = $Model->getCourse(1);
+$Course_id = $_SESSION['Course_id'];
+$result = $Model->getExercises($Course_id);
+$result2 = $Model->getCourse($Course_id);
 //var_dump($result[0]);
 
 // make data model
