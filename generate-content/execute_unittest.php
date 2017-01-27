@@ -22,22 +22,28 @@ $Exercise_id = $_SESSION[User_id];
 $PostAnswer = $_POST['pyUnit'];
 
 
+$file2 = 'text.txt';
+$content2 = nl2br("from something import string #\n") . $PostAnswer;
+private function writeFileContent($file2, $content2){
+   $fp = fopen($file, 'w');
+   fwrite($fp, $content);
+   fclose($fp);
+   chmod($file, 0777);  //changed to add the zero
+   return true;
+}
 
+writeFileContent($file2, $content2);
 
-$file = fopen('test.txt', 'w+');
-
-fseek($file, 0);
-
-fputs($file, nl2br("from something import string #\n") . $PostAnswer);
-fclose($file);
-
-
-
-// assuming we have a file now... and we do
+$pythonfile = 'c:/Python27/python.exe'
 $shell_output = shell_exec('c:/Python27/python.exe test.txt 2>&1');
-$file2 = fopen('answer.txt', 'w+');
-fseek($file2, 0);
-fputs($file2, $shell_output);
+$file3 = 'answer.txt';
+$content3 = $shell_output;
+
+writeFileContent($file3, $content3);
+
+
+
+
 $len = strlen($shell_output);
 $pass = TRUE;
  
