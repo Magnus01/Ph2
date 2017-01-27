@@ -8,9 +8,9 @@ $dbhandler = new Config() ;
 $Model = new Model($dbhandler);
 
 // mysql queries
-$User_id = 2;
+$User_id = $_SESSION['user_session'];
 $result = $Model->getCourses($User_id);
-var_dump($result);
+//var_dump($result);
 
 // Add exercises to model (set of rows)
 $arr = array();

@@ -4,15 +4,14 @@
 var jqxhr = $.get( "../course2.php", function(data) {
 
     data = JSON.parse(data);
-    console.log(data);
+    console.log(data[0]);
 
     // render exercises to the DOM
     for (var i = 0; i < data.length; i++) {
-        console.log(data[i]);
         document.getElementById('courseCatalog').appendChild(
             renderCourse(
-                data.title,
-                "../generate-content/"
+                data[i].title,
+                "http://www.google.com"
             )
         );
     }
@@ -31,11 +30,11 @@ var jqxhr = $.get( "../course2.php", function(data) {
 function renderCourse(title, link) {
 
     //  NODES
-    var exercise = document.createElement('div');
-    exercise.setAttribute('class', 'col-sm-6');
+    var course = document.createElement('div');
+    course.setAttribute('class', 'col-sm-6');
 
-    var tag = document.createElement('a');
-    tag.setAttribute('href', link);
+    var a_link = document.createElement('a');
+    a_link.setAttribute('href', link);
 
     var block = document.createElement('div');
     block.setAttribute('class', 'col-sm-6');
@@ -48,11 +47,11 @@ function renderCourse(title, link) {
     image.setAttribute('src', './images/AAEAAQAAAAAAAAQFAAAAJGQ4ZjEwMzdmLWY0N2QtNDdkNy04NTlhLTM0NWFjZmM3MmQzYQ.png');
 
     // CONNECT
-    exercise.appendChild(tag);
     block.appendChild(span);
     block.appendChild(image);
-    exercise.appendChild(block);
+    course.appendChild(block);
+    a_link.appendChild(course);
 
-    return exercise;
+    return a_link;
 }
 
