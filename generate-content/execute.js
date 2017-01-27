@@ -1,11 +1,12 @@
-function execUnitTest(){
 
-    processHints();
+
+    
     
     
     
     
 $('#buttonz').click(function() {
+    processHints();
  
     var val1 = editor.getValue();
     console.log(val1);
