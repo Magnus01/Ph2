@@ -32,6 +32,9 @@ echo $postTaskDescription;
 // DATABASE CONNECTION
 $Model->addExercise($postTitle, $postContent, $postTaskTitle, $postTaskDescription, 10, $User_id, $Course_id);
 
+// retrieve new exercise id
+$Exercise_id = $Model->Exercise_id($postTitle);
+
 
 // UNIT TEST SYSTEM
 $UnitTesting = json_decode($_POST['unitTesting']);
@@ -39,5 +42,5 @@ $UnitTestingStatements = $UnitTesting->utulist;
 
 $length = sizeof($UnitTestingStatements);
 for ($i = 0; $i < $length; $i++) {
-    $Model->addUnitTestStatement(code, order, hint, $);
+    $Model->addUnitTestStatement($UnitTestingStatements[$i]->code, $UnitTestingStatements[$i]->order, $UnitTestingStatements[$i]->hint, $Exercise_id);
 }

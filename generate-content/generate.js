@@ -2,11 +2,9 @@ var editor = ace.edit("Editor");
 var t;
 var hints;
 // setting default python unit testing
-var pyUt = "#Start \ndef Qname(something):\n    return something\n\n\n #End\nimport " +
-    "unittest\n\nclass UT(unittest.TestCase):\n    \n    \"\"\" Hint 1 placeholder (to contain hint) \"\"\"\n    " +
-    "def test_ca(self):\n        self.assertIn(\"return\", string)\n    \n    \"\"\" Hint 2 placeholder (testing " +
-    "result) \"\"\"\n    def test_ra(self):\n        self.assertEqual(Qname(\"hei\"), \"hei\") # Example\n\n\n# Unit " +
-    "Test Runner\nif __name__ == '__main__':\n    unittest.main()";
+var pyUt = "# Student Solution \ndef Qname(something):\n    return something\n\n#Teacher Tests\n\"\"\"" +
+    "Hint 1 placeholder (to contain hint) \"\"\"\ndef test_ca(self):\n    self.assertIn(\"return\", string)\n\n\"\"\"" +
+    "Hint 2 placeholder (testing result) \"\"\"\ndef test_ra(self):\n    self.assertEqual(Qname(\"hei\"), \"hei\")";
 
 // update section function
 function updateSection(section, html){
