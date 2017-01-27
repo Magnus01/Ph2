@@ -5,6 +5,19 @@
  * Date: 10/18/2016
  * Time: 12:14 PM
  */
+session_start();
+require __DIR__. '/../gentelella/postrue/config2/dbconnect.php'; // database connection
+require __DIR__. '/../gentelella/postrue/classes/model.class.php'; // Model
+
+$dbhandler = new Config() ;
+$Model = new Model($dbhandler);
+$result = 0;
+
+$Exercise_id = $_SESSION[Exercise_id];
+$Exercise_id = $_SESSION[User_id];
+
+
+
 
 $PostAnswer = $_POST['pyUnit'];
 
@@ -20,20 +33,6 @@ fclose($file);
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // assuming we have a file now... and we do
 $shell_output = shell_exec('c:/Python27/python.exe test.txt 2>&1');
 $file2 = fopen('answer.txt', 'w+');
@@ -42,9 +41,11 @@ fputs($file2, $shell_output);
 $len = strlen($shell_output);
 $pass = TRUE;
  
+$points = 0;
 
 for($i = 0; $i < $len; $i++){
     if($shell_output[$i] == "."){
+        $_SESSION['points'] = $points++;
         continue;
     }
     else if ($shell_output[$i] == "E") {
@@ -57,9 +58,15 @@ for($i = 0; $i < $len; $i++){
         $pass = FALSE;
         break;
     }
+    
 }
 
 
 if($pass){
+    $result = 1;
     echo -1;
 }
+
+$_SESSION[result] = $result;
+
+$Model->Points_Insert($User_id, $points, $result, $Exercise_id);
