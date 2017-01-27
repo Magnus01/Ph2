@@ -12,9 +12,9 @@ $Model = new Model($dbhandler);
 $Exercise_id = $_SESSION['Exercise_id'];
 
 // STRUCTURE AJAX INPUT
-$postTitle = $dbhandler->db->quote(json_decode($_POST['title']));
+$postTitle = json_decode($_POST['title']);
 $postContent = json_decode($_POST['content']);
-$postTaskTitle = $dbhandler->db->quote(json_decode($_POST['tasktitle']));
+$postTaskTitle = json_decode($_POST['tasktitle']);
 $postTaskDescription = json_decode($_POST['taskdescription']);
 
 // print the structured data

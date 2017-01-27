@@ -13,10 +13,9 @@ $User_id = $_SESSION['user_session']; //$_SESSION['user_session'];
 $Course_id = $_SESSION['Course_id'];
 
 // STRUCTURE AJAX INPUT
-$postTitle = $dbhandler->db->quote(json_decode($_POST['title']));
-
+$postTitle = json_decode($_POST['title']);
 $postContent = json_decode($_POST['content']);
-$postTaskTitle = $dbhandler->db->quote(json_decode($_POST['tasktitle']));
+$postTaskTitle = json_decode($_POST['tasktitle']);
 $postTaskDescription = json_decode($_POST['taskdescription']);
 
 // print the structured data
