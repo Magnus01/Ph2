@@ -26,6 +26,7 @@ session_start();
                                                                                       DO NOT UPGRADE ABOVE 1.3.10 OR ELSE BREAKAGE WILL OCCUR -->
     <script type="text/javascript" src="../jsPy_v3/jquery-ui-1.8.24.custom.min.js"></script> <!-- for sliders and other UI elements -->
     <link type="text/css" href="../css_v3/ui-lightness/jquery-ui-1.8.24.custom.css" rel="stylesheet" />
+
     <link type="text/css" href="../css_v3/basic.css" rel="stylesheet" />
 
     <script src="../js/loadContent.js"></script>
@@ -35,6 +36,9 @@ session_start();
     <link rel="stylesheet" href="../css_v3/pytutor.css"/>
 
     <link rel="stylesheet" href="style.css"/>
+
+    <!-- Mathquill -->
+    <link rel="stylesheet" href="../js/mathquill-0.10.1/mathquill.css">
 
 </head>
 
@@ -94,11 +98,16 @@ session_start();
 
 
                         <!-- TUTORIAL START -->
-                        <div id="tutorial" ng-bind-html="exercise.assignment" ng-model="exercise.assignment" mathjax=""
-                             class="ng-pristine ng-untouched ng-valid editable-content"><p>
+<div id="tutorial" ng-bind-html="exercise.assignment" ng-model="exercise.assignment" mathjax=""
+class="ng-pristine ng-untouched ng-valid editable-content">
+<p>
     Example of html paragraph.
-</p><br>
+</p>
 
+<h3>
+    <span id="problem">ax^2+bx+c=0</span>
+</h3>
+<br>
 
 <pre class="prettyprint lang-python"><code>#Example of code block
 
@@ -106,11 +115,10 @@ string = "hello world";
 print(string);
 </code></pre><br>
 
-                            <p>
-                                Just click on what you want to edit, and then you edit it.
-                            </p>
-
-                        </div>
+<p>
+    Just click on what you want to edit, and then you edit it.
+</p>
+</div>
                         <!-- TUTORIAL END -->
                     </div>
 
@@ -204,15 +212,22 @@ print(string);
 
 
 
-
-
-
     <!-- SCRIPTS START -->
     <script src="../js/test.js"></script>
     <script src="https://code.jquery.com/jquery-1.12.4.js" type="text/javascript"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" type="text/javascript"></script>
     <script type="text/javascript" src="../js/Interactive-eliasit.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.5/ace.js" type="text/javascript"></script>
+    <script src="../js/mathquill-0.10.1/mathquill.js"></script>
+    <script>
+        var MQ = MathQuill.getInterface(2);
+        var problemSpan = document.getElementById('problem')
+        var problemSpan = document.getElementById('problem');
+        MQ.StaticMath(problemSpan);
+    </script>
+    <script>
+
+    </script>
     <script type="text/javascript">
         var editor = ace.edit("Editor");
         editor.setTheme("ace/theme/twilight");
