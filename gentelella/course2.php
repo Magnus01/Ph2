@@ -12,7 +12,7 @@ $User_id = $_SESSION['user_session'];
 $result = $Model->getCourses($User_id);
 //var_dump($result);
 
-// Add exercises to model (set of rows)
+// Add courses to model loop through the set of rows
 $arr = array();
 $length = sizeof($result);
 for ($i = 0; $i < $length; $i++) {

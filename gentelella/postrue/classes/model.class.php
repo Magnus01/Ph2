@@ -287,11 +287,29 @@
         public function Points_Insert($User_id, $points, $result, $Exercise_id) 
         {
             
-           $query = $this->db->prepare("INSERT INTO Answer (`User_id`, `points`, 'result', 'Exercise_id') VALUES (?,?,?,?)");
-            return $query->execute(array($result, time(), $points, $Exercise_id, $User_id, $Course_id));
+           $query = $this->db->prepare("INSERT INTO Answer (`result`, `timestamp`, `points`, `Exercise_id`, `User_id`) VALUES (?,?,?,?,?)");
+            return $query->execute(array($result, time(), $points, $Exercise_id, $User_id));
             
             
         }
+        
+        public function addUnit($code, $hint, $order, $Exercise_id)
+        {
+
+            /* get other variables
+            $sql = $this->db->prepare("SELECT COUNT(`order`) FROM Exercise;");
+            $order = $sql->execute();
+            */
+
+            $query = $this->db->prepare("INSERT IGNORE INTO `Unit Test Statement` (`code`, `hint`, `order`, `Exercise_id`) VALUES (?,?,?,?)");
+            return $query->execute(array($code, $hint, $order, $Exercise_id));
+
+        }
+      
+        
+        
+
+
     
 }
         
