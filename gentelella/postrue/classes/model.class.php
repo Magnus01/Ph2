@@ -49,7 +49,7 @@
         
         public function getId($email)
         {
-            $query = $this->db->prepare( " SELECT id FROM UserWHERE email = ?" );
+            $query = $this->db->prepare( " SELECT id FROM User WHERE email = ?" );
               if ($query->execute(array($email)))
             {
                 

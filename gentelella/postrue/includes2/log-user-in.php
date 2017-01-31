@@ -15,11 +15,16 @@ if ( isset($_POST) && !empty($_POST) )
     {
         $email      =  filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
         $password   =  $_POST['password'];
+        
+        console_log("EMAIL" . $email . "EMAIL");
+        console_log($password);
+            
 
         
-        console_log($password . " " . "password");
+//        console_log($password . " " . "password");
        $id = $Model->getId($email);
-            console_log($id . "id??");
+//            console_log($id . "id??");
+        console_log($id . "Id");
             
     
 
