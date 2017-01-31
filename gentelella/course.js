@@ -117,7 +117,7 @@ function renderExercise(title, description, link, updated, php, id) {
 // DESCRIPTION
     var exDescription = document.createElement('p');
     exDescription.setAttribute('class', 'excerpt');
-    exDescription.innerText = description;
+    exDescription.innerText = description; 
 
     blockContent.appendChild(exDescription);
     block.appendChild(blockContent);
