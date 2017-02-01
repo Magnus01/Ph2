@@ -7,19 +7,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Professor Login</title>
+    <title>Student Login</title>
 
     <!-- Bootstrap -->
-    <link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
-    <link href="vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="../vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <!-- NProgress -->
-    <link href="vendors/nprogress/nprogress.css" rel="stylesheet">
+    <link href="../vendors/nprogress/nprogress.css" rel="stylesheet">
     <!-- Animate.css -->
-    <link href="vendors/animate.css/animate.min.css" rel="stylesheet">
+    <link href="../vendors/animate.css/animate.min.css" rel="stylesheet">
 
     <!-- Custom Theme Style -->
-    <link href="build/css/custom.min.css" rel="stylesheet">
+    <link href="../build/css/custom.min.css" rel="stylesheet">
 </head>
 
 <body class="login">
@@ -30,10 +30,10 @@
     <div class="login_wrapper">
         <div class="animate form login_form">
             <section class="login_content">
-                <img src="..\Template\LogoUIA.png">
+                <img src="..\..\Template\LogoUIA.png">
                 <form>
 
-                    <h1>Professor Login</h1>
+                    <h1>Student Login</h1>
                     <div>
                         <input type="text" class="form-control" placeholder="Username" required="" />
                     </div>
@@ -57,7 +57,8 @@
                         <div>
                             <p>© 2017 Sci-Code<br>
                                 <em>sponsored by the Centre for Research, Innovation and Coordination of Mathematics Teaching
-                                    <a href="http://www.matric.no/">(MatRIC - matric.no)</a></p>
+                                    <a href="http://www.matric.no/">(MatRIC - matric.no)</a>
+                            </p>
                         </div>
                     </div>
                 </form>
@@ -66,7 +67,7 @@
 
         <div id="register" class="animate form registration_form">
             <section class="login_content">
-                <img src="..\Template\LogoUIA.png">
+                <img src="..\..\Template\LogoUIA.png">
                 <form>
                     <h1>Create Account</h1>
                     <div>
