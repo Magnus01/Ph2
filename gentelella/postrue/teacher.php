@@ -1,7 +1,7 @@
 <?php
 session_start();
-require __DIR__. '/../postrue/includes2/header.php';
-require __DIR__. '/../postrue/includes2/sign-user-up.php'; //kind of controller for the login
+//require __DIR__. '/includes2/header.php';
+require __DIR__. '/includes2/new-teacher.php'; //kind of controller for the login
 isset($_SESSION['user_session']) ? header("location:dashboards.php"):null;
 
 ?>
@@ -28,6 +28,26 @@ isset($_SESSION['user_session']) ? header("location:dashboards.php"):null;
 
     <!-- Custom Theme Style -->
     <link href="../build/css/custom.min.css" rel="stylesheet">
+
+
+
+
+    <!-- Expreimental -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js"></script>
+    <script src="http://malsup.github.com/jquery.form.js"></script>
+
+    <script>
+        // wait for the DOM to be loaded
+        $(document).ready(function() {
+            // bind 'signup' and provide a simple callback function
+            $('#teacher-signup').ajaxForm(function() {
+                alert("Thank you for your comment!");
+            });
+            $('#teacher-signup').ajaxForm(function() {
+                alert("Thank you for your comment!");
+            });
+        })
+    </script>
 </head>
 
 <body class="login">
@@ -39,7 +59,8 @@ isset($_SESSION['user_session']) ? header("location:dashboards.php"):null;
         <div class="animate form login_form">
             <section class="login_content">
                 <img src="..\..\Template\LogoUIA.png">
-                <form>
+
+                <form name="teacher-login" action="includes2/new-teacher.php" method="post">
 
                     <h1>Professor Login</h1>
                     <div>
@@ -76,19 +97,23 @@ isset($_SESSION['user_session']) ? header("location:dashboards.php"):null;
         <div id="register" class="animate form registration_form">
             <section class="login_content">
                 <img src="..\..\Template\LogoUIA.png">
-                <form>
+
+                <form id="teacher-signup" name="teacher-signup" action="includes2/new-teacher.php" method="post">
                     <h1>Create Account</h1>
                     <div>
-                        <input type="text" class="form-control" placeholder="First & Last Name" required="" />
+                        <input type="text" name="name" id="name" class="form-control" placeholder="First Name" required="" />
                     </div>
                     <div>
-                        <input type="email" class="form-control" placeholder="Email" required="" />
+                        <input type="text" name="surname" id="surname" class="form-control" placeholder="Last Name" required="" />
                     </div>
                     <div>
-                        <input type="password" class="form-control" placeholder="Password" required="" />
+                        <input type="email" name="email" id="email" class="form-control" placeholder="Email" required="" />
                     </div>
                     <div>
-                        <a class="btn btn-default submit" href="index.html">Submit</a>
+                        <input type="password" name="password" id="password" class="form-control" placeholder="Password" required="" />
+                    </div>
+                    <div>
+                        <a class="btn btn-default submit" href="#login" >Submit</a>
                     </div>
 
                     <div class="clearfix"></div>
@@ -112,5 +137,25 @@ isset($_SESSION['user_session']) ? header("location:dashboards.php"):null;
         </div>
     </div>
 </div>
+
+<script>
+    window.onload=function() {
+        $( "#other" ).click(function() {
+            $( "#target" ).submit();
+        });
+
+        document.getElementById("teacher-signup").onsubmit = function() {
+            alert("success");
+            window.location.replace("teacher.php#login");
+            // clear form
+            $('#teacher-signup')[0].reset();
+            return false;
+        };
+        document.getElementById("teacher-login").onsubmit = function() {
+            window.location.replace("xyz.html");
+            return false;
+        };
+    }
+</script>
 </body>
 </html>
