@@ -1,0 +1,44 @@
+var lst;
+
+function printp(){
+   JSON.parse(lst);
+    return lst.trim();
+        
+    };
+
+alert("1");
+$(document).ready(function() {
+    alert("2");
+   var jqxhr = $.post("correcCha3pybackup3.php", {action: 'typer'}, function( data ) {
+        $( ".result" ).html(data);
+    })
+    .success(function(data){
+        lst = data;
+        
+    });
+    jqxhr.complete(function ( ) {
+        alert("ajax complete");
+        alert("3");
+    
+         lst = printp();
+       
+        
+        alert(lst + "COMPLETE LST");
+        
+            var listSumTrace =   {"code": "x = 5", "trace": [{"line": 1, "event": "step_line", "func_name": "<module>", "globals": {}, "ordered_globals": [], "stack_to_render": [], "heap": {}, "stdout": ""}, {"line": 1, "event": "return", "func_name": "<module>", "globals": {"x": 5}, "ordered_globals": ["x"], "stack_to_render": [], "heap": {}, "stdout": ""}]}  ;
+ alert(listSumTrace + "COMPLETE LST");
+         
+             alert( typeof listSumTrace + "4");
+            var listSumVisualizer = new ExecutionVisualizer('listSumDiv', listSumTrace, {embeddedMode: true, heightChangeCallback: redrawAllVisualizerArrows});
+        
+        function redrawAllVisualizerArrows() {
+            if (listSumVisualizer) listSumVisualizer.redrawConnectors();
+            //if (hanoiVisualizer) hanoiVisualizer.redrawConnectors();
+            // if (happyVisualizer) happyVisualizer.redrawConnectors();
+        }
+        
+        $(window).resize(redrawAllVisualizerArrows);
+        redrawAllVisualizerArrows();
+        });
+        
+    });

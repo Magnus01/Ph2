@@ -1,0 +1,22 @@
+# Correct Answer
+def Qname(something):
+    return something
+
+
+# Unit Test of the Answer
+import unittest
+
+class UT(unittest.TestCase):
+    
+    """ Hint 1 placeholder (to contain hint) """
+    def test_ca(self):
+        self.assertIn("return", string)
+    
+    """ Hint 2 placeholder (testing result) """
+    def test_ra(self):
+        self.assertEqual(Qname("hei"), "hei") # Example
+
+
+# Unit Test Runner
+if __name__ == '__main__':
+    unittest.main()
