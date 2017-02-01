@@ -35,7 +35,7 @@
 
                     <h1>Student Login</h1>
                     <div>
-                        <input type="text" class="form-control" placeholder="Username" required="" />
+                        <input type="email" class="form-control" placeholder="Email" required="" autofocus/>
                     </div>
                     <div>
                         <input type="password" class="form-control" placeholder="Password" required="" />
@@ -71,7 +71,7 @@
                 <form>
                     <h1>Create Account</h1>
                     <div>
-                        <input type="text" class="form-control" placeholder="Username" required="" />
+                        <input type="text" class="form-control" placeholder="First & Last Name" required="" />
                     </div>
                     <div>
                         <input type="email" class="form-control" placeholder="Email" required="" />
