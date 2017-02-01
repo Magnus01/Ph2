@@ -36,7 +36,7 @@
 
         <!-- page content -->
         <div class="right_col" role="main">
-
+            DASHBOARD
         </div>
         <!-- /page content -->
 

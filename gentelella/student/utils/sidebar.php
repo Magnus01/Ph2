@@ -26,12 +26,12 @@
             <div class="menu_section">
                 <h3>General</h3>
                 <ul class="nav side-menu">
-                    <li><a href="dashboard.php"><i class="fa fa-home"></i> Home <span class="fa"></span></a>
+                    <li><a href="index.php"><i class="fa fa-home"></i> Home <span class="fa"></span></a>
 
                     </li>
                     <li><a><i class="fa fa-mortar-board"></i> Courses <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
-                            <li><a href="course.php/?id=1">Ma-157 Python Course</a></li>
+                            <li><a href="course.php?id=1">Ma-157 Python Course</a></li>
                             <!--                      <li><a href="form_validation.html">Form Validation</a></li>
                                                   <li><a href="form_wizards.html">Form Wizard</a></li>
                                                   <li><a href="form_upload.html">Form Upload</a></li>
