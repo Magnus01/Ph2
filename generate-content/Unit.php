@@ -1,16 +1,14 @@
 <?php
+ $PostAnswer2 = $_POST['text1'];
+       
+include('test2.php');
 
-session_start();
-require __DIR__. '/../gentelella/postrue/config2/dbconnect.php'; // database connection
-require __DIR__. '/../gentelella/postrue/classes/model.class.php'; // Model
-
-$dbhandler = new Config() ;
-$Model = new Model($dbhandler);
 $result = 0;
 
 $Exercise_id = $_SESSION[Exercise_id];
+//$Exercise_id = $_SESSION[Exercise_id];
 //$User_id = $_SESSION[User_id];
-$User_id = $_SESSION[1];
+$User_id = 1;
 
 
  
@@ -64,11 +62,15 @@ for($i = 0; $i < $len; $i++){
 }
 
 
-if($pass){
+if($pass){ 
     $result = 1;
     echo -1;
 }
 
 $_SESSION[result] = $result;
-
+$point = $_SESSION['points'];
 $Model->Points_Insert($User_id, $points, $result, $Exercise_id);
+
+                               
+	
+ ?>

@@ -292,12 +292,28 @@
                 $query->setFetchMode(PDO::FETCH_OBJ);
                 while($row = $query->fetch()) {
                     array_push($unitTestStatements, $row);
-                    //var_dump($row);
+//                    var_dump($row);
                 }
 
                 return $unitTestStatements;
             }
         }
+        
+         
+        public function getUnitID($Exercise_id)
+        {
+            $query = $this->db->prepare( " SELECT id FROM User WHERE email = ?" );
+              if ($query->execute(array($email)))
+            {
+                
+                $query->setFetchMode(PDO::FETCH_OBJ);
+                $fetchedData = $query->fetch();
+                return $fetchedData->id;
+            
+            
+        }}
+        
+        
 
 
         public function addUnitTestStatement($code, $order, $hint,$Exercise_id)
@@ -340,7 +356,8 @@
             return $query->execute(array($code, $hint, $order, $Exercise_id));
 
         }
-      
+        
+ 
         
         
 
