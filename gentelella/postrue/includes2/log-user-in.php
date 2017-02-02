@@ -5,7 +5,7 @@ require __DIR__. '/../classes/model.class.php'; // Model
 
 $Dbhandler  = new Config() ;
 $Model      = new Model($Dbhandler);
-
+  
 session::init();
 
 if ( isset($_POST) && !empty($_POST) ) 

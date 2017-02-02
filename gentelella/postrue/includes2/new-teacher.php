@@ -17,7 +17,7 @@
                 $password   =  $_POST['password'];
                 $type   =  "1";
                 $name   =  $_POST['name'];
-                $surname   =  $_POST['surname'];
+                $surname   =  $_POST['surname'];z
 
                 if (!$Model->emailAlreadyUsed($email)) 
                 {
