@@ -10,7 +10,7 @@ require __DIR__. '/includes2/new-teacher.php';
 //if(isset($_SESSION['user_session'])) && if($_SESSION['type2'] = 1)
     if(isset($_SESSION['user_session']) && $_SESSION['type2'] == 1)
 {
-     header("location:../student/index.php");
+     header("location:../teacher/index.php");
    $message = "HELLO THIS IS TEACHER LOGIN";
     echo "<script type='text/javascript'>alert('$message');</script>";
      console_log($_SESSION['type']);
@@ -19,7 +19,7 @@ require __DIR__. '/includes2/new-teacher.php';
 }
 if(isset($_SESSION['user_session']) && $_SESSION['type2'] == 2)
 {
-    header("location:../student/index2.php");
+    header("location:../student/index.php");
     $message = "HELLO THIS IS Studnet LOGIN";
     echo "<script type='text/javascript'>alert('$message');</script>";
     console_log($_SESSION['type2']);
