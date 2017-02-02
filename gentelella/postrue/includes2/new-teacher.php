@@ -1,10 +1,10 @@
 <?php
-    require __DIR__. '/../config2/dbconnect.php'; // database connection
-    require __DIR__. '/../classes/model.class.php'; // Model
-    require __DIR__. '/../classes/session.php'; // Model
-
-    $dbhandler = new Config() ;
-    $Model = new Model($dbhandler);
+//    require __DIR__. '/../config2/dbconnect.php'; // database connection
+//    require __DIR__. '/../classes/model.class.php'; // Model
+//    require __DIR__. '/../classes/session.php'; // Model
+//
+//    $dbhandler = new Config() ;
+//    $Model = new Model($dbhandler);
 
     if ( isset($_POST) && !empty($_POST) ) 
     {
@@ -17,7 +17,7 @@
                 $password   =  $_POST['password'];
                 $type   =  "1";
                 $name   =  $_POST['name'];
-                $surname   =  $_POST['surname'];z
+                $surname   =  $_POST['surname'];
 
                 if (!$Model->emailAlreadyUsed($email)) 
                 {

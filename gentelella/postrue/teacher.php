@@ -3,6 +3,7 @@ session_start();
 //require __DIR__. '/includes2/header.php';
 
 require __DIR__. '/includes2/login-teacher.php';
+require __DIR__. '/includes2/new-teacher.php';
 isset($_SESSION['user_session']) ? header("location:../student/index.php"):null;
 
 ?>
