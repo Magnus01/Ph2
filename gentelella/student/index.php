@@ -8,8 +8,7 @@ session_start();
     $Model = new Model($dbhandler);
 $type2 = $_SESSION['type2'];
 $user = $_SESSION['user_session'];
-echo "<script type='text/javascript'>alert('$type2');</script>";
-echo "<script type='text/javascript'>alert('$user');</script>";
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
