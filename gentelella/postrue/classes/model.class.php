@@ -59,6 +59,19 @@
             
             
         }}
+        
+        public function getType($email)
+        {
+            $query = $this->db->prepare( " SELECT type FROM User WHERE email = ?" );
+              if ($query->execute(array($email)))
+            {
+                
+                $query->setFetchMode(PDO::FETCH_OBJ);
+                $fetchedData = $query->fetch();
+                return $fetchedData->type;
+            
+            
+        }}
 
 
         public function signIn( $email, $password )

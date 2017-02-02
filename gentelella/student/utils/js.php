@@ -203,7 +203,7 @@
 
 <!-- bootstrap-daterangepicker -->
 <script>
-    $(docume  nt).ready(function() {
+    $(document).ready(function() {
 
         var cb = function(start, end, label) {
             console.log(start.toISOString(), end.toISOString(), label);

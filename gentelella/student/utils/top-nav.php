@@ -22,7 +22,7 @@
                         </li>
                         <li><a href="javascript:;">Help</a></li>-->
 
-                        <li>  <a href="logout.php" class="waves-effect waves-light btn">Log out</a></li>
+                        <li>  <a href="../postrue/logout.php" class="waves-effect waves-light btn">Log out</a></li>
                     </ul>
                 </li>
             </ul>

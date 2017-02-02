@@ -4,7 +4,29 @@ session_start();
 
 require __DIR__. '/includes2/login-teacher.php';
 require __DIR__. '/includes2/new-teacher.php';
-isset($_SESSION['user_session']) ? header("location:../student/index.php"):null;
+ console_log($_SESSION['type2'] . "TYPE2");
+//console_log($_SESSION['type']);
+
+//if(isset($_SESSION['user_session'])) && if($_SESSION['type2'] = 1)
+    if(isset($_SESSION['user_session']) && $_SESSION['type2'] == 1)
+{
+     header("location:../student/index.php");
+   $message = "HELLO THIS IS TEACHER LOGIN";
+    echo "<script type='text/javascript'>alert('$message');</script>";
+     console_log($_SESSION['type']);
+    
+    exit;
+}
+if(isset($_SESSION['user_session']) && $_SESSION['type2'] == 2)
+{
+    header("location:../student/index2.php");
+    $message = "HELLO THIS IS Studnet LOGIN";
+    echo "<script type='text/javascript'>alert('$message');</script>";
+    console_log($_SESSION['type2']);
+    exit;
+}
+//if (isset($_SESSION['user_session']) && $_SESSION['type'] !== 1) { header("location:../student/index.php") else {null;}}
+//if (isset($_SESSION['user_session']) && $_SESSION['type'] = 1) {header("location:dashboards.php") else {null;}}
 
 ?>
 

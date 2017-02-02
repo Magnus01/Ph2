@@ -1,3 +1,16 @@
+<?php 
+session_start();
+    require __DIR__. '/../postrue/config2/dbconnect.php'; // database connection
+    require __DIR__. '/../postrue/classes/model.class.php'; // Model
+    require __DIR__. '/../postrue/classes/session.php'; // Model
+
+    $dbhandler = new Config() ;
+    $Model = new Model($dbhandler);
+$type2 = $_SESSION['type2'];
+$user = $_SESSION['user_session'];
+echo "<script type='text/javascript'>alert('$type2');</script>";
+echo "<script type='text/javascript'>alert('$user');</script>";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

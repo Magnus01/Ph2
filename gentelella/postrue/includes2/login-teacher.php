@@ -23,19 +23,22 @@ if ( isset($_POST) && !empty($_POST) )
         
 //        console_log($password . " " . "password");
        $id = $Model->getId($email);
+       $type2 = $Model->getType($email);
 //            console_log($id . "id??");
         console_log($id . "Id");
+        console_log($type2 . "Id");
             
     
 
-        if ($Model->signIn($email, $password, $id)) 
+        if ($Model->signIn($email, $password, $id, $type2)) 
         {   
                
             
           
             session::set('user_session', $id);
+            session::set('type2', $type2);
             
-              isset($_SESSION['user_session']) ? header("location:dashboard2.php"):null;
+//              isset($_SESSION['user_session']) ? header("location:dashboard2.php"):null;
         }else{
             session::set('login_issue', "Can't log you in. check your details.");
         }
