@@ -1,5 +1,4 @@
-.
-----------------------------------------------------------------------
-Ran 1 test in 0.000s
-
-OK
+  File "text.py", line 5
+    if __name__ == '__main__':
+     ^
+IndentationError: expected an indented block

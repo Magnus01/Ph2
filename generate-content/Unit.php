@@ -1,5 +1,5 @@
 <?php
- $PostAnswer2 = $_POST['text1'];
+$PostAnswer2 = $_POST['text1'];
        
 include('test2.php');
 
@@ -9,10 +9,6 @@ $Exercise_id = $_SESSION[Exercise_id];
 //$Exercise_id = $_SESSION[Exercise_id];
 //$User_id = $_SESSION[User_id];
 $User_id = 1;
-
-
- 
-
 
 
 
@@ -71,6 +67,4 @@ $_SESSION[result] = $result;
 $point = $_SESSION['points'];
 $Model->Points_Insert($User_id, $points, $result, $Exercise_id);
 
-                               
-	
- ?>
+?>
