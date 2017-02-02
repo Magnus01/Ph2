@@ -14,7 +14,10 @@
             <div class="profile_info">
                 <!--                <span>Welcome,</span>-->
                 <h2>
-                    <?php $user = explode("@", $_SESSION['user_session']) ?>
+                    <?php $user = explode("@", $_SESSION['user_session'])
+                    echo $POINTS;
+                    console_log(var_dump($POINTS));
+                    ?>
                     Welcome, <b><?= isset($user[0]) ? $user[0] : '' ?></b>
                 </h2>
             </div>

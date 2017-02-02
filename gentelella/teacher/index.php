@@ -1,3 +1,31 @@
+<?php 
+session_start();
+    require __DIR__. '/../postrue/config2/dbconnect.php'; // database connection
+    require __DIR__. '/../postrue/classes/model.class.php'; // Model
+    require __DIR__. '/../postrue/classes/session.php'; // Model
+
+    $dbhandler = new Config() ;
+    $Model = new Model($dbhandler);
+$type2 = $_SESSION['type2'];
+$user = $_SESSION['user_session'];
+console_log($user ." USER");
+
+$POINTS = $Model->getPoints($user);
+$points = $POINTS->{ ["COUNT(`points`)"][0]};
+
+//object(stdClass)#5 (1) { ["COUNT(`points`)"]=> string(2) "14" }
+//object(stdClass)#11 (2) {["start"]=>string(2) "12"
+//console_log($obj);
+
+//console_log($obj);
+//var_dump($POINTS);
+//$result = json_decode($POINTS, true);
+//console_log($POINTS[COUNT(points)]);
+//console_log($POINTS[COUNT(`points`)]);
+//foreach ($POINTS as $POINTS) {
+//          $points   = $POINTS->points;}
+//console_log((json_decode($points) . "points"));
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,9 +56,13 @@
                     <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
                         <div class="tile-stats">
                             <div class="icon"><i class="fa fa-caret-square-o-right"></i></div>
-                            <div class="count">179</div>
-                            <h3>Exercises</h3>
-                            <p>Lorem ipsum psdea itgum rixt.</p>
+                            <div class="count"><?php 
+                    echo $points;
+                    
+                    ?></div>
+                            <h3>Points  </h3>
+                            
+                            
                         </div>
                     </div>
                     <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">

@@ -370,6 +370,22 @@
 
         }
         
+        public function getPoints($User_id)
+        {
+            $query = $this->db->prepare( " SELECT COUNT(`points`) FROM Answer WHERE User_id = ?" );
+            if ($query->execute(array($User_id)))
+            {
+
+                $query->setFetchMode(PDO::FETCH_OBJ);
+                $fetchedData = $query->fetch();
+                
+                return $fetchedData;
+
+
+            }
+        }
+        
+
  
         
         

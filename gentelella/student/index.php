@@ -9,6 +9,8 @@ session_start();
 $type2 = $_SESSION['type2'];
 $user = $_SESSION['user_session'];
 
+$POINTS = $Model->getPoints($User_id);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
